@@ -1,0 +1,60 @@
+package swr.parallel;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
+
+public class Task implements Runnable, Comparable<Task> {
+
+    public static AtomicLong counter = new AtomicLong();  
+     
+    private final int priority;
+    
+    public Task(int priority) {
+        counter.incrementAndGet();
+        this.priority = priority; 
+        
+    }
+    
+    public void runBefore(){        
+    }
+    
+    public void runBody(){
+    	
+        //ִ���������..  
+//        System.out.println(Thread.currentThread().getName() + " priority:" + priority); 
+        try {  
+            TimeUnit.MILLISECONDS.sleep(1000);  
+        } catch (InterruptedException e) {  
+              
+        }
+        if(priority < 20)
+            TaskExecutor.GetTaskExecutor().addTask(new Task(priority+30));
+    }
+    
+    public void runAfter(){
+        counter.decrementAndGet();
+    }
+
+    @Override
+    public void run() {
+        runBefore();
+        runBody();
+        runAfter();
+    }
+
+    @Override
+    public int compareTo(Task t) {
+        if(priority < t.priority){  
+            return -1;  
+        }
+        else{  
+            if(priority > t.priority){  
+                return 1;  
+            }
+            else{  
+                return 0;  
+            }  
+        }  
+    }
+
+}

@@ -1,0 +1,78 @@
+package swr.parallel;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+
+
+public class TaskExecutor {
+    private static TaskExecutor taskExec = null;
+    
+    public static TaskExecutor GetTaskExecutor(){
+        if(taskExec == null){
+            taskExec = new TaskExecutor();
+        }
+        return taskExec;
+    }
+
+    private PriorityBlockingQueue<Runnable> queue;
+    private ThreadPoolExecutor exec;
+    
+    public class RejectedExecutionHandlerImpl implements RejectedExecutionHandler {
+        
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+//            System.out.println(r.toString() + " is rejected");
+        }
+     
+    }
+    
+    public TaskExecutor() {
+        queue = new PriorityBlockingQueue<Runnable>();
+        ThreadFactory threadFactory = Executors.defaultThreadFactory();
+        RejectedExecutionHandlerImpl rejectionHandler = new RejectedExecutionHandlerImpl();
+        
+        int coreCpuNum = Runtime.getRuntime().availableProcessors();
+//        System.out.println("CPU Number:" + coreCpuNum);
+        exec = new ThreadPoolExecutor(coreCpuNum, coreCpuNum, 0L, TimeUnit.MILLISECONDS, queue, 
+                threadFactory, rejectionHandler); 
+        
+    }
+
+    /*
+    public void execTasks(final ArrayList<Task> tasks){
+        
+        Job job = new Job("Run tasks") {
+            @Override
+            protected IStatus run(IProgressMonitor monitor) {
+                for(Task t : tasks){
+                    exec.execute(t);
+                }
+                
+                while(Task.counter.get() !=0 )
+                    Thread.yield();
+                
+                exec.shutdownNow();
+                return Status.OK_STATUS;
+            }
+        };
+        job.schedule();
+        
+    }   
+    */ 
+    
+    public void addTask(Task t){
+        exec.execute(t);
+    }
+}

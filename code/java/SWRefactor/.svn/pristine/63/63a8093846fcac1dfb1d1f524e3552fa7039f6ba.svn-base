@@ -1,0 +1,78 @@
+package swr.actions.combine.filter;
+
+import java.util.ArrayList;
+
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaModelMarker;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+import swr.actions.combine.CombinationPiece;
+
+public class Filter {
+	public void filtWrongPiece(IProject project, ArrayList<CombinationPiece> pieces) throws CoreException{
+		project.build(IncrementalProjectBuilder.INCREMENTAL_BUILD, null);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("filting in "+pieces.size()+" pieces");
+		ArrayList<CombinationPiece> deletePieces = new ArrayList<CombinationPiece>();
+		int count =0;
+		for(CombinationPiece piece:pieces){
+			ICompilationUnit unit = piece.getUnit();
+			ArrayList <IMarker> result = new ArrayList <IMarker>();
+			IResource r = unit.getResource();
+			try {
+				IMarker[] markers = r.findMarkers(IJavaModelMarker.JAVA_MODEL_PROBLEM_MARKER, true, IResource.DEPTH_ZERO);
+				for (IMarker marker: markers){
+					System.out.println("\t"+r.getName()+" has "+marker.getType());
+			        Integer severityType = (Integer) marker.getAttribute(IMarker.SEVERITY);
+			        if (severityType.intValue() == IMarker.SEVERITY_ERROR)
+			        	result.add(marker);
+			    }
+			    if(result.size() >0 ){
+			    	System.out.println("delete unit "+ unit.getElementName());
+			    	deletePieces.add(piece);
+			    	
+			    	unit.delete(true, new NullProgressMonitor());
+			    	count++;
+			    }
+			    	
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		pieces.removeAll(deletePieces);
+		System.out.println();
+		System.out.println("========================");
+		System.out.println("delete "+ count+" units");
+		System.out.println("left "+pieces.size()+" new units");
+		System.out.println("========================");
+		System.out.println();
+		//System.out.println("piece 8"+pieces.get(8).getUnit().getElementName());
+		openEndDialog();
+	}
+	
+	void openEndDialog(){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Finish");
+ 		        dialog.setMessage("Filt Finished!");
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+	}
+}

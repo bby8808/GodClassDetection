@@ -1,0 +1,347 @@
+package swr.actions.combine;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.Flags;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IField;
+import org.eclipse.jdt.core.IImportDeclaration;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.Signature;
+
+public class Combination {
+	//private ICompilationUnit newUnit;
+	private int combineSize;
+	private CombinationPiece piece;
+	//private ICompilationUnit unit1;
+//	private ICompilationUnit unit2;
+	private ICompilationUnit[] units;
+//	private IType mainType1;
+//	private IType mainType2;
+	private IType[] mainTypes = new IType[combineSize];
+	
+	public Combination(ICompilationUnit[] units, IType[] mainTypes){
+		this.combineSize = units.length;
+		this.units = units;
+		this.mainTypes = mainTypes;
+	}
+	
+	public CombinationPiece createNewCompilationUnit(String className, IPackageFragment newPack) 
+			throws JavaModelException{
+		piece = new CombinationPiece(newPack, this.combineSize);
+		
+		String newClassName = className+".java";
+		String newPackCode = newPack.getElementName();
+		ICompilationUnit newUnit = newPack.createCompilationUnit(newClassName, "", false, new NullProgressMonitor());
+		
+		newUnit.createPackageDeclaration(newPackCode, new NullProgressMonitor());
+
+		IPackageFragment[] packs = new IPackageFragment[this.combineSize];
+		String[] packCodes = new String[this.combineSize];
+		for(int i=0; i<this.combineSize; i++){
+			packs[i] = (IPackageFragment) units[i].getParent();
+			packCodes[i] = packs[i].getElementName();
+			piece.setFormerClass(packCodes[i]+"."+units[i].getElementName());
+			newUnit.createImport(packCodes[i]+".*", null, new NullProgressMonitor());
+		}
+
+		ArrayList<IImportDeclaration> allImports = getImports(units);
+		for(IImportDeclaration impo:allImports){
+			String impoCode = impo.getElementName();
+			newUnit.createImport(impoCode, null, new NullProgressMonitor());
+		}
+		
+		createNewType(className, newUnit);
+		piece.setUnit(newUnit);
+		return piece;
+	}
+	
+	private IType createNewType(String className, ICompilationUnit newUnit){
+		try {
+			for(int i=0; i<this.combineSize; i++){
+				if(CombineAction.isGeneric(mainTypes[i])){
+					className = getParameterSignature(mainTypes[i], className);
+				}
+			}
+			String abstractClassCode = getAbstractClassCode(mainTypes);
+			String extendsCode = getExtendsCode(mainTypes);
+			String implementsCode = getImplementsCode(mainTypes);
+			String parentsName ="";
+			for(int i=0; i<this.combineSize; i++){
+				parentsName+=mainTypes[i].getFullyQualifiedName()
+						+" key: "+mainTypes[i].getTypeParameterSignatures().length+"\n";
+			}
+			String javaDoc = "\n"+"/**"+"\n"+parentsName+"**/";
+			String typeCode = javaDoc+"\npublic "+abstractClassCode
+					+"class " + className + extendsCode + implementsCode+ "{\n\n}";
+			IType mainType = newUnit.createType(typeCode, null, false, new NullProgressMonitor());
+			
+			HashSet<String> allFields = getFields(mainTypes, mainType);
+			//System.out.println("allFields size:"+allFields.size());
+			ArrayList<String> allConstructors = getConstructors(mainTypes, mainType);
+			//System.out.println("allConstructors size:"+allConstructors.size());
+			ArrayList<String> allMethods = getMethods(mainTypes, mainType);
+			//System.out.println("allMethods size:"+allMethods.size());
+			ArrayList<IType> innerTypes = getAllInnerTypes(mainTypes);
+			//System.out.println("innerTypes size:"+innerTypes.size());
+			
+//			Collections.shuffle(allFields);
+//			Collections.shuffle(allConstructors);
+//			Collections.shuffle(allMethods);
+			
+			//int k=0;
+			for(String field:allFields){
+				//System.out.println(k++);
+				//System.out.println(field);
+				mainType.createField(replaceBlank(field), null, true, new NullProgressMonitor());
+			}
+			
+			//加入全部constructor
+			for(String method:allConstructors){
+				//System.out.println(method);
+				mainType.createMethod(method, null, true, new NullProgressMonitor());
+			}
+			
+			//加入全部method
+			for(String method:allMethods){
+				//System.out.println(method);
+				mainType.createMethod(method, null, true, new NullProgressMonitor());
+			}
+			
+			//加入全部inner type
+			for(IType type:innerTypes){
+				//System.out.println(type.getSource());
+				mainType.createType(replaceBlank(type.getSource()), null, true, new NullProgressMonitor());
+			}
+			
+			return mainType;
+		} catch (JavaModelException e) {
+			return null;
+		} 
+		
+	}
+	
+	private ArrayList<IImportDeclaration> getImports(ICompilationUnit[] units) throws JavaModelException{
+		ArrayList<IImportDeclaration> allImports = new ArrayList<IImportDeclaration>();
+		for(int i=0; i<this.combineSize; i++){
+			IImportDeclaration[] imports1 = units[i].getImports();
+			List temp1 = Arrays.asList(imports1);
+			allImports.addAll(temp1);
+		}
+		return allImports;
+	}
+	
+	private String getParameterSignature(IType genericType, String className) throws JavaModelException{
+		String[] TPSignature = genericType.getTypeParameterSignatures();
+		className += "<";
+		for(int k=0; k < TPSignature.length; k++){
+			String sig = TPSignature[k].substring(0, TPSignature[k].length()-1);
+//			String sig = TPSignature[k];
+//			System.out.println(sig);
+//			if(Signature.getTypeVariable(TPSignature[k]).equals("T"))
+//				sig = "T";
+//			else
+//				sig = Signature.toString(TPSignature[k]);
+			String add = " extends ";
+			if(Signature.getTypeParameterBounds(TPSignature[k]).length>0){
+				for(String pBounds : Signature.getTypeParameterBounds(TPSignature[k])){
+					System.out.println(pBounds);
+					add += Signature.toString(pBounds);
+				}
+			}
+			className += sig+add;
+			if(k==TPSignature.length-1)
+				className += ">";
+			else
+				className += ", ";
+		}
+		return className;
+	}
+	
+	private String getAbstractClassCode(IType[] mainTypes){
+		boolean isAbstract = false;
+		for(int i=0; i<this.combineSize; i++){
+			try {
+				if((mainTypes[i].getFlags()&Flags.AccAbstract)!=0){
+					isAbstract = true;
+					break;
+				}
+			} catch (JavaModelException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		String abstractClassCode = "";
+		if(isAbstract)
+			abstractClassCode = "abstract ";
+		
+		return abstractClassCode;
+	}
+	
+	private String getExtendsCode(IType[] mainTypes) throws JavaModelException{
+		String extendsCode = "";
+		for(int i=0; i<this.combineSize; i++){
+			if(mainTypes[i].getSuperclassName()!=null)
+				extendsCode = " extends "+ mainTypes[i].getSuperclassName()+" ";
+		}
+		
+		return extendsCode;
+	}
+	
+	private String getImplementsCode(IType[] mainTypes) throws JavaModelException{
+		String implementsCode = "";
+		HashSet<String> interfaceSignature = new HashSet<String>();
+		for(int k=0; k<this.combineSize; k++){
+			for(int i=0; i<mainTypes[i].getSuperInterfaceTypeSignatures().length; i++){
+				interfaceSignature.add(mainTypes[i].getSuperInterfaceTypeSignatures()[i]);
+			}
+		}
+
+		if(!interfaceSignature.isEmpty()){
+			implementsCode += " implements ";
+			Iterator<String> it = interfaceSignature.iterator();
+			while(it.hasNext()){
+				implementsCode += Signature.toString(it.next())+",";
+			}
+			implementsCode = implementsCode.substring(0, implementsCode.length()-1);
+		}
+		
+		return implementsCode;
+	}
+	
+	private HashSet<String> getFields(IType[] types, IType newType) throws JavaModelException{
+		HashSet<String> allFields = new HashSet<String>();
+		int formerClass = 0;
+		for(int i=0; i<this.combineSize; i++){
+			IField[] fields1 = types[i].getFields();
+			for(IField field: fields1){
+				String fCode = getRealFieldSource(field, types[i].getElementName(), newType.getElementName());
+				//System.out.println(fCode);
+				allFields.add(fCode);
+				piece.addMembers(field.getElementName(), formerClass);
+			}
+			formerClass++;
+		}
+
+		return allFields;
+	}
+	
+	private ArrayList<String> getConstructors(IType[] types, IType newType) throws JavaModelException{
+		ArrayList<String> allConstructors = new ArrayList<String>();
+		for(int i=0; i<this.combineSize; i++){
+			IMethod[] methods1 = types[i].getMethods();
+			for(IMethod method:methods1){
+				if(!method.isConstructor())
+					continue;
+				String mCode = getRealMethodSource(method, types[i].getElementName(), newType.getElementName());
+				allConstructors.add(mCode);
+				//piece.addMembers(method.getElementName(), 0);
+			}
+		}
+
+		return allConstructors;
+	}
+	
+	private ArrayList<String> getMethods(IType[] types, IType newType) throws JavaModelException{
+		ArrayList<String> allMethods = new ArrayList<String>();
+		int formerClass = 0;
+		for(int i=0; i<this.combineSize; i++){
+			IMethod[] methods1 = types[i].getMethods();
+			for(IMethod method:methods1){
+				if(method.isConstructor())
+					continue;
+				String mCode = getRealMethodSource(method, types[i].getElementName(), newType.getElementName());
+				allMethods.add(mCode);
+				piece.addMembers(method.getElementName(), formerClass);
+			}
+			formerClass++;
+		}
+		
+		return allMethods;
+	}
+	
+	private String getRealMethodSource(IMethod method, String formerType, String newType) throws JavaModelException{
+		String mCode =method.getSource();
+		mCode = replaceClassName(mCode, formerType, newType);
+		return mCode;
+	}
+	
+	private String getRealFieldSource(IField field, String formerType, String newType) throws JavaModelException{
+		String fCode = field.getSource();
+		fCode = replaceClassName(fCode, formerType, newType);
+		return fCode;
+	}
+	
+	private String replaceClassName(String mCode, String formerType, String newType){
+		
+		if(mCode.contains(formerType)){
+			String returnStr = "";
+			String[] splits = mCode.split(formerType);
+			
+			for(int i=0; i< splits.length-1; i++){
+				String split1 = splits[i];
+				//System.out.println("split1 = "+split1);
+				char leftChar;
+				if(split1.isEmpty())
+					leftChar = ' ';
+				else
+					leftChar = split1.charAt(split1.length()-1);	
+				String split2 = splits[i+1];
+				char rightChar = split2.charAt(0);
+				
+				if(checkASCII(leftChar) || checkASCII(rightChar)){
+					returnStr += split1+formerType;
+				}else
+					returnStr += split1+newType;	
+			}
+			returnStr += splits[splits.length-1];
+			return returnStr;
+		}
+		return mCode;
+	}
+	
+	private boolean checkASCII(char c){
+		if(c>'0' && c<'9')
+			return true;
+		if(c>'A' && c<'Z')
+			return true;
+		if(c>'a' && c<'z')
+			return true;
+		if(c=='$')
+			return true;
+		
+		return false;
+	}
+	
+	private ArrayList<IType> getAllInnerTypes(IType[] mainTypes) throws JavaModelException{
+		ArrayList<IType> innerTypes = new ArrayList<IType>();
+		for(int i=0; i<this.combineSize; i++){
+			for(IType type:mainTypes[i].getTypes()){
+				innerTypes.add(type);
+			}
+		}
+
+		return innerTypes;
+	}
+	
+	private String replaceBlank(String str) {  
+	    String dest = "";  
+	    if (str != null) {  
+	        Pattern p = Pattern.compile("\\s{4,}");  
+	        Matcher m = p.matcher(str);  
+	        dest = m.replaceAll("\n");  
+	    }  
+	    return dest;  
+	}  
+}

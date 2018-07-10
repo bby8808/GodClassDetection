@@ -1,0 +1,394 @@
+default port
+caldav server
+get protocol name
+create connection handler
+http not found exception
+dav mail authentication exception
+dav mail authentication exception
+login timeout exception
+webdav not available exception
+http server error exception
+http forbidden exception
+insufficient storage exception
+message
+dav mail exception
+get message
+get message
+get bundle message
+http precondition failed exception
+logger
+is complete
+folder
+exception
+folder load thread
+run
+load folder
+next line
+current line
+i c s buffered reader
+read line
+buffer
+write
+write line
+write line
+new line
+to string
+append property
+append multiline encoded value
+mime output stream writer
+write header
+write header
+write ln
+write ln
+buf
+double dot output stream
+write
+close
+network down exception
+network down exception
+logger
+is complete
+session
+folder path
+message name
+properties
+mime message
+exception
+message create thread
+run
+create message
+buffer
+index
+double dot input stream
+read next byte
+read
+logger
+is complete
+message
+io exception
+messaging exception
+message load thread
+run
+load mime message
+start card
+append property
+append encoded value
+end card
+logger
+property name set
+exchange prop find method
+exchange prop find method
+generate request content
+get name
+namespace uri
+name
+xml encoded value
+type string
+property value
+property value
+property value
+get namespace uri
+get xml encoded value
+get type string
+get name
+logger
+search request
+exchange search method
+generate request content
+get name
+logger
+type namespace
+property values
+exchange prop patch method
+generate request content
+get name
+send to none
+send only to all
+send to all and save copy
+send meeting invitations or cancellations
+move item method
+change key
+mailbox
+folder id
+folder id
+folder id
+write
+shallow
+deep
+folder query traversal
+update folder method
+save only
+send only
+send and save copy
+message disposition
+send to none
+send only to all
+send to all and save copy
+send meeting invitations
+never overwrite
+auto resolve
+always overwrite
+conflict resolution
+updates
+collection name
+indexed field update
+add field value
+write
+delete folder method
+get folder method
+update item method
+copy item method
+get item method
+get attachment method
+attendee
+start
+end
+merged free busy
+interval
+get user availability method
+write soap body
+handle custom
+get merged free busy
+move folder method
+element option
+write
+attribute option
+append to
+write
+send to none
+send only to all
+send to all and save copy
+send meeting cancellations
+id only
+default
+all properties
+base shape
+delete attachment method
+delete item method
+return full contact data
+resolve names method
+handle item
+handle mailbox
+handle contact
+handle physical address
+handle physical addresses
+handle phone numbers
+handle email addresses
+exact
+ignore case
+ignore non spacing characters
+loose
+ignore case and non spacing characters
+loose and ignore case
+loose and ignore non space
+loose and ignore case and ignore non space
+containment comparison
+hard delete
+soft delete
+move to deleted items
+delete type
+field u r i
+field index
+field item type
+collection name
+indexed field u r i
+append to
+append value
+get response name
+active directory
+active directory contacts
+contacts
+contacts active directory
+search scope
+all occurrences
+specified occurrence only
+affected task occurrences
+field u r i
+field name
+unindexed field u r i
+append to
+append value
+get response name
+name
+id
+change key
+item id
+item id
+item id
+item id
+item id
+write
+find folder method
+find folder method
+e w s exception
+hard delete
+soft delete
+move to deleted items
+disposal
+full string
+prefixed
+substring
+prefix on words
+exact phrase
+containment mode
+to string
+create folder method
+create attachment method
+create item method
+create item method
+find item method
+validate
+logger
+client login module
+server login module
+get app configuration entry
+refresh
+uninitiated
+initiated
+t y p e 1 m s g g e n e r a t e d
+t y p e 2 m s g r e c e i v e d
+t y p e 3 m s g g e n e r a t e d
+failed
+server token
+state
+process challenge
+get scheme name
+get parameter
+get realm
+get i d
+is connection based
+is complete
+authenticate
+authenticate
+uninitiated
+initiated
+t y p e 1 m s g g e n e r a t e d
+t y p e 2 m s g r e c e i v e d
+t y p e 3 m s g g e n e r a t e d
+failed
+type 2 message
+state
+process challenge
+get scheme name
+get parameter
+get realm
+get i d
+is connection based
+is complete
+authenticate
+authenticate
+sslcontext
+register
+get protection parameter
+create s s l context
+get s s l context
+create socket
+create socket
+create socket
+create socket
+equals
+hash code
+process challenge
+logger
+key manager
+cached alias
+dav mail x 5 0 9 key manager
+get client aliases
+choose client alias
+strip alias
+get server aliases
+choose server alias
+get certificate chain
+get private key
+default port
+imap server
+get protocol name
+create connection handler
+default port
+ldap server
+get protocol name
+create connection handler
+default port
+pop server
+get protocol name
+create connection handler
+stopped
+service request
+service main
+smtp connection
+run
+authenticate
+decode credentials
+default port
+smtp server
+get protocol name
+create connection handler
+send notification
+to field
+cc field
+subject field
+body field
+add recipient component
+notification dialog
+get recipients panel
+get body panel
+get send notification
+get to
+get cc
+get subject
+get body
+principal field
+password field
+principal
+password
+get password
+get principal
+credential prompt dialog
+get button panel
+password field
+password
+get password
+password prompt dialog
+password prompt dialog
+get button panel
+alias list box
+selected alias
+get selected alias
+select certificate dialog
+get button panel
+target object
+target method
+proxy signature
+mac o s x application
+set quit handler
+set about handler
+set preferences handler
+set file handler
+set handler
+o s x adapter
+call target
+invoke
+is correct method
+set application event handled
+accepted
+is accepted
+add field value
+accept certificate dialog
+get button panel
+is certificate trusted
+osx tray active png
+osx tray png
+osx tray inactive png
+logger
+quit
+create and show g u i
+get tray icon path
+get tray icon active path
+get tray icon inactive path
+display message
+get image for icon
+quit
+build menu
+create and show g u i
+context initialized
+context destroyed

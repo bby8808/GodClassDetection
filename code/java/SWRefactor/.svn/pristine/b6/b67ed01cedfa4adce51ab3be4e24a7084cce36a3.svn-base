@@ -1,0 +1,28 @@
+package swr.actions.combine;
+
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IPackageFragment;
+
+public class CombineThread implements Runnable {
+	private ICompilationUnit cp1;
+	private ICompilationUnit cp2;
+	private int count;
+	private IPackageFragment pack;
+	
+	public CombineThread(ICompilationUnit cp1, ICompilationUnit cp2, int count, IPackageFragment pack){
+		this.cp1 = cp1;
+		this.cp2 = cp2;
+		this.count = count;
+		this.pack = pack;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("unit1: "+cp1.getElementName());
+		System.out.println("unit2: "+cp2.getElementName());
+		System.out.println(count);
+		System.out.println(pack.getElementName());
+	}
+
+}

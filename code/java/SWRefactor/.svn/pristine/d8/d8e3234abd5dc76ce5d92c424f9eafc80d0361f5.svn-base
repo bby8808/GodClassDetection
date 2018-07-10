@@ -1,0 +1,441 @@
+package swr.actions.combine;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaModelMarker;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.PlatformUI;
+
+import gr.uom.java.ast.ASTReader;
+import gr.uom.java.ast.ClassObject;
+import gr.uom.java.ast.CompilationErrorDetectedException;
+import gr.uom.java.ast.SystemObject;
+import gr.uom.java.distance.DistanceMatrix;
+import gr.uom.java.distance.ExtractClassCandidateRefactoring;
+import gr.uom.java.distance.MyClass;
+import gr.uom.java.distance.MySystem;
+import swr.actions.aider.ActionsAider;
+import swr.actions.combine.delete.DeleteAction;
+import swr.actions.combine.export.ExportDataSetAction;
+import swr.actions.combine.importproject.ImportProject;
+
+public class CombineAction implements IWorkbenchWindowActionDelegate{
+	//public static int numOfPieces = 0;
+	
+	String dir = "D://卜依凡//学习//论文-拆分God Class//数据集//trainset_0427//";
+	int count=0;
+	public void run(IAction action) {
+		IProject project = ActionsAider.getProject();
+		System.out.println("get "+project.getName());
+		IJavaProject javaProject = null;
+//		MySystem system = buildSystemObject(project);
+		ArrayList<CombinationPiece> pieces = new ArrayList<CombinationPiece>();
+		int export_count = 0;
+		try {
+			javaProject = JavaCore.create(project);
+			String pr_dir = dir+javaProject.getElementName();
+			SystemObject so = buildSystemObject(project);
+			MySystem system = new MySystem(so, true);
+			printCurrentMemory("build the old system");
+			
+			ExportDataSetAction exportAction = new ExportDataSetAction(pr_dir,system);
+			List<ICompilationUnit> units = getGodClasses(system,getAllClasses(so));
+			exportAction.exportFullMN(units);
+			System.out.println("full nongodclass size:"+units.size());
+			PreCombination preCombination = new PreCombination();
+			ArrayList<ICompilationUnit> CUPool = preCombination.filteCUPool(units);
+			printCurrentMemory("begin combination");
+			pieces.addAll(combineForTwo(exportAction,preCombination,units,CUPool));
+			pieces.addAll(combineForThree(exportAction,preCombination,units,CUPool));
+			exportAction.exportTrainUnits(units);
+			printCurrentMemory("end combination");
+			
+			for(int i=0; i<pieces.size(); i++){
+//			for(int i=0; i<1; i++){
+			//	if(pieces.get(i).getUnit().getElementName().equals("NewClass147.java")){
+				printCurrentMemory("before export jdeodorant: "+i+"/"+pieces.size());
+				ImportProject buildNewProject = new ImportProject();
+				buildNewProject.checkJDeodorantResult(pr_dir, project, pieces, i);
+				printCurrentMemory("end export jdeodorant: "+i+"/"+pieces.size());
+			//	break;
+			//	}
+				export_count++;
+			}
+
+		} catch (CoreException e) {
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			System.out.println("export count:"+export_count);
+			DeleteAction delete = new DeleteAction();
+			
+			try {
+				delete.deleteAllCompbinationPieces(javaProject, pieces);
+				project.clearHistory(null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//System.out.println("all pieces: "+numOfPieces);
+		}
+	}
+	
+	private void printCurrentMemory(String state){
+		System.out.println("============="+state+"==============");
+		Runtime runtime = Runtime.getRuntime();
+		int freeMemory = (int) (runtime.freeMemory()/1024/1024);
+		int totalMemory = (int) (runtime.totalMemory()/1024/1024);
+		//int maxMemory = (int) (runtime.maxMemory()/1024/1024);
+		System.out.println("free memory: "+freeMemory+"\ntotal memory: "+totalMemory);
+		System.out.println("=============after gc==============");
+		runtime.gc();
+		freeMemory = (int) (runtime.freeMemory()/1024/1024);
+		totalMemory = (int) (runtime.totalMemory()/1024/1024);
+		//maxMemory = (int) (runtime.maxMemory()/1024/1024);
+		System.out.println("free memory: "+freeMemory+"\ntotal memory: "+totalMemory);
+	}
+	
+	private int[] getRandomIndex(int seed, int bound, int size){
+		Random random = new Random(seed);
+		int[] indices = new int[size];
+		for(int i=0; i<size; i++){
+			indices[i] = random.nextInt(bound);
+		}
+		return indices;
+	}
+	
+	private ArrayList<CombinationPiece> combineForTwo(ExportDataSetAction exportAction,PreCombination preCombination, 
+			List<ICompilationUnit> units,ArrayList<ICompilationUnit> CUPool) throws Exception{
+		ArrayList<CombinationPiece> pieces = new ArrayList<CombinationPiece>();
+
+		for(int i=0; i<CUPool.size(); i++){	
+			for(int j=i+1; j<CUPool.size(); j++){
+//				if(count>MAX_CU_NUM){
+//					return filtWrongPiece(pack, pieces);
+//				}
+				ICompilationUnit[] cps = {CUPool.get(i), CUPool.get(j)};
+				if(preCombination.preCombine(cps)){
+					IPackageFragment pack = null;
+					if(cps[0].getParent() instanceof IPackageFragment){
+						pack = (IPackageFragment) cps[0].getParent();
+					}else if(cps[1].getParent() instanceof IPackageFragment){
+						pack = (IPackageFragment) cps[1].getParent();
+					}else{
+						System.out.println(cps[0].getParent().getClass());
+						return null;
+					}
+					System.out.println("combining "+count+"th piece in "+pack.getElementName());
+					CombinationPiece piece = combineCompilationUnits(pack, cps, "NewClass"+(count++));
+					if(piece !=null){
+						pieces.add(piece);
+						units = getTrainCompilationUnit(units,cps);
+					//	ICompilationUnit[] tempUnits = {trainUnits[0],trainUnits[1]};
+					//	System.out.println("trainUnits size: "+trainUnits.length);
+						//exportAction.exportTrainUnits(piece.getUnit().getElementName(),trainUnits);
+						exportAction.exportTestUnits(piece);
+						printCurrentMemory("after export my dataset for "+piece.getUnit().getElementName());
+					//	return pieces;
+					}
+				}
+			}
+		}
+		
+		//return filtWrongPiece(pack,pieces);
+		return pieces;
+	}
+	
+	private List<ICompilationUnit> getTrainCompilationUnit(List<ICompilationUnit> units, ICompilationUnit[] combinedUnits){
+		List<ICompilationUnit> trainUnits = new ArrayList<ICompilationUnit>();
+		//int k=0;
+		for(ICompilationUnit unit:units){
+			boolean sameCU = false;
+			for(ICompilationUnit combined:combinedUnits){
+				if(combined.equals(unit)){
+					System.out.println("same unit:"+unit.getElementName());
+					sameCU=true;
+					break;
+				}
+			}
+			if(!sameCU){
+				trainUnits.add(unit);
+			}
+		}
+		//System.out.println("k="+k);
+		return trainUnits;
+	}
+	
+	
+	
+	private ArrayList<CombinationPiece> combineForThree(ExportDataSetAction exportAction,
+			PreCombination preCombination, List<ICompilationUnit> units,ArrayList<ICompilationUnit> CUPool) throws Exception{
+		ArrayList<CombinationPiece> pieces = new ArrayList<CombinationPiece>();
+
+		for(int i=0; i<CUPool.size(); i++){	
+			for(int j=i+1; j<CUPool.size(); j++){
+				for(int k=j+1; k<CUPool.size(); k++){
+	//				if(count>MAX_CU_NUM){
+	//					return filtWrongPiece(pack, pieces);
+	//				}
+					ICompilationUnit[] cps = {CUPool.get(i),CUPool.get(j),CUPool.get(k)};
+					if(preCombination.preCombine(cps)){
+						IPackageFragment pack = null;
+						if(cps[0].getParent() instanceof IPackageFragment){
+							pack = (IPackageFragment) cps[0].getParent();
+						}else if(cps[1].getParent() instanceof IPackageFragment){
+							pack = (IPackageFragment) cps[1].getParent();
+						}else{
+							System.out.println(cps[0].getParent().getClass());
+							return null;
+						}
+						System.out.println("combining "+count+"th piece in "+pack.getElementName());
+						CombinationPiece piece = combineCompilationUnits(pack, cps, "NewClass"+(count++));
+						if(piece !=null){
+							pieces.add(piece);
+							units = getTrainCompilationUnit(units,cps);
+							//exportAction.exportTrainUnits(piece.getUnit().getElementName(),trainUnits);
+							exportAction.exportTestUnits(piece);
+						//return pieces;
+						}
+					}
+				}
+
+			}
+		}
+		
+		//return filtWrongPiece(pack,pieces);
+		return pieces;
+	}
+	
+	private SystemObject buildSystemObject(IProject project){
+		final IJavaProject javaProject = JavaCore.create(project);
+		try {
+			if(ASTReader.getSystemObject() != null && javaProject.equals(ASTReader.getExaminedProject())) {
+				new ASTReader(javaProject, ASTReader.getSystemObject(), null);
+			}
+			else {
+				new ASTReader(javaProject, null);
+			}
+		}
+		catch(CompilationErrorDetectedException e) {
+			e.printStackTrace();
+		}
+		SystemObject so = ASTReader.getSystemObject();
+
+
+		return so;
+	}
+	
+	private Set<String> getAllClasses(SystemObject so){
+		Set<ClassObject> classObjectsToBeExamined = new LinkedHashSet<ClassObject>();
+		classObjectsToBeExamined.addAll(so.getClassObjects());
+		final Set<String> classNamesToBeExamined = new LinkedHashSet<String>();
+		for(ClassObject classObject : classObjectsToBeExamined) {
+			if(!classObject.isEnum() && !classObject.isInterface() && !classObject.isGeneratedByParserGenenator())
+				classNamesToBeExamined.add(classObject.getName());
+		}
+		System.out.println("all classes size:"+classNamesToBeExamined.size());
+		return classNamesToBeExamined;
+	}
+	
+	private Set<String> getPackClasses(SystemObject so, IPackageFragment pack){
+		Set<ClassObject> classObjectsToBeExamined = new LinkedHashSet<ClassObject>();
+		classObjectsToBeExamined.addAll(so.getClassObjects(pack));
+		final Set<String> classNamesToBeExamined = new LinkedHashSet<String>();
+		for(ClassObject classObject : classObjectsToBeExamined) {
+			if(!classObject.isEnum() && !classObject.isInterface() && !classObject.isGeneratedByParserGenenator())
+				classNamesToBeExamined.add(classObject.getName());
+		}
+		System.out.println("all pack classes size:"+classNamesToBeExamined.size());
+		return classNamesToBeExamined;
+	}
+	
+	private List<ICompilationUnit> getGodClasses(MySystem system,Set<String> classNamesToBeExamined){
+		final DistanceMatrix distanceMatrix = new DistanceMatrix(system);
+		final List<ExtractClassCandidateRefactoring> extractClassCandidateList = new ArrayList<ExtractClassCandidateRefactoring>();
+		extractClassCandidateList.addAll(distanceMatrix.getExtractClassCandidateRefactorings(classNamesToBeExamined, null));
+		List<String> sourceSet = new ArrayList<String>();
+		for(ExtractClassCandidateRefactoring candidate : extractClassCandidateList) {
+			if(!sourceSet.contains(candidate.getSourceEntity())){
+				sourceSet.add(candidate.getSourceEntity());
+			}
+		}
+		System.out.println("detect god classes size: "+sourceSet.size());
+		List<ICompilationUnit> units = getNonGodClasses(system,classNamesToBeExamined,sourceSet);
+//		MyClass clazz = system.getClass(sourceSet.get(0));
+//		ArrayList<Entity> entities = new ArrayList<Entity>();
+//		entities.addAll(clazz.getAttributeList());
+//		entities.addAll(clazz.getMethodList());
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//		for(Entity entity:entities){
+//			Set<String> fullSet = entity.getFullEntitySet();
+//			for(String str:fullSet)
+//				System.out.println(str);
+//		}
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//		ICompilationUnit unit = (ICompilationUnit) clazz.getClassObject().getITypeRoot();
+//		System.out.println(unit.getElementName());
+//		System.out.println(sourceSet.get(0));
+//		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		return units;
+	}
+	
+	private List<ICompilationUnit> getNonGodClasses(MySystem system,
+			Set<String> classNamesToBeExamined,List<String> sourceSet){
+		//List<String> nonGodClasses = new ArrayList<String>();
+		List<ICompilationUnit> units = new ArrayList<ICompilationUnit>();
+		for(String str1:classNamesToBeExamined){
+			boolean isSame = false;
+			for(String str2:sourceSet){
+				if(str1.equals(str2)){
+					isSame = true;
+					break;
+				}
+			}
+			if(!isSame){
+				//nonGodClasses.add(str1);
+				MyClass clazz = system.getClass(str1);
+				ICompilationUnit unit = (ICompilationUnit) clazz.getClassObject().getITypeRoot();
+				if(!units.contains(unit)){
+					units.add(unit);
+				}
+			}
+		}
+		System.out.println("after remove: "+units.size());
+		//ICompilationUnit[] units = new ICompilationUnit[nonGodClasses.size()];
+		
+		return units;
+	}
+	
+	public ArrayList<CombinationPiece> filtWrongPiece(IPackageFragment pack, ArrayList<CombinationPiece> pieces) throws CoreException{
+		pack.getJavaProject().getProject().build(IncrementalProjectBuilder.INCREMENTAL_BUILD, null);
+		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		//System.out.println("filting in "+pieces.size()+" pieces");
+		ArrayList<CombinationPiece> deletePieces = new ArrayList<CombinationPiece>();
+		int count =0;
+		for(CombinationPiece piece:pieces){
+			ICompilationUnit unit = piece.getUnit();
+			ArrayList <IMarker> result = new ArrayList <IMarker>();
+			IResource r = unit.getResource();
+			try {
+				IMarker[] markers = r.findMarkers(IJavaModelMarker.JAVA_MODEL_PROBLEM_MARKER, true, IResource.DEPTH_ZERO);
+				for (IMarker marker: markers){
+				//	System.out.println("\t"+r.getName()+" has "+marker.getType());
+			        Integer severityType = (Integer) marker.getAttribute(IMarker.SEVERITY);
+			        if (severityType.intValue() == IMarker.SEVERITY_ERROR)
+			        	result.add(marker);
+			    }
+			    if(result.size() >0 ){
+			    //	System.out.println("delete unit "+ unit.getElementName());
+			    	deletePieces.add(piece);
+			    	unit.delete(true, new NullProgressMonitor());
+			    	count++;
+			    }
+			    	
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
+		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		pieces.removeAll(deletePieces);
+		System.out.println();
+		System.out.println("========================");
+		System.out.println("filt "+ count+" units");
+		System.out.println("left "+pieces.size()+" new units");
+		System.out.println("========================");
+		System.out.println();
+		//openEndDialog();
+		return pieces;
+	}
+	
+	void openEndDialog(){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Finish");
+ 		        dialog.setMessage("Combination Finished!");
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+	}
+	
+//	static IType getMainType(ICompilationUnit unit){
+//		String unitName = unit.getElementName();
+//		String typeName = unit.getElementName().substring(0, unitName.indexOf('.'));
+//		IType mainType = unit.getType(typeName);
+//		return mainType;
+//	}
+
+	public static CombinationPiece combineCompilationUnits(IPackageFragment newPack, 
+			ICompilationUnit[] units, String className) throws CoreException{
+		IType[] mainTypes = new IType[units.length];
+		for(int i=0; i<units.length; i++){
+			IType mainType1 = ActionsAider.getMainType(units[i]);
+			mainTypes[i] = mainType1;
+		}
+		
+		Combination combination = new Combination(units, mainTypes);
+		CombinationPiece combiPiece = combination.createNewCompilationUnit(className, newPack);
+
+		return combiPiece;
+	}
+
+	static boolean isGeneric(IType type) throws JavaModelException{
+		if(type.getTypeParameterSignatures().length!=0){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void selectionChanged(IAction arg0, ISelection arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void init(IWorkbenchWindow window) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

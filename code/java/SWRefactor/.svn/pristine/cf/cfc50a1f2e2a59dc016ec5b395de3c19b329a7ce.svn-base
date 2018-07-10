@@ -1,0 +1,416 @@
+package swr.actions.combine.importproject;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IBuffer;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaModelMarker;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IMember;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.search.IJavaSearchConstants;
+import org.eclipse.jdt.core.search.IJavaSearchScope;
+import org.eclipse.jdt.core.search.SearchEngine;
+import org.eclipse.jdt.core.search.SearchMatch;
+import org.eclipse.jdt.core.search.SearchParticipant;
+import org.eclipse.jdt.core.search.SearchPattern;
+import org.eclipse.jdt.core.search.SearchRequestor;
+import gr.uom.java.ast.ASTReader;
+import gr.uom.java.ast.CompilationErrorDetectedException;
+import gr.uom.java.ast.SystemObject;
+import gr.uom.java.ast.util.math.Cluster;
+import gr.uom.java.ast.util.math.Clustering;
+import gr.uom.java.distance.DistanceMatrix;
+import gr.uom.java.distance.Entity;
+import gr.uom.java.distance.ExtractClassCandidateGroup;
+import gr.uom.java.distance.ExtractClassCandidateRefactoring;
+import gr.uom.java.distance.ExtractedConcept;
+import gr.uom.java.distance.MyAttribute;
+import gr.uom.java.distance.MyClass;
+import gr.uom.java.distance.MyMethod;
+import gr.uom.java.distance.MySystem;
+import swr.actions.combine.CombinationPiece;
+import swr.actions.combine.CombinedMembers;
+
+public class ImportProject{
+	int[][] arrays;
+	int row;
+	public void checkJDeodorantResult(String dir, final IProject project,
+			ArrayList<CombinationPiece> pieces, int index) throws Exception{
+		CombinationPiece piece = pieces.get(index);
+		System.out.println("new project for "+piece.getUnit().getElementName());
+		String newProjectName = "NewProjectFor"+index;
+		IProject newProject = getNewProject(project, newProjectName);
+		IJavaProject newJavaProject = buildNewProject(newProject, pieces, index);
+		
+		if(buildProject(newJavaProject, null).size()==0){
+			MySystem system = buildSystemObject(newJavaProject);
+			MyClass clazz = getMyClass(piece, system);
+			DistanceMatrix distanceMatrix = new DistanceMatrix(system);
+			double[][] jaccards = distanceMatrix.getJaccardDistanceMatrix(clazz);
+//			String fPath = dir+"//"+piece.getUnit().getElementName()+"//test//jc_result.txt";
+//			BufferedWriter writer = getWriter(fPath);
+//			writerMatrix(pieces.get(index).getCombineSize(),jaccards,writer);
+//			checkMyClassMemberList(clazz);
+			ExtractClassCandidateGroup refactors = getExtractedMethod(piece, system, clazz, distanceMatrix, jaccards);
+			distanceMatrix = null;
+			system = null;
+			if(checkMembersSize(piece, clazz)){
+				printJDeodorantClusterGroup(refactors);
+			//	exportDataSet(dir, system, distanceMatrix,jaccards, pieces, index);
+				exportJDeodorantResult(dir, refactors,piece, clazz);
+			}else
+				throw new Exception();
+		}
+	//	newJavaProject.close();
+		newProject.clearHistory(null);
+		newProject.delete(true, new NullProgressMonitor());
+		
+	}
+	
+	private BufferedWriter getWriter(String filePath) throws IOException{
+		File file = new File(filePath);
+		if(!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+		if(!file.exists())
+			file.createNewFile();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+		return writer;
+	}
+	
+	private void writerMatrix(int size, double[][] jaccard, BufferedWriter writer) throws IOException{
+		writer.write(size+": ");
+		for (int k=0; k < jaccard.length; k++) {
+			for(int j=0; j<jaccard[k].length; j++){
+				writer.write(String.valueOf(jaccard[k][j])+" ");
+			}
+			writer.write(";");
+		}
+		writer.write("\n");
+		writer.flush();
+	}
+	
+	private List<IMarker> buildProject(IJavaProject iJavaProject, IProgressMonitor pm) {
+		ArrayList<IMarker> result = new ArrayList<IMarker>();
+		try {
+			IProject project = iJavaProject.getProject();
+			project.refreshLocal(IResource.DEPTH_INFINITE, pm);	
+			project.build(IncrementalProjectBuilder.INCREMENTAL_BUILD, pm);
+			IMarker[] markers = null;
+			markers = project.findMarkers(IJavaModelMarker.JAVA_MODEL_PROBLEM_MARKER, true, IResource.DEPTH_INFINITE);
+			for (IMarker marker: markers) {
+				Integer severityType = (Integer) marker.getAttribute(IMarker.SEVERITY);
+				if (severityType.intValue() == IMarker.SEVERITY_ERROR) {
+					result.add(marker);
+				}
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public IProject getNewProject(IProject oldProject, String newProjectName) throws CoreException{
+		IProjectDescription oldDes = oldProject.getDescription();
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IWorkspaceRoot root = workspace.getRoot();
+		IPath rootpath = root.getLocation().append(newProjectName);
+		//IProjectDescription description = workspace.newProjectDescription("NewProject");
+		oldDes.setLocation(rootpath);
+		oldDes.setName(newProjectName);
+		oldProject.copy(oldDes, true, new NullProgressMonitor());
+		IProject newProject = root.getProject(newProjectName);
+		return newProject;
+	}
+	
+	public IJavaProject buildNewProject(IProject newProject, ArrayList<CombinationPiece> pieces, int index) throws CoreException{
+		CombinationPiece piece = pieces.get(index);
+		final IJavaProject javaProject = JavaCore.create(newProject);
+		deleteOtherCompilationUnitInNewProject(javaProject, pieces, index);
+		//System.out.println("delete other cu in "+javaProject.getElementName());
+		String newText = piece.getUnit().getElementName().substring(0, 
+				piece.getUnit().getElementName().length()-5);
+		IPackageFragment pack = getPackageInNewProject(javaProject, piece);
+		String[] fullNames = piece.getFormerClasses();
+		for(int i=0; i<piece.getCombineSize(); i++){
+			String fullName1 = fullNames[i];
+			String shortName1 = fullName1.substring(fullName1.lastIndexOf('.')+1);
+			replaceToken(fullName1, shortName1, newText, javaProject);
+			//	System.out.println("replace token in "+javaProject.getElementName());
+			deleteFormerCompilationUnitInNewProject(shortName1+".java", pack);
+			//	System.out.println("delete former cu in "+javaProject.getElementName());
+		}
+	
+		return javaProject;
+	}
+
+	private void deleteOtherCompilationUnitInNewProject(IJavaProject javaProject, ArrayList<CombinationPiece> pieces, int index) throws JavaModelException{
+		for(int i=0;i<pieces.size();i++){
+			if(i!=index){
+				CombinationPiece piece = pieces.get(i);
+				IPackageFragment pack = getPackageInNewProject(javaProject, piece);
+				deleteFormerCompilationUnitInNewProject(piece.getUnit().getElementName(),pack);
+			}
+		}
+	}
+	
+	private void deleteFormerCompilationUnitInNewProject(String name, 
+			IPackageFragment pack) throws JavaModelException{
+		ICompilationUnit unit = pack.getCompilationUnit(name);
+		unit.delete(false, new NullProgressMonitor());
+	}
+	
+	private IPackageFragment getPackageInNewProject(IJavaProject javaProject, 
+			CombinationPiece piece) throws JavaModelException{
+		return javaProject.findPackageFragment(
+				javaProject.getPath().append(piece.getPack().getPath().removeFirstSegments(1)));
+	}
+	
+	private boolean checkMembersSize(CombinationPiece piece, MyClass clazz){
+		int size1 = piece.getMembers().size();
+		int size2 = clazz.getAttributeList().size()+clazz.getMethodList().size();
+		return (size1==size2);
+	}
+	
+	private int[][] getArrays(ExtractClassCandidateGroup group, int column){
+		int row = 1;
+		for (ExtractedConcept concept : group.getExtractedConcepts()) {
+			Set<ExtractClassCandidateRefactoring> refactors = concept.getConceptClusters();
+			row *=refactors.size();
+		}
+		arrays = new int[row][column];
+		for(int i=0; i<arrays.length; i++){
+			for(int j=0; j<arrays[i].length; j++){
+				arrays[i][j] = 0;
+			}
+		}
+		return arrays;
+	}
+	
+	public void exportJDeodorantResult(String dir, ExtractClassCandidateGroup group, 
+			CombinationPiece piece, MyClass clazz) throws IOException{
+		ArrayList<CombinedMembers> members = piece.getMembers();
+		arrays = getArrays(group, members.size());
+		System.out.println("shape of arrays: "+arrays.length+", "+arrays[0].length);
+		parseGroup(group, 0, 1, clazz);
+		exportResultArray(dir, piece, arrays);
+	}
+	
+	private void parseGroup(ExtractClassCandidateGroup group, int n, int cluster_index, MyClass clazz){
+		if(n>=group.getExtractedConcepts().size()){
+			return;
+		}
+		Set<ExtractClassCandidateRefactoring> candidates = group.getExtractedConcepts().get(n).getConceptClusters();
+		int row=0;
+		for(ExtractClassCandidateRefactoring candidate:candidates){
+			List<Entity> entities = candidate.getExtractedEntities();
+			setRow(entities, cluster_index,row++, clazz);
+			parseGroup(group, n+1, cluster_index+1, clazz);
+		}
+	}
+	
+	private void setRow(List<Entity> entities, int cluster_index, int row, MyClass clazz){
+		for(Entity entity:entities){
+			if(entity instanceof MyAttribute){
+				int index = clazz.getAttributeList().indexOf(entity);
+				//System.out.println("\t\tattribute in "+clazz.getName()+" "+((MyAttribute) entity).getName()+" index is "+index);
+				arrays[row][index] = cluster_index;
+			}else if(entity instanceof MyMethod){
+				int index = clazz.getAttributeList().size()+clazz.getMethodList().indexOf(entity);
+				//System.out.println("\t\tmethod in "+clazz.getName()+" "+((MyMethod) entity).getMethodName()+" index is "+index);
+				arrays[row][index] = cluster_index;
+			}
+		}
+	}
+	
+	private void exportResultArray(String dir,CombinationPiece piece, int[][] j_result) throws IOException{
+		String fPath = dir+"//"+piece.getUnit().getElementName()+"//test//jc_result.txt";
+		File file = new File(fPath);
+		if(!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+		if(!file.exists())
+			file.createNewFile();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+		for(int i=0; i<j_result.length; i++){
+			for(int j=0; j<j_result[i].length; j++)
+				writer.write(j_result[i][j]+" ");
+			writer.write(";\n");
+		}
+		writer.write("\n");
+		writer.flush();
+		writer.close();
+	}
+	
+	private void replaceToken(String fullName1, String shortName1, String newText, 
+			 IJavaProject javaProject) throws CoreException{
+		//System.out.println("===============================");
+		//System.out.println("former class: "+fullName1);
+		Result result1 = searchFor(fullName1, javaProject);
+		
+		for(ICompilationUnit unit:result1.locs.keySet()){
+			//System.out.println("replace token in "+unit.getElementName());
+			int temp=0;
+			ArrayList<Integer> offsets = result1.locs.get(unit);
+			offsets.sort(new Comparator<Integer>(){
+				@Override
+				public int compare(Integer a, Integer b) {
+					return a-b;
+				}
+			});
+			IBuffer buffer = unit.getBuffer();
+			for(int offset:offsets){
+				buffer.replace(offset+temp, shortName1.length(), newText);
+				temp += newText.length()-shortName1.length();
+			}
+			buffer.save(new NullProgressMonitor(), true);
+			buffer.close();
+		}
+		//System.out.println("===============================");
+	}
+	
+	private class Result{
+		public Map<ICompilationUnit, ArrayList<Integer>> locs = new HashMap<ICompilationUnit, ArrayList<Integer>>();
+		public void setLoc(ICompilationUnit unit, int offset){
+			if(locs.containsKey(unit)){
+				locs.get(unit).add(offset);
+			}else{
+				ArrayList<Integer> offsets = new ArrayList<Integer>();
+				offsets.add(offset);
+				locs.put(unit, offsets);
+			}
+		}
+	}
+    
+    public Result searchFor(final String patternString, IJavaProject project) throws CoreException{
+    	SearchPattern pattern = SearchPattern.createPattern(patternString,
+				IJavaSearchConstants.TYPE, IJavaSearchConstants.ALL_OCCURRENCES,
+				SearchPattern.R_CASE_SENSITIVE);
+		SearchParticipant[] participants = new SearchParticipant[] { SearchEngine.getDefaultSearchParticipant() };
+		IJavaSearchScope scope= SearchEngine.createJavaSearchScope(new IJavaElement[]{project}, IJavaSearchScope.SOURCES);
+		
+		final Result result = new Result();
+		SearchRequestor requestor = new SearchRequestor(){
+			@Override
+	    	public void acceptSearchMatch(SearchMatch match) throws CoreException {
+				//System.out.println(match.getResource().getName());
+	    		Object element = match.getElement();
+	    		if(element instanceof IMember){
+	    			ICompilationUnit unit = ((IMember) element).getCompilationUnit();
+	    			if(!patternString.contains(
+	    					unit.getElementName().subSequence(0, unit.getElementName().length()-5)))
+	    				result.setLoc(((IMember) element).getCompilationUnit(),
+	    						match.getOffset());
+	    		}
+	    	}
+		};
+		new SearchEngine().search(pattern, participants, scope,	requestor, new NullProgressMonitor());
+		
+		return result;
+    }
+	
+	private MySystem buildSystemObject(IJavaProject javaProject){
+		try {
+			if(ASTReader.getSystemObject() != null && javaProject.equals(ASTReader.getExaminedProject())) {
+				new ASTReader(javaProject, ASTReader.getSystemObject(), null);
+				System.out.println("get astreader in way1");
+			}
+			else {
+				new ASTReader(javaProject, null);
+				System.out.println("get astreader in way2");
+			}
+		}
+		catch(CompilationErrorDetectedException e) {
+			e.printStackTrace();
+		}
+		
+		SystemObject so = ASTReader.getSystemObject();
+		MySystem system = new MySystem(so, true);
+		return system;
+	}
+	
+	private MyClass getMyClass(CombinationPiece piece, MySystem system){
+		ICompilationUnit unit = piece.getUnit();
+		String fullName = piece.getPack().getElementName()+"."
+				+unit.getElementName().substring(0, unit.getElementName().length()-5);
+		return system.getClass(fullName);
+	}
+	
+	private ExtractClassCandidateGroup getExtractedMethod(CombinationPiece piece, MySystem system, 
+			MyClass clazz, DistanceMatrix distanceMatrix, double[][] jaccards){
+		List<ExtractClassCandidateRefactoring> candidateList = new ArrayList<ExtractClassCandidateRefactoring>();
+		
+		//MyClass clazz = getMyClass(piece, system);
+		ArrayList<Entity> entities = new ArrayList<Entity>();
+		entities.addAll(clazz.getAttributeList());
+		entities.addAll(clazz.getMethodList());
+		
+		Clustering clustering = Clustering.getInstance(0, jaccards);
+		HashSet<Cluster> clusters = clustering.clustering(entities);
+		for (Cluster cluster : clusters) {
+			ExtractClassCandidateRefactoring candidate = 
+					new ExtractClassCandidateRefactoring(system, clazz, cluster.getEntities());
+			
+			//if (candidate.isApplicable()) {
+			int sourceClassDependencies = candidate.getDistinctSourceDependencies();
+			int extractedClassDependencies = candidate.getDistinctTargetDependencies();
+			if(sourceClassDependencies <= distanceMatrix.maximumNumberOfSourceClassMembersAccessedByExtractClassCandidate &&
+					sourceClassDependencies < extractedClassDependencies) {
+				candidateList.add(candidate);
+			}
+			//}
+		}
+		
+		ExtractClassCandidateGroup group = new ExtractClassCandidateGroup(clazz.getName());
+		for(ExtractClassCandidateRefactoring candidate : candidateList)
+			group.addCandidate(candidate);
+			
+		group.groupConcepts();
+
+		return group;
+	}
+	
+	public void printJDeodorantClusterGroup(ExtractClassCandidateGroup group){
+		ArrayList<ExtractedConcept> concepts = group.getExtractedConcepts();
+		for(ExtractedConcept concept:concepts){
+			Set<ExtractClassCandidateRefactoring> candidates = concept.getConceptClusters();
+			for(ExtractClassCandidateRefactoring candidate:candidates){
+				List<Entity> entities = candidate.getExtractedEntities();
+				for(Entity entity:entities){
+					if(entity instanceof MyAttribute){
+						System.out.println("\t\tattribute in "+concept.getTopics().get(0)+": "+((MyAttribute) entity).getName());
+					}else if(entity instanceof MyMethod){
+						System.out.println("\t\tmethod in "+concept.getTopics().get(0)+": "+((MyMethod) entity).getMethodName());
+					}
+				}
+				System.out.println();
+			}
+		}
+	}
+}
+

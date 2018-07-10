@@ -1,0 +1,102 @@
+package swr.actions;
+
+import java.util.HashMap;
+
+import org.eclipse.jdt.core.ElementChangedEvent;
+import org.eclipse.jdt.core.IElementChangedListener;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaElementDelta;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.dom.ASTMatcher;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.internal.core.CompilationUnit;
+import org.eclipse.jdt.internal.core.SourceMethod;
+import org.eclipse.jdt.internal.core.SourceType;
+
+/*
+ * http://www.eclipse.org/articles/Article-Resource-deltas/resource-deltas.html
+ */
+
+public class ElementChangeAction implements IElementChangedListener {
+	public static IMethod lastModify = null;
+	public static HashMap<String, IMethod> added = new HashMap<String, IMethod>();
+	public static HashMap<String, IMethod> changed = new HashMap<String, IMethod>();
+	public static HashMap<String, IMethod> removed = new HashMap<String, IMethod>();
+
+	// this persists through out the entire session
+	public static HashMap<String, ASTNode> subtrees = new HashMap<String, ASTNode>();
+
+	@Override
+	public void elementChanged(ElementChangedEvent event) {
+		IJavaElementDelta delta = event.getDelta();
+		IJavaElementDelta[] deltas = delta.getAffectedChildren();
+		if(deltas.length > 0){
+			for (IJavaElementDelta elementDelta : deltas) { 
+				getAffectedMethods(elementDelta);
+			}
+		}else if (delta!=null&&delta.getElement() instanceof CompilationUnit) {
+			if(delta.getCompilationUnitAST()!=null){
+				delta.getCompilationUnitAST().accept(new ASTVisitor() {
+					@Override
+					public boolean visit(MethodDeclaration node) {
+						if(node.getParent() instanceof TypeDeclaration){
+							String mName = ((TypeDeclaration) node.getParent()).getName().getFullyQualifiedName() + "."
+									+ node.getName().getFullyQualifiedName();
+							boolean methodHasChanged = false;
+							if (subtrees.containsKey(mName)) {
+								methodHasChanged = !node.subtreeMatch(new ASTMatcher(), subtrees.get(mName));
+							} 
+							else {
+								methodHasChanged = true;
+							}
+							if (methodHasChanged) {
+								if (!changed.containsKey(mName) && !added.containsKey(mName)) {
+									if(node!=null && node.resolveBinding()!=null){
+										changed.put(mName, (IMethod) node.resolveBinding().getJavaElement());
+										if(removed.containsKey(mName)) removed.remove(mName);
+									}
+								}
+							}
+							if(node!=null && node.resolveBinding()!=null){
+								lastModify =  (IMethod) node.resolveBinding().getJavaElement();
+								subtrees.put(mName, node);	
+							}
+						}
+						return true;
+					}
+					
+				});
+			}
+		}
+	}
+	private void getAffectedMethods(IJavaElementDelta delta) {
+		if(delta.getElement() instanceof SourceMethod){
+			AddMethod(delta.getElement(), delta.getKind());
+		}else if(delta.getElement() instanceof SourceType){
+			for (IJavaElementDelta elementDelta : delta.getAffectedChildren()) {
+				getAffectedMethods(elementDelta);
+			}
+		}
+		
+	}
+	private void AddMethod(IJavaElement element,int type) {
+		IMethod method = (IMethod) element.getAncestor(IJavaElement.METHOD);
+		String mName = method.getParent().getElementName() + "."+ method.getElementName();
+		if(type == IJavaElementDelta.ADDED){
+			if(!added.containsKey(mName))added.put(mName, method);
+			if(removed.containsKey(mName)) removed.remove(mName);
+			if(changed.containsKey(mName)) changed.remove(mName);
+			
+		}else{
+			if(!removed.containsKey(mName))removed.put(mName, method);
+			if(added.containsKey(mName))added.remove(mName);
+			if(changed.containsKey(mName))changed.remove(mName);
+			
+		}
+	}
+
+}

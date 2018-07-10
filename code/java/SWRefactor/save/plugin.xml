@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension   
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Action Set"
+            visible="true"
+            id="swr.actionSet">
+         <menu
+               label="SWRefactor"
+               id="sampleMenu">
+            <separator
+                  name="huaweiGroup">
+            </separator>
+         </menu>
+   <!--       <action
+               label="&amp;Metric for refactor"
+               icon="icons/refect.png"
+               class="swr.actions.Metrics4RefactAction"
+               tooltip="metric for Refactor"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               id="swr.actions.Metrics4RefactAction">
+         </action>
+         -->
+         <action
+               label="&amp;Metric"
+               icon="icons/metric.png"
+               class="swr.actions.MetricsAction"
+               tooltip="metric"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               id="swr.actions.MetricsAction">
+         </action>
+         <action
+               class="swr.actions.CodeSmellAction"
+               icon="icons/code.png"
+               id="swr.actions.CodeSmellAction"
+               label="&amp;CodeSmell"
+               menubarPath="sampleMenu/sampleGroup"
+               style="push"
+               toolbarPath="sampleGroup">
+         </action>
+      </actionSet>
+   </extension>
+   <!--builder-->
+   <extension
+    	id="swr.nature"
+        name="SwrNature"
+		point="org.eclipse.core.resources.natures">
+		 <runtime>
+		    <run class="swr.actions.builder.Nature" />
+		 </runtime>
+		 <builder
+            id="swr.builder">
+      </builder>
+	</extension>
+	<extension 
+		id="swr.builder" 
+		name="SwrBuilder"
+		point="org.eclipse.core.resources.builders">
+		 <builder
+		  	hasNature="true"
+            isConfigurable="false">
+		    <run class="swr.actions.builder.Builder" />
+		 </builder>
+	</extension>
+   
+   <extension point="org.eclipse.ui.editors">
+	  <editor 
+	        name="EditoAction"
+	        icon="icons/sample.gif"
+	        class="swr.actions.EditorAction"
+	        id="swr.actions.EditorAction">
+	  </editor>
+	</extension>
+	
+   <extension-point id="metrics" name="metrics" schema="schema/SWRefactor.metrics.exsd"/>
+   <extension-point id="exporters" name="exporters" schema="schema/exporters.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Metrics"
+            id="swr.metrics">
+      </category>
+      <view
+            name="Metrics View"
+            icon="icons/mview.gif"
+            category="swr.metrics"
+            class="swr.metrics.ui.MetricsView"
+            id="swr.metrics.ui.MetricsView">
+      </view>
+      <view
+            category="swr.refactor"
+            class="swr.refactors.ui.SmellView"
+            icon="icons/kinds.jpg"
+            id="swr.refactors.ui.SmellView"
+            name="SmellView"
+            restorable="true">
+      </view>
+      <category
+            id="swr.refactor"
+            name="Refactors">
+      </category>
+   </extension>
+   
+    <extension 
+    id="mynature" 
+    name="My Nature" 
+    point="org.eclipse.core.resources.natures"> 
+      <runtime> 
+         <run class="edu.bit.cs.swr.actions.Swrnatures"/> 
+      </runtime> 
+      <builder id="edu.bit.cs.swr.actions.mybuilder"/> 
+   </extension> 
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Metrics Preferences"
+            class="swr.metrics.ui.preferences.MetricsPreferencePage"
+            id="swr.metrics.ui.MetricsPreferencePage">
+      </page>
+      <page
+            name="NORM"
+            category="swr.metrics.ui.MetricsPreferencePage"
+            class="swr.metrics.ui.preferences.NORMPreferencePage"
+            id="swr.metrics.norm">
+      </page>
+      <page
+            name="LCOM*"
+            category="swr.metrics.ui.MetricsPreferencePage"
+            class="swr.metrics.ui.preferences.LCOMPreferencePage"
+            id="swr.metrics.lcom">
+      </page>
+      <page
+            name="Safe Ranges"
+            category="swr.metrics.ui.MetricsPreferencePage"
+            class="swr.metrics.ui.preferences.RangePage"
+            id="swr.metrics.rangeeditor">
+      </page>
+      <page
+            name="XML Export"
+            category="swr.metrics.ui.MetricsPreferencePage"
+            class="swr.metrics.ui.preferences.XMLExportPage"
+            id="swr.metrics.xmlexport">
+      </page>
+      <page
+            name="Colors"
+            category="swr.metrics.ui.MetricsPreferencePage"
+            class="swr.metrics.ui.preferences.ColorPreferencePage"
+            id="swr.metrics.colors">
+      </page>
+   </extension>
+   <extension
+         id="outofrangemarker"
+         name="MetricsOutOfRangeMarker"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <attribute
+            name="metric">
+      </attribute>
+      <attribute
+            name="value">
+      </attribute>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+      point="SWRefactor.metrics">
+      <metric
+            name="Number of Attributes"
+            id="NOF"
+            level="type">
+      </metric>
+      <metric
+            id="NONM"
+            level="type"
+            name="Number of Normal Methods"
+            newAvgMaxAt="packageFragmentRoot">
+      </metric>
+           <metric
+            propagateSum="false"
+            name="Depth of Inheritance Tree"
+            id="DIT"
+            level="type">
+      </metric>
+
+      <metric
+            name="Number of Accessed Variables"
+            id="NOAV"
+            level="method">
+      </metric>
+     <metric
+            id="NPSF"
+            level="type"
+            name="Number of Public Statics Fields">
+      </metric>
+      <metric
+            propagateSum="false"
+            name="Lack of Cohesion of Methods"
+            id="LCOM"
+            level="type">
+      </metric>
+      <metric
+            name="Number of Children"
+            id="NSC"
+            level="type">
+      </metric>
+	  <metric
+            name="Percentage of Newly Added Services"
+            id="PNAS"
+            level="type">
+      </metric>
+      <metric
+            id="DR"
+            level="method"
+            name="Dispersion Ration">
+      </metric> 
+      <metric
+            id="ODD"
+            level="method"
+            name="Outgoing Dependency on Delegators">
+      </metric> 
+       <metric
+            id="NPSM"
+            level="type"
+            name="Number of Public Statics Methods">
+      </metric>    
+      <metric
+            name="Number of Public Attributes"
+            id="NOPUBA"
+            level="type">
+      </metric>
+      <metric
+            name="Number of Methods"
+            id="NOM"
+            level="type">
+      </metric>
+         
+      <metric
+            name="Number of Public Methods"
+            id="NOPUBM"
+            level="type">
+      </metric>
+      <metric
+            name="Number of Protected Methods"
+            id="NOPRTM"
+            level="type">
+      </metric>   
+      <!-- WOC = WMC -->   
+      <metric
+            sumOf="VG"
+            name="Weighted methods per Class"
+            requires="VG"
+            id="WMC"
+            level="type">
+      </metric>
+      <metric
+            allowDisable="false"
+            name="Number of Classes"
+            propagateAvg="false"
+            newAvgMaxAt="packageFragmentRoot"
+            propagateMax="false"
+            id="NOC"
+            level="compilationUnit">
+      </metric>
+        <!-- gyj end-->    
+
+      <calculator
+            level="method"
+            calculatorClass="swr.metrics.calculators.MethodLinesOfCode"
+            name="New Computation for methods lines of code"/>
+            
+      <metric
+            level="method"
+            name="Method Lines of Code"
+            id="MLOC"
+            allowDisable="true"/>
+	  <calculator
+            level="method"
+            calculatorClass="swr.metrics.calculators.LinesOfComments"
+            name="New Computation for lines of comments"/>
+      <metric
+            name="Lines Of Comments"
+            id="LOCOMM"
+            level="method">
+      </metric>
+      <calculator
+            name="Number of Parameters"
+            calculatorClass="swr.metrics.calculators.NumberOfParameters"
+            level="method">
+      </calculator>
+        <metric
+            propagateSum="false"
+            name="Number of Parameters"
+            id="PAR"
+            level="method">
+         <range
+               max="5"
+               hint="Move invoked method or pass an object">
+         </range>
+      </metric>    
+      <!-- locomm 待加 -->
+      <!-- ============================================byf end =================================== -->
+      <!-- ============================================luohui begin ============================== -->
+      <!-- 5NOAC, 7ICDO, 8ICIO,9OCIO,10OCDO,11MAXNESTING,13CYCLO,14CPFD -->
+      <metric
+            id="ICDO"
+            level="method"
+            name="ICDO:IncomingCoupingDespersion">
+      </metric>
+      <calculator
+            name="ICDO"
+            calculatorClass="swr.metrics.calculators.IncomingCouplingDispersion"
+            level="method">
+      </calculator> 
+      
+      <metric
+            id="ICIO"
+            level="method"
+            name="ICIO:IncomingCoupingIntensity">
+      </metric>
+      
+      <metric
+            id="OCIO"
+            level="method"
+            name="OCIO:OutgoingCouplingIntensity">
+      </metric>
+      <calculator
+            name="OCIO"
+            calculatorClass="swr.metrics.calculators.OutgoingCouplingIntensity"
+            level="method">
+      </calculator>
+      
+      <metric
+            id="OCDO"
+            level="method"
+            name="OCDO:OutgoingCouplingDispersion">
+      </metric>
+      <calculator
+            name="NOAC"
+            calculatorClass="swr.metrics.calculators.NumberOfAbstractClasses"
+            level="compilationUnit">
+      </calculator>
+      
+      <metric
+            id="NOAC"
+            level="compilationUnit"
+            name="NOAC:NumberOfAbstractClasses">
+      </metric>
+      
+      <metric
+            id="CPFD"
+            level="type"
+            name="CPFD:CapsulesProvidingForeignData">
+      </metric>
+      
+       <!-- 13CYCLO = MCC --> 
+      <metric
+            propagateSum="false"
+            name="McCabe Cyclomatic Complexity"
+            id="VG"
+            level="method">
+         <range
+               max="10"
+               hint="use Extract-method to split the method up">
+         </range>
+      </metric>
+      <calculator
+            name="McCabe Cyclomatic Complexity"
+            calculatorClass="swr.metrics.calculators.McCabe"
+            level="method">
+      </calculator> 
+      <!-- 11 maxnesting = nbd -->
+       <metric
+            propagateSum="false"
+            name="Nested Block Depth"
+            id="NBD"
+            level="method">
+         <range
+               max="5"
+               hint="use Extract-method to split the method up">
+         </range>
+      </metric>         
+       <calculator
+            name="Nested Block Depth"
+            calculatorClass="swr.metrics.calculators.NestedBlockDepth"
+            level="method">
+      </calculator>  
+ 
+      <!-- ============================================luohui end ============================== -->
+
+      <!-- ============================================zll begin ================================== -->
+      <!-- 1sec.2sdc.3.lb,4if  剩余LB和SDC，mothed级别  compilationUnit-->
+        <metric
+            id="SEC"
+            level="method"
+            name="SEC:SizeofExactClone">
+      </metric>
+      <metric
+            id="LB"
+            level="method"
+            name="LB:LineBias">
+      </metric>
+      <metric
+            id="SDC"
+            level="method"
+            name="SDC:SizeofDuplicationChain">
+      </metric>
+      <calculator
+            name="SEC"
+            calculatorClass="swr.metrics.calculators.DuplicatedCode"
+            level="method">
+      </calculator>
+       <!-- RMI= IF -->
+      <metric
+            propagateSum="false"
+            name="Instability"
+            requires="CE,CA"
+            id="RMI"
+            level="packageFragment">
+      </metric>
+      <!-- ============================================zll end ====================================== -->
+      <!-- ============================================lichao begin ================================= -->    
+      <!-- 1Lda,2atfd,3fdp,5tcc,6noaccm,7cw,9amw,10 bovr, 11bur -->
+      <!-- nam = noaccm -->
+      <metric
+            id="LDA"
+            level="method"
+            name="Locality of Data Accesses">
+      </metric>
+      <calculator
+            name="Locality of Data Accesses"
+            calculatorClass="swr.metrics.calculators.LocalityofDataAccesses"
+            level="method">
+      </calculator>
+      <metric
+            id="ATFD"
+            level="type"
+            name="Access To Foreign Data">
+      </metric>
+      <calculator
+            name="Access To Foreign Data"
+            calculatorClass="swr.metrics.calculators.AccessToForeignData"
+            level="type">
+      </calculator>
+      <metric
+            id="ATFD_M"
+            level="method"
+            name="Access To Foreign Data">
+      </metric>
+      <calculator
+            name="Access To Foreign Data_Method"
+            calculatorClass="swr.metrics.calculators.AccessToForeignData_method"
+            level="method">
+      </calculator>
+      <metric
+            id="FDP"
+            level="type"
+            name="Foreign Data Provider">
+      </metric>
+      <calculator
+            name="Foreign Data Provider"
+            calculatorClass="swr.metrics.calculators.ForeignDataProvider"
+            level="type">
+      </calculator>
+      <metric
+            id="FDP_M"
+            level="method"
+            name="Foreign Data Provider+Method">
+      </metric>
+      <calculator
+            name="Foreign Data Provider_Method"
+            calculatorClass="swr.metrics.calculators.ForeignDataProvider_method"
+            level="method">
+      </calculator>
+      <metric
+            id="TCC"
+            level="type"
+            name="Tight Capsule Cohesion">
+      </metric>
+      <calculator
+            name="Tight Capsule Cohesion"
+            calculatorClass="swr.metrics.calculators.TightCapsuleCohesion"
+            level="type">
+      </calculator>
+     
+      <metric
+            id="NAM"
+            level="type"
+            name="Number of Accessor Methods"
+            newAvgMaxAt="packageFragmentRoot">
+      </metric>
+      <metric
+            name="Class Weight"
+            requires="NOM,NPAM,NPSF,NPSM"
+            id="CW"
+            level="type">
+      </metric>
+      <calculator
+            name="Class Weight"
+            calculatorClass="swr.metrics.calculators.ClassWeight"
+            level="type">
+      </calculator>
+      <metric
+            id="BCOR"
+            level="type"
+            name="Base-class Overriding Ratio">
+      </metric>
+      
+      <metric
+            id="BCUR"
+            level="type"
+            name="Base class Usage Ratio">
+      </metric>
+      <calculator
+            name="Base class Usage Ratio"
+            calculatorClass="swr.metrics.calculators.BaseclassUsageRatio"
+            level="type">
+      </calculator>
+     
+   
+      <!-- hide begin  FOR CW 
+      <metric
+            id="NPAM"
+            level="type"
+            name="Number of Public Access Methods">
+      </metric>
+      <metric
+            id="NPSM"
+            level="type"
+            name="Number of Public Stitics Methods">
+      </metric>
+      -->
+      <!-- hide end-->
+      
+      <!-- ============================================lichao end ==================================== -->
+      <!--
+      <metric
+            name="Number of Static Methods"
+            id="NSM"
+            level="type">
+      </metric>
+      <metric
+            propagateSum="false"
+            name="Specialization Index"
+            requires="NOM,NORM,DIT"
+            id="SIX"
+            level="type">
+      </metric>
+      <metric
+            allowDisable="false"
+            name="Number of Interfaces"
+            propagateAvg="false"
+            newAvgMaxAt="packageFragmentRoot"
+            propagateMax="false"
+            id="NOI"
+            level="compilationUnit">
+      </metric>
+              -->           
+      <metric
+            allowDisable="false"
+            name="Number of Packages"
+            id="NOP"
+            level="packageFragmentRoot">
+      </metric>
+      <metric
+            allowDisable="false"
+            id="DAM"
+            level="type"
+            name="Data Access Metric"
+            newAvgMaxAt="packageFragmentRoot"
+            requires="NOF">
+      </metric>
+      <metric
+            id="DSC"
+            level="compilationUnit"
+            name="Design Size in Classes"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="true"
+            allowDisable="false"
+            >
+      </metric>
+        <metric
+            id="ANA"
+            level="project"
+            name="Average Number of Ancestors"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="DIT">
+      </metric>
+      <metric
+            id="MFA"
+            level="type"
+            name="Measure of Functional Abstraction"
+            newAvgMaxAt="packageFragmentRoot">
+      </metric>
+      <metric
+            allowDisable="false"
+            id="CIS"
+            level="type"
+            name="Class Interface Size"
+            newAvgMaxAt="packageFragmentRoot"
+            requires="NOM">
+      </metric>
+      <metric
+            allowDisable="false"
+            id="MOA"
+            level="type"
+            name="Measure of Aggregation"
+            newAvgMaxAt="packageFragmentRoot"
+            requires="NOF">
+      </metric>                     
+      <metric
+            id="NOPM"
+            level="type"
+            name="Number of Polymorphic Methods"
+            newAvgMaxAt="packageFragmentRoot"
+            propagateAvg="true"
+            propagateMax="true"
+            propagateSum="true"
+            requires="NOM">
+      </metric>     
+       <metric
+            allowDisable="false"
+            id="CAM"
+            level="type"
+            name="Cohesion Among Methods of Class"
+            propagateAvg="true"
+            propagateMax="true"
+            propagateSum="true">
+      </metric>
+       <metric
+            allowDisable="false"
+            id="DCC"
+            level="type"
+            name="Direct Class Coupling"
+            newAvgMaxAt="packageFragmentRoot"
+            propagateAvg="true"
+            propagateMax="true"
+            propagateSum="true">
+      </metric>
+       <metric
+            allowDisable="false"
+            id="NOH"
+            level="type"
+            name="Number of Hierarchies"
+            propagateAvg="false"
+            propagateMax="false"
+            >
+      </metric>
+      <!-- qmood six  -->
+
+      <calculator
+            name="Inheritance Depth"
+            calculatorClass="swr.metrics.calculators.InheritanceDepth"
+            level="type">
+      </calculator>
+      <calculator
+            name="Lack of Cohesion of Methods"
+            calculatorClass="swr.metrics.calculators.LackOfCohesion"
+            level="type">
+      </calculator>
+      <calculator
+            name="Number of Overridden Methods"
+            calculatorClass="swr.metrics.calculators.Norm"
+            level="type">
+      </calculator>
+      <calculator
+            name="Number of Attributes"
+            calculatorClass="swr.metrics.calculators.NumberOfAttributes"
+            level="type">
+      </calculator>
+      <calculator
+            name="Number of Methods"
+            calculatorClass="swr.metrics.calculators.NumberOfMethods"
+            level="type">
+      </calculator>
+      <calculator
+            name="SpecializationIndex"
+            calculatorClass="swr.metrics.calculators.SpecializationIndex"
+            level="type">
+      </calculator>
+      <calculator
+            name="RMartinCouplings"
+            calculatorClass="swr.metrics.calculators.RMartinCouplings"
+            level="packageFragment">
+      </calculator>
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.AverageNumberOfAncestors"
+            level="project"
+            name="Average Number of Ancestors">
+      </calculator>
+
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.MeasureOfFunctionalAbstraction"
+            level="type"
+            name="Measure Of Functional Abstraction">
+      </calculator>
+ 
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.CohesionAmongMethodsOfClass"
+            level="type"
+            name="Cohesion Among Methods of Class">
+      </calculator>
+
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.DirectClassCoupling"
+            level="type"
+            name="Direct Class Coupling">
+      </calculator>
+
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.NumberOfHierarchies"
+            level="type"
+            name="Number of Hierarchies">
+            <!--        Qmood six metrics  begin -->
+      </calculator>
+            <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Reusability"
+            level="project"
+            name="Reusability">
+      </calculator>
+      <metric
+            allowDisable="false"
+            id="REU"
+            level="project"
+            name="Reusability"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="DCC, CAM, CIS, DSC">
+      </metric>
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Flexibility"
+            level="project"
+            name="Flexibility">
+      </calculator>
+      <metric
+            id="FLE"
+            level="project"
+            name="Flexibility"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            allowDisable="false"
+            requires="DAM, DCC, MOA, NOPM">
+      </metric>
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Effectiveness"
+            level="project"
+            name="Effectiveness">
+      </calculator>
+      <metric
+            id="EFE"
+            level="project"
+            name="Effectiveness"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="ANA,DAM,MOA,MFA,NOPM">
+      </metric>      
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Extendibility"
+            level="project"
+            name="Extendibility">
+      </calculator>
+      <metric
+            id="EXT"
+            level="project"
+            name="Extendibility"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="ANA, DCC, MFA, NOPM">
+      </metric>
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Functionality"
+            level="project"
+            name="Functionality">
+      </calculator>
+      <metric
+            id="FUN"
+            level="project"
+            name="Functionality"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="CAM, NOPM, CIS, DSC, NOH">
+      </metric>
+      <calculator
+            calculatorClass="swr.metrics.calculators.qmood.Understandability"
+            level="project"
+            name="Understandability">
+      </calculator>
+      <metric
+            allowDisable="false"
+            id="ENT"
+            level="project"
+            name="Understandability"
+            propagateAvg="false"
+            propagateMax="false"
+            propagateSum="false"
+            requires="ANA, DAM, DCC, CAM, NOPM, NONM, DSC">
+      </metric>
+   </extension>
+   <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  度量项结束   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+   <extension
+         point="SWRefactor.exporters">
+      <exporter
+            name="Metrics flat"
+            namespace="http://metrics.sourceforge.net/2003/Metrics-First-Flat"
+            description="exports each metric with a flat list of values for the appropriate descendants"
+            class="swr.metrics.internal.xml.MetricsFirstExporter">
+      </exporter>
+      <exporter
+            name="Windows Compliant"
+            namespace="http://metrics.sourceforge.net/2003/Metrics-First-Flat"
+            description="exports each metric with a flat list of values for the appropriate descendants compatible with windows naming schema"
+            class="swr.metrics.internal.xml.WinCompliantExporter">
+      </exporter>
+      <exporter
+            name="Source tree"
+            namespace="http://metrics.sourceforge.net/2003/Source-hierarchical"
+            description="exports the selected element and its subtree, with metrics at each level"
+            class="swr.metrics.internal.xml.XMLSourceTreeExporter">
+      </exporter>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="swr.metrics.core.MetricsPreferenceInitializer"/>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <viewShortcut id="swr.metrics.ui.MetricsView"/>
+         <viewShortcut id="swr.metrics.ui.layeredpackagegraph.LayeredPackageTableView"/>
+      </perspectiveExtension>
+      <perspectiveExtension targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
+         <viewShortcut id="swr.metrics.ui.MetricsView"/>
+         <viewShortcut id="swr.metrics.ui.layeredpackagegraph.LayeredPackageTableView"/>
+      </perspectiveExtension>
+      <perspectiveExtension targetID="org.eclipse.pde.ui.PDEPerspective">
+         <viewShortcut id="swr.metrics.ui.MetricsView"/>
+         <viewShortcut id="swr.metrics.ui.layeredpackagegraph.LayeredPackageTableView"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="SWRefactor.swr.perspective.RefactorPerspective"
+            icon="icons/"
+            id="SWRefactor.swr.perspective.perspective"
+            name="RefactorPerspectives">
+      </perspective>
+      <perspective
+            class="SWRefactor.swr.perspective.DeBugsPerspective"
+            id="SWRefactor.swr.perspective.DeBugsPerspective"
+            name="DebugPerspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="SWRefactor.contribution1"
+            objectClass="org.eclipse.core.runtime.IAdaptable">
+         <menu
+               id="SWRefactor.menu1"
+               label="Show Metric"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+    <!--     <action
+               class="swrefactor.popup.actions.MetricDemonstrateAction"
+               enablesFor="1"
+               id="SWRefactor.newAction"
+               label="Metric"
+               menubarPath="SWRefactor.menu1/group1">
+         </action>       -->
+      </objectContribution>
+   </extension>
+	
+</plugin>

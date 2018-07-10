@@ -1,0 +1,284 @@
+package swr.actions.combine.export;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+import gr.uom.java.distance.DistanceMatrix;
+import gr.uom.java.distance.MyClass;
+import gr.uom.java.distance.MySystem;
+import swr.actions.combine.CombinationPiece;
+import swr.actions.combine.CombinedMembers;
+
+public class ExportDataSetAction{
+	//private String FILE_PATH = "D://卜依凡//学习//论文-拆分God Class//词向量//trainset//trainset_0402//";
+	
+	public void exportDataSet(String dir,MySystem system, ArrayList<CombinationPiece> pieces, 
+			int index0) throws Exception{
+		String trainset_dir = dir+"//";
+		String mnTrainFile = "//train//mn_train.txt";
+		String lbTrainFile = "//train//lb_train.txt";
+		String jcTrainFile = "//train//jc_train.txt";
+		String mnTestFile = "//test//mn_train.txt";
+		String lbTestFile = "//test//lb_train.txt";
+		String jcTestFile = "//test//jc_train.txt";
+		//String mnFullFile = dir+"full_mn//mn_full.txt";
+		ArrayList<CombinationPiece> filtedPieces = new ArrayList<CombinationPiece>();
+		DistanceMatrix distanceMatrix = new DistanceMatrix(system);
+
+		for(int i=0; i<pieces.size(); i++){
+			if(i==index0)
+				continue;
+			if(filtPiece(pieces.get(i),pieces.get(index0))!=null)
+				filtedPieces.add(pieces.get(i));
+		}
+		String newCUName = pieces.get(index0).getUnit().getElementName();
+
+		String path1 = trainset_dir + newCUName+mnTrainFile;
+		String path2 = trainset_dir + newCUName+lbTrainFile;
+		exportMLTrainSet(path1,path2,filtedPieces,index0);
+		String path3 = trainset_dir + newCUName+mnTestFile;
+		String path4 = trainset_dir + newCUName+lbTestFile;
+		exportMLTestSet(path3,path4,pieces,index0);
+		String path5 = trainset_dir + newCUName+jcTrainFile;
+		String path6 = trainset_dir + newCUName+jcTestFile;
+		exportJCTrainSet(system, distanceMatrix, path5, filtedPieces, index0);
+		exportJCTestSet(system, distanceMatrix, path6, pieces, index0);
+
+		//exportFullMN(mnFullFile,pieces);
+	}
+	
+	private CombinationPiece filtPiece(CombinationPiece piece, CombinationPiece piece0){
+		for(String formerClass:piece.getFormerClasses()){
+			for(String formerClass0:piece0.getFormerClasses()){
+				if(formerClass.equals(formerClass0)){
+					System.out.println("delete piece: "+piece.getUnit().getElementName());
+					return null;
+				}
+			}
+		}
+		return piece;
+	}
+	
+	private BufferedWriter getWriter(String filePath) throws IOException{
+		File file = new File(filePath);
+		if(!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+		if(!file.exists())
+			file.createNewFile();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+		return writer;
+	}
+	
+	public void exportFullMN(String dir, ArrayList<CombinationPiece> pieces) throws IOException{
+		String mnFullFile = dir+"//full_mn//mn_full.txt";
+		BufferedWriter writer = getWriter(mnFullFile);
+		for(CombinationPiece piece:pieces){
+			ArrayList<CombinedMembers> members = piece.getMembers();
+			for(int i=0; i<members.size(); i++){
+				CombinedMembers cmember1 = members.get(i);
+				String token1 = tokenize(cmember1.getMemberName());
+				writer.write(token1+"\n");
+			}
+		}
+		writer.flush();
+		writer.close();
+	}
+	
+	public void exportMLTrainSet(String mnPath, String lbPath,
+			ArrayList<CombinationPiece> pieces, int index) throws IOException{
+		BufferedWriter writer1 = getWriter(mnPath);
+		BufferedWriter writer2 = getWriter(lbPath);
+		for(int i=0; i<pieces.size(); i++){
+			CombinationPiece piece = pieces.get(i);
+			writeln(piece, writer1, writer2);
+		}
+		writer1.flush();
+		writer1.close();
+		writer2.flush();
+		writer2.close();
+	}
+	
+	public void exportMLTestSet(String mnPath, String lbPath,
+			ArrayList<CombinationPiece> pieces, int index) throws IOException{
+		BufferedWriter writer1 = getWriter(mnPath);
+		BufferedWriter writer2 = getWriter(lbPath);
+		
+		CombinationPiece piece = pieces.get(index);
+		//System.out.println("ml test"+i+": "+piece.getUnit().getElementName());
+		writeln(piece, writer1, writer2);
+		
+		writer1.flush();
+		writer1.close();
+		writer2.flush();
+		writer2.close();
+	}
+	
+	public void exportJCTrainSet(MySystem system, DistanceMatrix distanceMatrix, String jcPath,
+			ArrayList<CombinationPiece> pieces, int index) throws Exception{
+		
+		BufferedWriter writer = getWriter(jcPath);
+		for(int i=0; i<pieces.size(); i++){
+			CombinationPiece piece =pieces.get(i);
+			double[][] jaccard = buildJaccardMatrix(piece, system, distanceMatrix);
+			writerMatrix(piece.getCombineSize(), jaccard,writer);
+		}
+		writer.close();
+	}
+	
+//	public void exportJCTestSet(MySystem system, double[][] jaccards, String jcPath,
+//			ArrayList<CombinationPiece> pieces, int testIndex) throws IOException{
+//		BufferedWriter writer = getWriter(jcPath);
+//		//for(int i:testIndex){
+//			//CombinationPiece piece = pieces.get(i);
+//			//System.out.println("jc test"+i+": "+piece.getUnit().getElementName());
+//		writerMatrix(jaccards,writer);
+//		//}
+//		writer.close();
+//	}
+	
+	public void exportJCTestSet(MySystem system, DistanceMatrix distanceMatrix, String jcPath,
+			ArrayList<CombinationPiece> pieces, int testIndex) throws Exception{
+		BufferedWriter writer = getWriter(jcPath);
+		double[][] jaccards = buildJaccardMatrix(pieces.get(testIndex), system, distanceMatrix);
+		writerMatrix(pieces.get(testIndex).getCombineSize(),jaccards,writer);
+		writer.close();
+	}
+	
+	private void openWrongDialog(String unit1, String unit2){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		final String u1= unit1;
+		final String u2 = unit2;
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Wrong:NullException");
+ 		        dialog.setMessage("class1:"+u1+"\nclass2:"+u2);
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+		return;
+	}
+	
+	public double[][] buildJaccardMatrix(CombinationPiece piece, 
+			MySystem system, DistanceMatrix distanceMatrix) throws Exception{
+		String[] units = piece.getFormerClasses();
+		int size = piece.getCombineSize();
+		MyClass[] classes = new MyClass[size];
+		for(int i=0; i<size; i++){
+			MyClass class1 = system.getClass(units[i]);
+			if(class1==null){
+				System.out.println(units[i]);
+				throw new Exception();
+			}
+			classes[i]=class1;
+		}
+		double[][] jaccard = distanceMatrix.getJaccardDistanceMatrix(classes,false);
+		
+		if(jaccard==null)
+			throw new Exception();
+		if(jaccard.length!=piece.getMembers().size()){
+			System.out.println(piece.getUnit().getElementName());
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<piece.getMembers().size(); i++){
+				System.out.println(piece.getMembers().get(i));
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			distanceMatrix.getJaccardDistanceMatrix(classes, true);
+			throw new Exception();
+		}
+		return jaccard;
+	}
+	
+	private void writerMatrix(int size, double[][] jaccard, BufferedWriter writer) throws IOException{
+		writer.write(size+": ");
+		for (int k=0; k < jaccard.length; k++) {
+			for(int j=0; j<jaccard[k].length; j++){
+				writer.write(String.valueOf(jaccard[k][j])+" ");
+			}
+			writer.write(";");
+		}
+		writer.write("\n");
+		writer.flush();
+	}
+	
+	private void writeln(CombinationPiece piece, BufferedWriter writer1, BufferedWriter writer2) throws IOException{
+		ArrayList<CombinedMembers> members = piece.getMembers();
+
+		for(int i=0; i<members.size(); i++){
+			for(int j=i+1; j<members.size(); j++){
+				CombinedMembers cmember1 = members.get(i);
+				CombinedMembers cmember2 = members.get(j);
+				String token1 = tokenize(cmember1.getMemberName());
+				String token2 = tokenize(cmember2.getMemberName());
+				writer1.write(token1+".\t");
+				writer1.write(token2+".\n");
+				if(cmember1.getFormerClass() != cmember2.getFormerClass())
+					writer2.write("0"+"\n");
+				else
+					writer2.write("1"+"\n");
+			}
+			
+		}
+	}
+	
+	public String tokenize(String line){
+        String[] splitString = line.split("((?<=\\.)|(?=\\.))| |((?<=\\{)|(?=\\{))|((?<=\\})|(?=\\}))|((?<=\\()|(?=\\())|((?<=\\))|(?=\\)))|((?<=\\[)|(?=\\[))|((?<=\\])|(?=\\]))|((?<=\\;)|(?=\\;))|((?<=\\,)|(?=\\,))|((?<=\\>)|(?=\\>))|((?<=\\<)|(?=\\<))");
+        String rline = "";
+		for(String token : splitString){
+			token = token.trim();
+			if (token != null && !(token.equals(""))){
+				token = token.replaceAll("\t", "");
+				token = token.replaceAll(" ", "");
+				token = token.replaceAll("/", " ");
+				token = token.replaceAll("\n", " ");
+				boolean isWord=token.matches("[a-zA-Z0-9_$]+");
+				boolean isCapitalWord = token.matches("[A-Z_$]+")||token.matches("[A-Z]+")||token.matches("[A-Z_]+")||token.matches("[A-Z$]+");
+				if(isWord)
+					if(!isCapitalWord){
+						token = token.replaceAll("[A-Z0-9]", " $0");
+						token = token.replaceAll("[_$]", " $0 ");
+						token = token.toLowerCase();
+						rline += token + " ";
+					}
+					else{
+						token = token.toLowerCase();
+						token = token.replaceAll("[0-9_$]", " $0 ");
+						rline += token + " ";
+					}
+			}
+			
+		}
+		rline = rline.trim();
+		rline = rline.replaceAll("[_$]", "");
+		rline = rline.replaceAll("   ", " ");
+		rline = rline.replaceAll("  ", " ");
+		return rline;
+	}
+	
+	void openEndDialog(){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Finish");
+ 		        dialog.setMessage("Export Finished!");
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+	}
+
+}

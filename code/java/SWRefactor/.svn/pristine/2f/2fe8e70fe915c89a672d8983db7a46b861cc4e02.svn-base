@@ -1,0 +1,195 @@
+package swr.actions.combine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.jdt.core.Flags;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IField;
+import org.eclipse.jdt.core.IImportDeclaration;
+import org.eclipse.jdt.core.IJavaModelStatus;
+import org.eclipse.jdt.core.IJavaModelStatusConstants;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.internal.core.CreateFieldOperation;
+import org.eclipse.jdt.internal.core.CreateMethodOperation;
+
+import swr.actions.aider.ActionsAider;
+
+@SuppressWarnings("restriction")
+public class PreCombination {
+	
+	public ArrayList<ICompilationUnit> filteCUPool(List<ICompilationUnit> units) throws JavaModelException{
+		ArrayList<ICompilationUnit> CUPool = new ArrayList<ICompilationUnit>();
+
+		for(int i=0; i<units.size(); i++)
+			if(preparable(units.get(i)))
+				CUPool.add(units.get(i));	
+
+		//System.out.println();
+		return CUPool;
+	}
+	
+	boolean preparable(ICompilationUnit unit) throws JavaModelException{
+	//	System.out.println(unit.getElementName());
+		IType mainType = ActionsAider.getMainType(unit);
+		if(!mainType.exists()){
+		//	System.out.println("unit has no type");
+			return false;
+		}
+
+		IField[] fields = mainType.getFields();
+		for(IField field:fields){
+			if((field.getFlags()&Flags.AccFinal)!=0){
+			//	System.out.println("field "+field.getElementName()+" 鏄痜inal灞炴��");
+			//	System.out.println(field.getSource().indexOf('='));
+				if(field.getSource().indexOf('=')==-1){
+				//	System.out.println("娌℃湁鍒濆鍖�");
+					return false;
+				}
+//				if(field instanceof SourceField){
+//					SourceFieldElementInfo info = (SourceFieldElementInfo) ((SourceField)field).getElementInfo();
+//					System.out.println(info);
+//				}
+			}
+		}
+		if(mainType.isInterface()||mainType.isEnum())
+			return false;
+		if(unit.getTypes().length>1)
+			return false;
+		return true;
+	}
+	
+	public boolean preCombine(ICompilationUnit[] units) throws JavaModelException{
+		for(int i=0; i<units.length; i++){
+			for(int j=i+1; j<units.length; j++){
+				if(!preCombine(units[i],units[j]))
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean preCombine(ICompilationUnit unit1, ICompilationUnit unit2) throws JavaModelException{
+		boolean combinable = true;
+		
+		if(!unit1.getParent().equals(unit2.getParent())){
+			return false;
+		}
+		
+		if(unit1.getPath().equals(unit2.getPath())){
+			return false;
+		}
+		
+		IImportDeclaration[] imports1 = unit1.getImports();
+		IImportDeclaration[] imports2 = unit2.getImports();
+		if(checkImportLastFragment(imports1, imports2)){
+			return false;
+		}
+		
+		IType mainType1 = ActionsAider.getMainType(unit1);
+		IType mainType2 = ActionsAider.getMainType(unit2);
+
+		if(CombineAction.isGeneric(mainType1) && CombineAction.isGeneric(mainType2)){
+		//	System.out.print("浜岃�呴兘鏄硾鍨嬬被");
+			return false;
+		}
+		
+		if(!isBothAbstractCondition(mainType1, mainType2)){
+			return false;
+		}
+		
+		//纭畾涓や釜鏂囦欢涓殑field涓嶅啿绐�
+		IField[] fields1 = mainType1.getFields();
+		if(checkFieldCollision(fields1, mainType2)){
+			return false;
+		}
+		
+		//纭畾涓や釜鏂囦欢涓殑method涓嶅啿绐�
+		IMethod[] methods1 = mainType1.getMethods();
+		if(checkMethodCollision(methods1, mainType2)){
+			return false;
+		}
+
+		//鐖剁被闂锛氬彧鑳芥湁涓�涓被鏈夌埗绫伙紝鍚﹀垯灏变笉鑳藉悎骞�
+		if((mainType1.getSuperclassName()!=null)&&(mainType2.getSuperclassName()!=null))
+			return false;
+		
+//		//鏋勯�犲嚱鏁伴棶棰橈細
+//		//1. Class1鏈夌埗绫伙紝鍏剁埗绫绘湁鐗瑰畾鐨勬瀯閫犲嚱鏁扳�斺��>鍒欐柊绫荤殑鏋勯�犲嚱鏁板繀椤诲湪鐖剁被澹版槑鐨勬瀯閫犲嚱鏁拌寖鍥村唴锛堢壒鎸囧弬鏁颁釜鏁颁笌绫诲瀷锛�
+//		//3. 
+//		IType superType1 = getSuperType(mainType1);
+//		IType superType2 = getSuperType(mainType2);
+//		if(!superType1.getFullyQualifiedName().equals("java.lang.Object")) {
+//			if(checkConstructor1(mainType2, superType1))
+//				return false;
+//		}else if(!superType2.getFullyQualifiedName().equals("java.lang.Object")) {
+//			if(checkConstructor1(mainType1, superType2))
+//				return false;
+//		}
+//		
+//		//2. Class1涓病鏈変换浣曟瀯閫犲嚱鏁帮紙榛樿鏋勯�犲嚱鏁帮級锛孋lass2鏈夋湁鍙傛瀯閫犲嚱鏁�
+//		if(checkConstructor2(mainType1, mainType2))
+//			return false;
+//		if(checkConstructor2(mainType2, mainType1))
+//			return false;
+		return combinable;
+	}
+	
+	private boolean isBothAbstractCondition(IType type1, IType type2) throws JavaModelException{
+		if((type1.getFlags() & Flags.AccAbstract)!=0){
+			if((type2.getFlags() & Flags.AccAbstract) !=0)
+				return true;
+			return false;
+		}else{
+			if((type2.getFlags() & Flags.AccAbstract) !=0)
+				return false;
+			return true;
+		}
+	}
+	
+	private boolean checkImportLastFragment(IImportDeclaration[] imports1, IImportDeclaration[] imports2){
+		for(IImportDeclaration import1: imports1){
+			String longStr1 = import1.getElementName();
+			String shortStr1 = longStr1.substring(longStr1.lastIndexOf('.')+1);
+			for(IImportDeclaration import2: imports2){
+				String longStr2 = import2.getElementName();
+				String shortStr2 = longStr2.substring(longStr2.lastIndexOf('.')+1);
+				
+				if(shortStr1.equals(shortStr2)){
+					return true;
+				}
+				
+			}
+		}
+		return false;
+	}
+	
+	private boolean checkFieldCollision(IField[] fields1, IType mainType2) throws JavaModelException{
+		for(IField field1:fields1){
+			CreateFieldOperation createField = new CreateFieldOperation(mainType2, field1.getSource(), false);
+			IJavaModelStatus status = createField.verify();
+			//System.out.println(status.getMessage());
+			if(status.getCode() == IJavaModelStatusConstants.NAME_COLLISION){
+				//System.out.println("Field鏈夊啿绐侊紒涓嶈兘鍚堝苟锛�");
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean checkMethodCollision(IMethod[] methods1, IType mainType2) throws JavaModelException{
+		for(IMethod method1:methods1){
+			CreateMethodOperation createMethod = new CreateMethodOperation(mainType2, method1.getSource(), false);
+			IJavaModelStatus status = createMethod.verify();
+			//System.out.println(status.getMessage());
+			if(status.getCode() == IJavaModelStatusConstants.NAME_COLLISION){
+			//	System.out.println("Method鏈夊啿绐侊紒涓嶈兘鍚堝苟锛�");
+				return true;
+			}
+		}
+		return false;
+	}
+}

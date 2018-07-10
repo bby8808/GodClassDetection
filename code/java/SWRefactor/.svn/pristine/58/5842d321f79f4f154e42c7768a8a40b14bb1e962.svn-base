@@ -1,0 +1,12 @@
+package swr.actions.combine;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.jdt.core.IJavaProject;
+
+public class AllCombinations {
+	public static Map<IJavaProject, ArrayList<CombinationPiece>> combinations = new HashMap<IJavaProject, ArrayList<CombinationPiece>>();
+	
+}

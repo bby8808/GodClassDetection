@@ -1,0 +1,56 @@
+package swr.actions;
+
+import org.eclipse.core.resources.ISaveContext;
+import org.eclipse.core.resources.ISaveParticipant;
+import org.eclipse.core.runtime.CoreException;
+
+
+/*
+ * http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcore%2Fresources%2FISaveParticipant.html
+ */
+
+public class SaveAction implements ISaveParticipant{
+
+    @Override
+    public void doneSaving(ISaveContext arg0) {
+        // TODO Auto-generated method stub
+//    		System.out.println("doneSaving");
+        
+    }
+
+    @Override
+    public void prepareToSave(ISaveContext arg0) throws CoreException {
+        // TODO Auto-generated method stub
+//    		System.out.println("prepareToSave");
+    }
+
+    @Override
+    public void rollback(ISaveContext arg0) {
+        // TODO Auto-generated method stub
+//    		System.out.println("rollback");
+    }
+
+    @Override
+    public void saving(ISaveContext context) throws CoreException {
+        // TODO Auto-generated method stub
+//    		System.out.println("saving");
+    		switch (context.getKind()) {
+            case ISaveContext.FULL_SAVE:
+//            		System.out.println("saving.FULL_SAVE");
+            		break;
+            case ISaveContext.PROJECT_SAVE:
+            		// get the project related to this save operation
+//            		System.out.println("saving.PROJECT_SAVE");
+            		//IProject project = context.getProject();
+            		// save its information, if necessary
+            		break;
+            case ISaveContext.SNAPSHOT:
+            		// This operation needs to be really fast because
+            		// snapshots can be requested frequently by the
+            		// workspace.
+//            		System.out.println("saving.SNAPSHOT");
+            		break;
+         }
+    }
+
+}

@@ -1,0 +1,7 @@
+source.. = src/
+output.. = bin/
+bin.includes = plugin.xml,\
+               META-INF/,\
+               .,\
+               icons/,\
+               lib/org.eclipse.draw2d_3.5.0.jar

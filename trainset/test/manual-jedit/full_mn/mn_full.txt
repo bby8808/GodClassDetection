@@ -1,0 +1,8807 @@
+longfile error
+longfile truncate
+longfile gnu
+longfile bsd
+curr size
+curr bytes
+one buf
+long file mode
+writing started
+in entry
+ar output stream
+set long file mode
+put next entry
+close entry
+write
+write
+write
+filename
+file date
+user id
+group id
+mode
+size
+magic
+file
+default file mode
+millis per second
+ar entry
+ar entry
+ar entry
+ar entry
+equals
+equals
+hash code
+get filename
+set filename
+set mode
+get user id
+set user id
+get group id
+set group id
+set ids
+set file date
+set file date
+get file date
+get file
+get mode
+get size
+set size
+write entry header
+parse ar header
+dest file
+base dir
+long file mode
+filesets
+long warning given
+create ar file set
+set dest file
+set basedir
+set longfile
+execute
+ar file
+archive is up to date
+parse octal
+parse name
+get name bytes
+get long bytes
+get integer bytes
+get octal bytes
+real size property
+disk size property
+file sets
+base dir
+create file set
+set base dir
+set real size property
+set disk size property
+execute
+control file sets
+data file sets
+base dir
+dest file
+temp dir
+delete temp files
+include md 5sums
+control tar gz
+data tar gz
+deb package
+create control file set
+create data file set
+set dest file
+set base dir
+set temp dir
+set delete temp files
+set include md 5sums
+execute
+package is up to date
+prepare task
+namelen
+modelen
+uidlen
+gidlen
+chksumlen
+sizelen
+magiclen
+modtimelen
+unamelen
+gnamelen
+devlen
+lf oldnorm
+lf normal
+lf link
+lf symlink
+lf chr
+lf blk
+lf dir
+lf fifo
+lf contig
+tmagic
+gnu tmagic
+name
+mode
+user id
+group id
+size
+mod time
+check sum
+link flag
+link name
+magic
+user name
+group name
+dev major
+dev minor
+tar header
+clone
+get name
+parse octal
+parse name
+get name bytes
+get octal bytes
+get long octal bytes
+get check sum octal bytes
+installer
+os tasks
+app name
+app version
+caption
+choose directory
+select components
+progress
+cancel button
+prev button
+next button
+pages
+current page
+padding
+swing install
+install
+page changed
+lower byte mask
+upper byte mask
+setmask
+clearmask
+greater icost
+lesser icost
+small thresh
+depth thresh
+qsort stack size
+m crc
+m in use
+m seq to unseq
+m unseq to seq
+m selector
+m selector mtf
+m mtf freq
+m current char
+m run length
+m closed
+m incs
+m block randomised
+m block size 1 0 0k
+m bs buff
+m bs live
+m last
+m orig ptr
+m allowable block size
+m block
+m block c r c
+m combined c r c
+m bs stream
+m first attempt
+m ftab
+m n in use
+m n m t f
+m quadrant
+m szptr
+m work done
+m work factor
+m work limit
+m zptr
+c b zip 2 output stream
+c b zip 2 output stream
+hb make code lengths
+calculate weight
+panic
+close
+finalize
+flush
+write
+allocate compress structures
+bs finished with stream
+bs put int v s
+bs put u char
+bs putint
+bs set stream
+bs w
+do reversible transformation
+end block
+end compression
+full gt u
+generate m t f values
+hb assign codes
+init block
+initialize
+main sort
+make maps
+med 3
+move to front code and send
+q sort 3
+randomise block
+send m t f values
+simple sort
+vswap
+write run
+props
+buf
+is running from exclam
+error and exit
+main
+install
+get property
+get integer property
+copy
+installer
+console install
+read line
+invalid header exception
+invalid header exception
+debug
+has hit e o f
+entry size
+entry offset
+one buf
+read buf
+buffer
+curr entry
+e factory
+tar input stream
+tar input stream
+tar input stream
+set debug
+set entry factory
+set buffer debug
+close
+get record size
+available
+skip
+mark supported
+mark
+reset
+get next entry
+read
+read
+read
+copy entry contents
+quitj edit server
+main
+os
+get install directory
+get o s tasks
+mkdirs
+get operating system
+debug
+curr size
+curr bytes
+one buf
+record buf
+assem len
+assem buf
+buffer
+tar output stream
+tar output stream
+tar output stream
+set debug
+set buffer debug
+finish
+close
+get record size
+put next entry
+close entry
+write
+write
+write
+write e o f record
+c r c 3 2 t a b l e
+m global crc
+crc
+get final c r c
+initialise c r c
+update c r c
+default rcdsize
+default blksize
+in stream
+out stream
+block buffer
+curr blk idx
+curr rec idx
+block size
+record size
+recs per block
+debug
+tar buffer
+tar buffer
+tar buffer
+tar buffer
+tar buffer
+tar buffer
+initialize
+get block size
+get record size
+set debug
+is e o f record
+skip record
+read record
+read block
+get current block num
+get current record num
+write record
+write record
+write block
+flush block
+close
+installer
+non interactive install
+installer
+progress
+install dir
+os tasks
+size
+components
+install thread
+run
+install component
+file
+header
+tar entry
+tar entry
+tar entry
+initialize
+equals
+is descendent
+get header
+get name
+set name
+get user id
+set user id
+get group id
+set group id
+get user name
+set user name
+get group name
+set group name
+set ids
+set names
+set mod time
+set mod time
+get mod time
+get file
+get size
+set size
+adjust entry name
+is directory
+get file tar header
+get directory entries
+compute check sum
+write entry header
+parse tar header
+name tar header
+start block state
+rand part a state
+rand part b state
+rand part c state
+no rand part a state
+no rand part b state
+no rand part c state
+m crc
+m in use
+m seq to unseq
+m unseq to seq
+m selector
+m selector mtf
+m unzftab
+m limit
+m base
+m perm
+m min lens
+m stream end
+m current char
+m current state
+m r n to go
+m r t pos
+m t pos
+i 2
+count
+ch prev
+ch 2
+j 2
+z
+m block randomised
+m block size 1 0 0k
+m bs buff
+m bs live
+m input
+m computed block c r c
+m computed combined c r c
+m last
+m ll 8
+m n in use
+m orig ptr
+m stored block c r c
+m stored combined c r c
+m tt
+c b zip 2 input stream
+bad block header
+block overrun
+cadvise
+compressed stream e o f
+crc error
+read
+set decompress structure sizes
+setup block
+setup no rand part a
+setup no rand part b
+setup no rand part c
+setup rand part a
+setup rand part b
+setup rand part c
+get and move to front decode
+bs finished with stream
+read variable sized int
+read unsigned char
+read int
+bs r
+bs set stream
+complete
+end block
+hb create decode tables
+init block
+initialize
+make maps
+recv decoding tables
+build in use table
+set maximum
+advance
+done
+message
+error
+emptylist
+name
+extensions
+os types
+mime types
+icon file
+role
+is bundle
+set name
+get name
+set extensions
+get extensions
+set o s types
+get o s types
+set mime types
+get mime types
+set icon file
+get icon file
+set role
+get role
+set bundle
+is bundle
+bundle properties
+version
+document
+file utils
+property list writer
+set java version
+write file
+create d o m
+build d o m
+write document types
+write services
+write classpath
+write java properties
+create node
+write key string pair
+write key
+write string
+write array
+folder name
+name
+locale
+file lists
+file sets
+set name
+get name
+set folder name
+get folder name
+set locale
+get locale
+add file list
+get file lists
+add file set
+get file sets
+emptylist
+port name
+message
+menu item
+send types
+return types
+key equivalent
+user data
+timeout
+set port name
+get port name
+set message
+get message
+set menu item
+get menu item
+set send types
+get send types
+set return types
+get return types
+set key equivalent
+get key equivalent
+set user data
+get user data
+set timeout
+get timeout
+default stub
+aboutmenu key
+menu items
+m app icon
+m root dir
+m java file lists
+m jar file sets
+m exec file lists
+m exec file sets
+m resource file lists
+m resource file sets
+m jar file lists
+m java file sets
+m extra class path file lists
+m extra class path file sets
+m jar attrs
+m exec attrs
+m extra class path attrs
+m help books
+m verbose
+m show plist
+m stub file
+m anti aliased graphics
+m anti aliased text
+m live resize
+m screen menu bar
+m growbox
+m growbox intrudes
+bundle dir
+m contents dir
+m mac os dir
+m resources dir
+m java dir
+bundle properties
+m file utils
+set arguments
+set stub file
+set dir
+set name
+set short name
+set main class
+set working directory
+set icon
+set bundleid
+set developmentregion
+set aboutmenuname
+set small tabs
+set vmoptions
+set antialiasedgraphics
+set antialiasedtext
+set screenmenu
+set growbox
+set growboxintrudes
+set liveresize
+set type
+set signature
+set jvmversion
+set info string
+set short info string
+set verbose
+set show plist
+set build
+set version
+set help book folder
+set help book name
+set jars
+set jar
+set execs
+set extraclasspath
+set chmod
+add jarfileset
+add jarfilelist
+add execfileset
+add execfilelist
+add resourcefileset
+add resourcefilelist
+add javafileset
+add javafilelist
+add extraclasspathfileset
+add extraclasspathfilelist
+add configured java property
+add configured document type
+add configured service
+add configured help book
+execute
+set executable
+use old property names
+process jar attrs
+process jar file sets
+process jar file lists
+process extra class path attrs
+process extra class path file sets
+process extra class path file lists
+process exec attrs
+process exec file sets
+process resource file sets
+process java file sets
+process copying file sets
+process exec file lists
+process resource file lists
+process java file lists
+process copying file lists
+copy help books
+copy application stub
+write info plist
+write pkg info
+bundle path
+m application name
+m main class
+m c f bundle name
+m c f bundle short version string
+m c f bundle get info string
+m c f bundle version
+m c f help book folder
+m c f help book name
+m c f bundle allow mixed localizations
+m c f bundle executable
+m c f bundle development region
+m c f bundle package type
+m c f bundle signature
+m j v m version
+m c f bundle info dictionary version
+m c f bundle icon file
+m c f bundle identifier
+m v m options
+m working directory
+m arguments
+m class path
+m extra class path
+m java properties
+m document types
+m services
+add java property
+get java properties
+add to class path
+add to extra class path
+get extra class path
+create document type
+get document types
+add document type
+create service
+get services
+add service
+set application name
+get application name
+set c f bundle name
+get c f bundle name
+set c f bundle version
+get c f bundle version
+set c f bundle info dictionary version
+get c f bundle info dictionary version
+set c f bundle identifier
+get c f bundle identifier
+set c f bundle get info string
+get c f bundle get info string
+set c f bundle short version string
+get c f bundle short version string
+set c f bundle icon file
+get c f bundle icon file
+set c f bundle allow mixed localizations
+get c f bundle allow mixed localizations
+set c f bundle executable
+get c f bundle executable
+set c f bundle development region
+get c f bundle development region
+set c f bundle package type
+get c f bundle package type
+set c f bundle signature
+get c f bundle signature
+set c f bundle help book folder
+get c f bundle help book folder
+set c f bundle help book name
+get c f bundle help book name
+set main class
+get main class
+set j v m version
+get j v m version
+set v m options
+get v m options
+set working directory
+get working directory
+set arguments
+get arguments
+get class path
+name
+value
+java property
+set name
+get name
+set value
+get value
+file
+known last modified
+settings x m l
+settings x m l
+file exists
+load
+open saver
+has changed on disk
+to string
+directory
+resource
+mode catalog handler
+resolve entity
+start element
+instantiate mode
+name
+label
+members
+sort
+option group
+option group
+get name
+get label
+add option group
+add option pane
+add option pane
+get members
+get member
+get member index
+get member count
+set sort
+insertion sort
+encoding
+loaded
+abbrevs changed
+abbrevs mod time
+expand on input
+global abbrevs
+modes
+m pp
+get expand on input
+set expand on input
+expand abbrev
+get global abbrevs
+set global abbrevs
+get mode abbrevs
+set mode abbrevs
+add global abbrev
+add mode abbrev
+save
+abbrevs
+load
+count newlines
+expand abbrev
+load abbrevs
+save abbrevs
+save abbrevs
+timer
+set interval
+stop
+action performed
+autosave
+name
+args
+j edit abstract edit action
+j edit abstract edit action
+get name
+set name
+invoke
+invoke
+to string
+perspective filename
+dirty
+enabled
+perspective x m l
+is perspective dirty
+set perspective dirty
+is perspective enabled
+set perspective enabled
+load perspective
+save perspective
+killring x m l
+j edit kill ring
+load
+save
+system macro path
+user macro path
+macro handlers
+macro action set
+macro hierarchy
+macro hash
+last macro
+show run script dialog
+run script
+message
+error
+input
+input
+confirm
+confirm
+load macros
+register handler
+unregister handler
+get handlers
+get handler for path name
+get handler
+get macro hierarchy
+get macro action set
+get macro
+get last macro
+set last macro
+record temporary macro
+record macro
+stop recording
+run temporary macro
+load macros
+add macro
+record macro
+source
+e b message
+e b message
+get source
+to string
+param string
+plugin
+uri
+service name
+service class
+code
+state stack
+cached services
+service list handler
+resolve entity
+characters
+start element
+end element
+start document
+get cached services
+push element
+peek element
+pop element
+edit action
+edit action
+get label
+get mouse over text
+invoke
+is toggle
+is selected
+no repeat
+no record
+no remember last
+get code
+buffer
+shortcut
+pos
+position
+get shortcut
+get position
+marker
+set shortcut
+create position
+remove position
+set position
+j edit home
+settings directory
+jar cache directory
+props mod time
+prop mgr
+server
+background
+action context
+built in action set
+plugin errors
+plugin error lock
+jars
+property manager
+startup time
+save caret
+input handler
+keymap manager
+buffer set manager
+sort buffers
+sort by name
+buffer count
+buffers first
+buffers last
+buffer hash
+buffer list lock
+edit bus ordering lock
+view count
+views first
+views last
+active view
+startup done
+additional files
+main thread
+get version
+get build
+main
+get current language
+get properties
+get property
+get property
+get property
+get boolean property
+get boolean property
+get integer property
+get integer property
+get double property
+get font property
+get font property
+get color property
+get color property
+set color property
+set property
+set temporary property
+set boolean property
+set integer property
+set double property
+set font property
+unset property
+reset property
+properties changed
+get not loaded plugin j a rs
+get plugin
+get plugin
+get plugins
+get plugin j a rs
+get plugin j a r
+add plugin j a r
+add plugin j a rs from directory
+remove plugin j a r
+get action context
+add action set
+remove action set
+get built in action set
+get action sets
+get action
+get action set for action
+get action names
+reload modes
+get mode
+get modes
+open files
+open file after startup
+open file
+open file
+open file
+open file
+open temporary
+open temporary
+commit temporary
+new file
+new file
+new file
+new file
+close buffer
+close buffer
+ close buffer
+close all buffers
+close all buffers
+save all buffers
+save all buffers
+reload all buffers
+ get buffer
+get buffer
+get buffers
+get buffer count
+get first buffer
+get last buffer
+move buffer
+get buffer set manager
+get property manager
+check buffer status
+check buffer status
+get input handler
+new view
+new view
+new view
+new view
+close view
+get views
+get view count
+get first view
+get last view
+get active view
+relocate settings
+is startup done
+is main thread
+is background mode enabled
+show memory dialog
+get j edit home
+get settings directory
+get j a r cache directory
+backup settings file
+save settings
+exit
+get edit server
+visit
+get register status prompt
+get keymap manager
+log time
+update position
+load mode
+add plugin props
+remove plugin props
+add plugin localization props
+remove plugin localization props
+plugin error
+set active view
+get active view internal
+j edit
+usage
+version
+make server script
+init misc
+get resource as u t f 8 text
+init system properties
+init site properties
+init resources
+init plugins
+init user properties
+init localization properties
+font style to string
+font to string
+init p l a f
+get p l a f class name
+get next untitled buffer id
+run startup scripts
+init proxy
+finish startup
+show plugin error dialog
+get not loaded plugin j a rs
+goto marker
+add buffer to list
+remove buffer from list
+add view to list
+remove view from list
+close view
+load mode catalog
+init key bindings
+compose buffer props from history
+bsh
+running
+init
+eval selection
+show evaluate dialog
+show evaluate lines dialog
+run script
+run script
+ run script
+ run script
+eval
+ eval
+cache block
+run cached block
+is script running
+get name space
+reset class manager
+port file
+socket
+auth key
+ok
+abort
+edit server
+run
+handle client
+handle client
+is o k
+get port
+stop server
+handle client
+registers x m l
+j edit register saver
+load registers
+save registers
+label
+plugin
+action set
+action set
+add action
+get array
+get actions
+action set
+get label
+set label
+get plugin j a r
+get cacheable action names
+get property
+get input handler
+compare to
+to string
+create bean shell action
+jar
+start
+stop
+get plugin home
+get plugin home
+get plugin home
+get plugin home
+get resource as stream
+get resource as stream
+get resource as stream
+get resource as output stream
+get resource as output stream
+get resource as output stream
+get resource path
+get resource path
+get resource path
+get class name
+get plugin j a r
+create menu items
+create browser menu items
+history
+history lock
+recent x m l
+get entry
+set entry
+clear
+get history
+load
+save
+add entry
+remove entry
+selection to string
+string to selection
+trim to limit
+notify change
+register changed
+var pattern string
+var pattern string 2
+win pattern string
+var pattern
+var pattern 2
+win pattern
+svc
+canon path
+expand variables
+abbreviate
+abbreviate view
+resolve symlinks
+is absolute path
+construct path
+construct path
+concat path
+get first separator index
+get last separator index
+get file extension
+get file name
+get complete base name
+get base name
+get file name no extension
+get parent of path
+get protocol of u r l
+is u r l
+get nth backup file
+open in desktop
+prepare backup directory
+prepare backup file
+prepare backup file
+save backup
+save backup
+save backup
+save backup
+is binary
+is backup
+autodetect
+file to class
+class to file
+paths equal
+escapes to chars
+get longest prefix
+get longest prefix
+get longest prefix
+build to version
+is tools jar available
+parse permissions
+get encodings
+throwable to string
+misc utilities
+compare chars
+get path start
+contains null character
+replace non path chars
+registers
+loaded
+loading
+saver
+listener
+modified
+copy
+cut
+append
+append
+append
+paste
+paste
+paste
+paste
+ paste
+apply mode
+get text from transferable
+get register
+set register
+set register
+set register
+clear register
+get registers
+get register name string
+save registers
+set listener
+set saver
+is loading
+set loading
+registers
+touch register
+load registers
+strip e o l chars
+debug list data flavors
+unix
+w i n d o w s 9x
+windows nt
+o s 2
+mac os x
+vms
+unknown
+os
+java 1 7
+has screen menu bar
+get screen bounds
+get screen bounds
+is d o s derived
+is windows
+is windows 9x
+is windows n t
+is o s 2
+is unix
+is mac o s
+is x 1 1
+is v m s
+is mac o s l f
+has screen menu bar
+has java 1 6
+has java 1 7
+is case insensitive f s
+init
+view
+buffer set
+buffer
+recent buffer
+buffer switcher
+text area
+marker highlight
+carets for path
+get view
+get
+get buffer
+set buffer
+set buffer
+prev buffer
+next buffer
+recent buffer
+focus on text area
+get text area
+get buffer switcher
+focus buffer switcher
+save caret info
+load caret info
+buffer renamed
+go to next marker
+go to prev marker
+go to marker
+add marker
+swap marker and caret
+handle properties changed
+get minimum size
+get buffer set
+buffer added
+buffer removed
+buffer moved
+buffer set sorted
+to string
+edit pane
+close
+properties changed
+init painter
+load buffer switcher
+handle buffer update
+bracket match limit
+whitespace
+word char
+symbol
+mixed
+lower case
+upper case
+title case
+get token at offset
+get complementary bracket
+find matching bracket
+join
+find word start
+find word start
+find word start
+find word start
+find word start
+find word start
+find word start
+find word end
+find word end
+find word end
+find word end
+find word end
+find word end
+get char type
+spaces to tabs
+tabs to spaces
+format
+index ignoring whitespace
+ignoring whitespace index
+get string case
+get string case
+to title case
+escape text
+format paragraph
+index ignoring whitespace
+split config
+include splits
+include files
+include remotes
+split config parser
+set include splits
+set include files
+set include remote files
+parse
+splash
+icon cache
+icon path
+default icon path
+deprecated icons
+mac key symbols
+set icon path
+load icon
+get editor icon
+get plugin icon
+load menu bar
+load menu bar
+load menu
+load menu
+load popup menu
+load popup menu
+load popup menu
+load popup menu
+get service context menu items
+load menu item
+load menu item
+load menu item
+load menu item
+load tool bar
+load tool bar
+load tool button
+load tool button
+prettify menu label
+get platform shortcut label
+get shortcut label
+set auto mnemonic
+message
+error
+input
+input property
+input
+input property
+confirm
+option
+list confirm
+list confirm
+show v f s file dialog
+show v f s file dialog
+show v f s file dialog
+parse color
+parse style
+get style string
+load geometry
+load geometry
+adjust for screen bounds
+save geometry
+save geometry
+hide splash screen
+apply text area colors
+create multiline label
+request focus
+is popup trigger
+is middle button
+is right button
+get screen bounds
+show popup menu
+show popup menu
+is ancestor of
+get parent dialog
+get component parent
+set enabled recursively
+get view
+add size saver
+add size saver
+init continuous layout
+initialize deprecated icons
+init
+show splash screen
+advance splash progress
+advance splash progress
+ load menu item
+get mac shortcut label
+g u i utilities
+name
+props
+firstline matcher
+filepath matcher
+marker
+indent rules
+electric keys
+ignore whitespace
+mode
+init
+get token marker
+set token marker
+load if necessary
+get property
+get boolean property
+set property
+unset property
+set properties
+accept
+accept
+accept filename
+accept file
+accept filename identical
+accept identical
+accept first line
+get name
+to string
+get ignore whitespace
+get indent rules
+is electric key
+init indent rules
+create regexp indent rule
+create bracket indent rules
+view docking framework property
+original docking framework
+docking framework provider service
+docking framework provider
+top group
+bottom group
+default group
+top layer
+default layer
+bottom layer
+above system bar layer
+system bar layer
+below system bar layer
+search bar layer
+below search bar layer
+action bar layer
+status bar layer
+below status bar layer
+view
+text area
+action bar
+prev
+next
+closed
+dockable window manager
+main panel
+top tool bars
+bottom tool bars
+tool bar manager
+tool bar
+search bar
+action bar
+edit pane
+split pane
+last split config
+status
+input handler
+recorder
+prefix focus owner
+wait count
+show full path
+plain view
+wait socket
+main content
+full screen mode
+windowed bounds
+menu bar
+user title
+get dockable window manager
+get docking framework name
+get docking framework provider
+get tool bar
+add tool bar
+add tool bar
+add tool bar
+remove tool bar
+show wait cursor
+hide wait cursor
+get search bar
+get action bar
+get status
+quick incremental search
+quick hyper search
+action bar
+get key event interceptor
+set key event interceptor
+get input handler
+set input handler
+get macro recorder
+set macro recorder
+process key event
+process key event
+process key event
+split horizontally
+split vertically
+split
+unsplit
+unsplit current
+resplit
+get split config
+set split config
+next text area
+prev text area
+get split pane
+get buffer
+get buffers
+set buffer
+go to buffer
+show buffer
+get text area
+get edit pane
+get edit panes
+get view config
+is closed
+is plain view
+get next
+get prev
+handle properties changed
+handle search settings changed
+get minimum size
+set wait socket
+to string
+update title
+set user title
+show user title dialog
+get prefix focus owner
+set prefix focus owner
+visit
+close all menus
+view
+update full screen props
+is full screen mode
+toggle full screen
+confirm to close dirty
+close
+set main content
+get edit panes
+show buffer
+get split config
+append to split config
+restore split config
+properties changed
+update buffer switcher states
+load tool bars
+create edit pane
+create edit pane
+set edit pane
+handle buffer update
+handle edit pane update
+handle view update
+close duplicate buffers
+update gutter borders
+get open buffers
+merge buffer sets
+is inside screen
+adjust
+offset debug
+scroll debug
+scroll to debug
+scroll verify
+screen lines debug
+token marker debug
+fold debug
+fold vis debug
+chunk cache debug
+chunk paint debug
+paint timer
+eb timer
+disable glyph vector
+beanshell debug
+alternative dispatcher
+alt key pressed disabled
+geometry workaround
+dump key events
+indent debug
+print debug
+disable search dialog pool
+disable multihead
+comp delay
+no repeat
+no record
+no remember last
+code
+is selected
+bean shell action
+invoke
+is selected
+no repeat
+no record
+no remember last
+get code
+get action set for action
+get action
+backed up
+caret
+caret positioned
+selection
+scroll vert
+scroll horiz
+encoding autodetect
+trailing eol
+gzipped
+file not changed
+file changed
+file deleted
+prev
+next
+closed
+new file
+untitled
+autosave dirty
+autoreload
+autoreload dialog
+temporary
+markers changed
+flags
+long line limit
+text token marker
+autoreload overridden
+path
+symlink path
+name
+directory
+file
+autosave file
+mod time
+md 5hash
+initial length
+long buffer mode
+markers
+wait socket
+undo listeners
+reload
+load
+insert file
+autosave
+save as
+save
+save
+save
+check file status
+get last modified
+set last modified
+get auto reload
+set auto reload
+get auto reload dialog
+set auto reload dialog
+get v f s
+get autosave file
+remove autosave file
+get name
+get path
+get path
+get symlink path
+get directory
+is closed
+is loaded
+is new file
+set new file
+is untitled
+set dirty
+is temporary
+get icon
+properties changed
+get default property
+toggle word wrap
+toggle auto indent
+toggle line separator
+get context sensitive property
+set mode
+get default mode
+get file
+get markers
+get marker status prompt
+get marker name string
+add or remove marker
+add marker
+get marker in range
+get marker at line
+remove marker
+remove all markers
+get marker
+get markers path
+update markers file
+markers changed
+set markers changed
+set wait socket
+get next
+get prev
+get index
+to string
+add buffer undo listener
+remove buffer undo listener
+buffer
+commit temporary
+close
+mark tokens
+fire begin undo
+fire end undo
+fire begin redo
+fire end redo
+set flag
+get flag
+is autoreload property overriden
+set path
+recover autosave
+check file for load
+check file for save
+calculate hash
+update hash
+finish loading
+finish saving
+no repeat
+no record
+no remember last
+code
+is selected
+cached code
+cached is selected
+sanitized name
+bsh
+j edit bean shell action
+invoke
+is selected
+no repeat
+no record
+no remember last
+get code
+service map
+load services
+unload services
+register service
+unregister service
+get service types
+get service names
+get service names
+get service
+get service
+register service
+initialized
+j edit mode
+set property
+unset property
+get property
+init
+load if necessary
+path
+cache path
+file
+class loader
+zip file
+properties
+localization properties
+classes
+resources
+actions
+browser actions
+plugin
+dockables u r i
+services u r i
+activated
+these require me
+these use me
+we require these
+we use these
+load
+get path
+find plugin
+contains class
+get cache path
+get dependency set
+get file
+get class loader
+get zip file
+get action set
+get browser action set
+check dependencies
+get required jars
+get plugin depends
+transitive closure
+get dependent plugins
+get plugin
+activate plugin
+activate plugin if necessary
+deactivate plugin
+get dockables u r i
+get services u r i
+to string
+get plugin cache
+set plugin cache
+plugin j a r
+init
+uninit
+get classes
+get resources
+actions present but not core class
+load cache
+generate cache
+continue loading
+start plugin
+start plugin later
+break plugin
+remove plugin cache
+initialized
+grid bag
+y
+name
+abstract option pane
+get name
+get component
+init
+save
+new label
+add component
+add component
+add component
+add component
+add component
+add component
+copy tool tips
+add separator
+add separator
+ init
+ save
+action names
+action hash
+overridden actions
+action sets
+invoke action
+add action set
+remove action set
+get action sets
+get action
+get action set for action
+get action names
+handle v f s update
+maybe reload
+components
+add to bus
+add to bus
+remove from bus
+remove from bus
+send
+send async
+edit bus
+dispatch
+send impl
+global
+class manager
+interp for methods
+no args
+bean shell facade
+init
+eval selection
+eval
+eval
+ eval
+cache block
+run cached block
+get name space
+reset class manager
+set variable
+setup default variables
+reset default variables
+handle exception
+create interpreter
+unwrap exception
+seen warning
+handle message
+e b plugin
+system
+plugins
+site
+localization
+plugin localizations
+user
+get properties
+load system props
+load site props
+load localization props
+load user props
+save user props
+load plugin props
+add plugin props
+remove plugin props
+load plugin localization props
+add plugin localization props
+remove plugin localization props
+get property
+set property
+set temporary property
+unset property
+reset property
+get default property
+load props
+load props
+path
+action set
+action name
+code
+is selected
+no repeat
+no record
+no remember last
+state stack
+action list handler
+resolve entity
+attribute
+characters
+start element
+end element
+start document
+push element
+peek element
+pop element
+context
+actions
+uri
+loaded
+placeholder
+j edit action set
+j edit action set
+add action
+remove action
+remove all actions
+get action
+get action count
+get action names
+get cacheable action names
+get array
+get actions
+contains
+size
+load
+create bean shell action
+init key bindings
+get property
+get action names
+no class
+index
+live
+class hash
+resources hash
+id
+delegate first
+jar
+j a r class loader
+j a r class loader
+load class
+get resource as stream
+get resource
+get resource as path
+dump
+to string
+get resources
+finalize
+j a r class loader
+activate
+deactivate
+ load class
+define package
+get mf value
+define package
+load from parent
+mk dir browser task
+ run
+to string
+files
+ext attrs
+sort column
+ascending
+v f s directory entry table model
+set root
+expand
+collapse
+get column count
+get row count
+get column name
+get column class
+get value at
+get ascending
+get sort column
+get sort attribute
+sort by column
+get extended attribute
+get column width
+set column width
+get files
+add extended attributes
+remove extended attributes
+browser
+v f s file name field
+process key event
+do complete
+do complete
+go to parent
+name
+open dialog
+save dialog
+browser dialog
+choose directory dialog
+browser
+m open
+m open new view
+m open new plain view
+m open new split
+m insert
+current encoding
+auto detect encoding
+action context
+listener list
+view
+horizontal layout
+path
+path and filter panel
+path field
+default focus component
+filter checkbox
+filter editor
+filter field
+toolbar box
+top box
+favorites
+plugins
+browser view
+mode
+multiple selection
+show hidden files
+sort mix files and dirs
+sort ignore case
+double click close
+request running
+maybe reload request running
+history stack
+next directory stack
+browse directory in new window
+browse directory
+get action context
+v f s browser
+v f s browser
+focus on default component
+set default focus component
+add notify
+remove notify
+handle properties changed
+handle buffer update
+handle plugin update
+handle v f s update
+get view
+get mode
+is multiple selection enabled
+is horizontal layout
+get show hidden files
+set show hidden files
+get v f s file filter
+add v f s file filter
+set filename filter
+get directory field
+get directory
+previous directory
+next directory
+get last visited path
+set directory
+get root directory
+root directory
+reload directory
+delete
+rename
+rename
+rename
+rename
+rename
+mkdir
+new file
+file properties
+search in directory
+search in directory
+get browser view
+get selected files
+get selected files
+paste
+locate file
+create plugins menu
+add browser listener
+remove browser listener
+files activated
+dispose
+move
+directory loaded
+files selected
+end request
+create menu bar
+create tool bar
+properties changed
+start request
+update filter enabled
+maybe reload directory
+file icon
+open file icon
+dir icon
+open dir icon
+filesystem icon
+loading icon
+plain font
+bold font
+show icons
+default icons
+open buffer
+is selected
+file
+file cell renderer
+get table cell renderer component
+paint component
+get icon for file
+get icon for file
+properties changed
+get entry width
+browser
+encoding menu items
+auto detect
+other encoding
+browser commands menu
+update
+create menu item
+create menu item
+create encoding menu
+create custom menu
+create plugin menu
+delete browser task
+ run
+to string
+path 2
+rename browser task
+ run
+to string
+browser
+session
+vfs
+path
+abstract browser task
+browser
+filename field
+filename
+ok
+cancel
+is o k
+io task handler
+v f s file chooser dialog
+v f s file chooser dialog
+v f s file chooser dialog
+v f s file chooser dialog
+get browser
+dispose
+ok
+cancel
+get selected files
+get default title
+get title
+ init
+do file exists warning
+get selected files
+browser
+split pane
+parent directories
+table
+tmp expanded
+popup
+show icons
+browser view
+focus on file view
+remove notify
+get selected files
+select none
+save expansion state
+clear expansion state
+load directory
+load directory
+directory loaded
+update file view
+maybe reload directory
+properties changed
+get browser
+get table
+get parent directory list
+show file popup
+load info
+list directory browser task
+ run
+to string
+browser view
+header
+renderer
+type select buffer
+timer
+resizing columns
+asc icon
+desc icon
+v f s directory entry table
+select file
+do type select
+get selected files
+get expanded directories
+toggle expanded
+set directory
+maybe reload directory
+properties changed
+scroll rect to visible
+process key event
+set selected row
+do type select
+resize columns
+save widths
+is void
+b s h return type
+get type node
+get type descriptor
+eval return type
+base type
+array dims
+type
+descriptor
+b s h type
+add array dimension
+get type node
+get type descriptor
+get type
+get base type
+get array dims
+class loader changed
+get type descriptor
+class path exception
+kind
+b s h binary expression
+eval
+is primitive value
+is wrapper
+b s h primary expression
+eval
+to l h s
+eval
+main
+eval
+do bsh
+send line
+do http
+get file
+javacode
+parent
+children
+id
+first token
+last token
+source file
+simple node
+jjt open
+jjt close
+jjt set parent
+jjt get parent
+jjt add child
+jjt get child
+get child
+jjt get num children
+to string
+to string
+dump
+prune
+eval
+set source file
+get source file
+get line number
+get text
+rfm
+get reflect manager
+r m set accessible
+set accessible
+clas
+class identifier
+get target class
+to string
+has for init
+has expression
+has for update
+for init
+expression
+for update
+statement
+parsed
+b s h for statement
+eval
+kind
+begin line
+begin column
+end line
+end column
+image
+next
+special token
+to string
+new token
+param names
+param types
+num args
+type descriptors
+b s h formal parameters
+insure parsed
+get param names
+get type descriptors
+eval
+manager
+get collection manager
+is bsh iterable
+get bsh iterator
+is map
+get from map
+put in map
+stack
+call stack
+call stack
+clear
+push
+top
+get
+set
+pop
+swap
+depth
+to array
+to string
+copy
+accessibility
+classes
+have swing
+can generate interfaces
+have accessibility
+set accessibility
+class exists
+untyped
+name
+type
+b s h formal parameter
+get type descriptor
+eval
+lexical error
+static lexer error
+invalid lexical state
+loop detected
+error code
+add escapes
+lexical error
+get message
+token mgr error
+token mgr error
+token mgr error
+is default
+b s h switch label
+eval
+util eval error
+util eval error
+to eval error
+to eval error
+b s h if statement
+eval
+evaluate condition
+b s h try statement
+eval
+class
+index
+name
+property
+operation
+index
+field
+b s h primary suffix
+do suffix
+do name
+get index aux
+do index
+do property
+interpreter error
+modifiers
+b s h typed variable declaration
+get type node
+eval type
+get declarators
+eval
+get type descriptor
+b s h package declaration
+eval
+interfaces
+invocation handler
+x this
+to string
+get interface
+get interface
+kind
+b s h return statement
+eval
+text
+b s h ambiguous name
+get name
+to object
+to object
+to class
+to l h s
+eval
+to string
+name
+b s h variable declarator
+eval
+to string
+generate class
+invoke superclass method
+set instance name space parent
+generate class impl
+get declared variables
+get declared methods
+invoke superclass method impl
+b s h statement expression list
+eval
+wrapper map
+value
+null
+void
+primitive
+primitive
+primitive
+primitive
+primitive
+primitive
+primitive
+primitive
+primitive
+get value
+to string
+get type
+binary operation
+binary operation impl
+boolean binary operation
+long binary operation
+int binary operation
+double binary operation
+float binary operation
+promote to integer
+promote primitives
+unary operation
+boolean unary operation
+int unary operation
+long unary operation
+float unary operation
+double unary operation
+int value
+boolean value
+is number
+number value
+equals
+hash code
+unwrap
+unwrap
+wrap
+wrap
+get default value
+box type
+unbox type
+cast to type
+cast primitive
+is wrapper type
+cast wrapper
+nodes
+marks
+sp
+mk
+node created
+j j t parser state
+node created
+reset
+root node
+push node
+pop node
+peek node
+node arity
+clear node scope
+open node scope
+close node scope
+close node scope
+j this
+to string
+event
+ancestor added
+ancestor removed
+ancestor moved
+caret update
+editing stopped
+editing canceled
+state changed
+insert update
+remove update
+changed update
+hyperlink update
+internal frame opened
+internal frame closing
+internal frame closed
+internal frame iconified
+internal frame deiconified
+internal frame activated
+internal frame deactivated
+interval added
+interval removed
+contents changed
+value changed
+menu drag mouse entered
+menu drag mouse exited
+menu drag mouse dragged
+menu drag mouse released
+menu key typed
+menu key pressed
+menu key released
+menu selected
+menu deselected
+menu canceled
+popup menu will become visible
+popup menu will become invisible
+popup menu canceled
+column added
+column removed
+column moved
+column margin changed
+column selection changed
+table changed
+tree expanded
+tree collapsed
+tree nodes changed
+tree nodes inserted
+tree nodes removed
+tree structure changed
+value changed
+tree will expand
+tree will collapse
+undoable edit happened
+action performed
+adjustment value changed
+component resized
+component moved
+component shown
+component hidden
+component added
+component removed
+focus gained
+focus lost
+item state changed
+key typed
+key pressed
+key released
+mouse clicked
+mouse pressed
+mouse released
+mouse entered
+mouse exited
+mouse dragged
+mouse moved
+text value changed
+window opened
+window closing
+window closed
+window iconified
+window deiconified
+window activated
+window deactivated
+property change
+vetoable change
+image update
+external map
+external name space
+external name space
+get map
+set map
+set variable
+unset variable
+get variable names
+get variable impl
+get declared variables
+set typed variable
+set method
+get method
+get all names aux
+clear
+put external map
+inner class count
+b s h allocation expression
+eval
+object allocation
+construct object
+construct with class body
+construct with interface body
+object array allocation
+primitive array allocation
+array allocation
+array new instance
+b s h ternary expression
+eval
+base type
+num defined dims
+num undefined dims
+defined dimensions
+b s h array dimensions
+add defined dimension
+add undefined dimension
+eval
+eval
+name space
+local var
+variable
+field
+property
+index
+method eval
+type
+var name
+prop name
+field
+object
+index
+lhs
+lhs
+lhs
+lhs
+lhs
+lhs
+get value
+assign
+to string
+b s h arguments
+get arguments
+b s h method invocation
+get name node
+get args node
+eval
+static flag
+bufpos
+bufsize
+available
+token begin
+bufline
+bufcolumn
+column
+line
+prev char is c r
+prev char is l f
+input stream
+next char buf
+buffer
+max next char ind
+next char ind
+in buf
+hexval
+expand buff
+fill buff
+read byte
+begin token
+adjust buff size
+update line column
+read char
+get column
+get line
+get end column
+get end line
+get begin column
+get begin line
+backup
+java char stream
+java char stream
+java char stream
+re init
+re init
+re init
+java char stream
+java char stream
+java char stream
+re init
+re init
+re init
+get image
+get suffix
+done
+adjust begin line column
+invoke object method
+invoke static method
+invoke method
+get index
+set index
+get static field value
+get object field value
+get l h s static field
+get l h s object field
+get field value
+resolve java field
+resolve expected java field
+find accessible field
+resolve expected java method
+resolve java method
+find overloaded method
+get candidate methods
+gather methods recursive
+add candidates
+construct object
+find most specific constructor
+find most specific constructor index
+find most specific method
+find most specific signature
+accessor name
+has object property getter
+has object property setter
+get object property
+set object property
+normalize class name
+get array dimensions
+get array base type
+invoke compiled command
+log invoke method
+check found static method
+cant find constructor
+is public
+is public
+is public
+is static
+return type descriptor
+return type node
+param type descriptors
+param types node
+callstack
+interpreter
+delayed eval bsh method
+get return type descriptor
+get return type
+get param type descriptors
+get parameter types
+reflect error
+reflect error
+jjtree
+retain comments
+token source
+jj input stream
+token
+jj nt
+jj ntk
+jj scanpos
+jj lastpos
+jj la
+looking ahead
+jj sem l a
+jj ls
+set retain comments
+jjtree open node scope
+jjtree close node scope
+re init input
+pop node
+re init token input
+main
+is regular for statement
+create parse exception
+line
+modifiers
+class declaration
+method declaration
+package declaration
+import declaration
+variable declarator
+variable initializer
+array initializer
+formal parameters
+formal parameter
+type
+return type
+primitive type
+ambiguous name
+name list
+expression
+assignment
+assignment operator
+conditional expression
+conditional or expression
+conditional and expression
+inclusive or expression
+exclusive or expression
+and expression
+equality expression
+instance of expression
+relational expression
+shift expression
+additive expression
+multiplicative expression
+unary expression
+pre increment expression
+pre decrement expression
+unary expression not plus minus
+cast lookahead
+postfix expression
+cast expression
+primary expression
+method invocation
+primary prefix
+primary suffix
+literal
+boolean literal
+null literal
+void literal
+arguments
+argument list
+allocation expression
+array dimensions
+statement
+labeled statement
+block
+block statement
+formal comment
+empty statement
+statement expression
+switch statement
+switch label
+if statement
+while statement
+do statement
+for statement
+enhanced for statement
+for init
+typed variable declaration
+statement expression list
+for update
+break statement
+continue statement
+return statement
+synchronized statement
+throw statement
+try statement
+jj 2 1
+jj 2 2
+jj 2 3
+jj 2 4
+jj 2 5
+jj 2 6
+jj 2 7
+jj 2 8
+jj 2 9
+jj 2 1 0
+jj 2 1 1
+jj 2 1 2
+jj 2 1 3
+jj 2 1 4
+jj 2 1 5
+jj 2 1 6
+jj 2 1 7
+jj 2 1 8
+jj 2 1 9
+jj 2 2 0
+jj 2 2 1
+jj 2 2 2
+jj 2 2 3
+jj 2 2 4
+jj 2 2 5
+jj 2 2 6
+jj 2 2 7
+jj 2 2 8
+jj 2 2 9
+jj 2 3 0
+jj 2 3 1
+jj 3 r 4 6
+jj 3 r 2 8
+jj 3 2 3
+jj 3 r 1 6 1
+jj 3 r 3 8
+jj 3 r 1 5 8
+jj 3 r 4 0
+jj 3 r 1 5 6
+jj 3 r 1 6 5
+jj 3 r 1 5 3
+jj 3 r 9 0
+jj 3 r 8 9
+jj 3 r 8 8
+jj 3 r 1 6 2
+jj 3 r 8 7
+jj 3 r 1 4 8
+jj 3 r 8 6
+jj 3 r 8 5
+jj 3 r 8 4
+jj 3 r 1 5 9
+jj 3 r 8 3
+jj 3 r 1 3 5
+jj 3 r 8 2
+jj 3 r 8 1
+jj 3 r 8 0
+jj 3 r 1 0 8
+jj 3 r 7 9
+jj 3 r 7 8
+jj 3 1 7
+jj 3 r 7 7
+jj 3 r 4 5
+jj 3 2 2
+jj 3 r 3 4
+jj 3 r 1 1 1
+jj 3 r 1 6 0
+jj 3 r 1 5 2
+jj 3 r 1 5 7
+jj 3 8
+jj 3 2 0
+jj 3 r 1 5 1
+jj 3 1 9
+jj 3 r 1 0 7
+jj 3 2 1
+jj 3 r 1 5 0
+jj 3 r 7 1
+jj 3 r 3 9
+jj 3 r 7 0
+jj 3 r 1 4 5
+jj 3 1 8
+jj 3 r 1 3 0
+jj 3 r 1 4 7
+jj 3 r 7 6
+jj 3 r 1 3 4
+jj 3 r 1 0 6
+jj 3 7
+jj 3 r 6 9
+jj 3 r 2 9
+jj 3 r 6 8
+jj 3 r 6 7
+jj 3 r 1 5 5
+jj 3 r 6 6
+jj 3 r 6 5
+jj 3 r 1 5 4
+jj 3 r 1 4 9
+jj 3 r 6 4
+jj 3 r 5 6
+jj 3 r 6 3
+jj 3 r 6 2
+jj 3 r 6 1
+jj 3 r 3 6
+jj 3 r 1 4 4
+jj 3 r 7 4
+jj 3 r 4 2
+jj 3 r 7 3
+jj 3 r 1 4 3
+jj 3 6
+jj 3 r 1 4 2
+jj 3 r 5 5
+jj 3 r 1 1 0
+jj 3 r 1 4 1
+jj 3 r 3 2
+jj 3 r 1 4 0
+jj 3 r 1 9 0
+jj 3 4
+jj 3 r 1 8 9
+jj 3 r 1 3 6
+jj 3 5
+jj 3 r 7 5
+jj 3 r 1 0 9
+jj 3 r 1 2 4
+jj 3 r 4 3
+jj 3 r 1 6 3
+jj 3 r 1 3 9
+jj 3 r 9 7
+jj 3 r 3 0
+jj 3 r 1 2 3
+jj 3 r 1 8 0
+jj 3 r 5 4
+jj 3 r 1 8 8
+jj 3 r 5 3
+jj 3 r 3 1
+jj 3 r 1 2 2
+jj 3 r 1 7 7
+jj 3 r 2 1 0
+jj 3 r 1 2 1
+jj 3 r 1 2 9
+jj 3 r 1 3 8
+jj 3 r 1 4 6
+jj 3 r 1 7 6
+jj 3 r 1 0 5
+jj 3 r 1 2 0
+jj 3 r 1 1 9
+jj 3 r 1 9 5
+jj 3 r 1 2 8
+jj 3 r 1 3 3
+jj 3 r 2 0 5
+jj 3 r 1 3 2
+jj 3 3
+jj 3 r 9 4
+jj 3 r 9 3
+jj 3 r 1 3 1
+jj 3 r 9 5
+jj 3 2
+jj 3 r 1 7 5
+jj 3 1 6
+jj 3 r 1 0 4
+jj 3 r 1 7 4
+jj 3 1 5
+jj 3 3 1
+jj 3 1 4
+jj 3 r 1 2 6
+jj 3 r 1 2 7
+jj 3 r 9 2
+jj 3 r 2 0 4
+jj 3 r 1 0 3
+jj 3 r 2 0 3
+jj 3 r 1 9 4
+jj 3 r 1 0 2
+jj 3 r 5 8
+jj 3 r 1 2 5
+jj 3 r 1 0 1
+jj 3 r 1 0 0
+jj 3 r 9 9
+jj 3 r 1 3 7
+jj 3 r 1 8 4
+jj 3 r 1 7 3
+jj 3 r 5 7
+jj 3 r 9 8
+jj 3 r 1 7 2
+jj 3 3 0
+jj 3 r 1 1 8
+jj 3 r 3 7
+jj 3 r 1 8 5
+jj 3 r 9 1
+jj 3 1 3
+jj 3 r 1 8 7
+jj 3 r 1 8 6
+jj 3 r 3 3
+jj 3 r 2 1 7
+jj 3 r 2 1 6
+jj 3 r 1 1 7
+jj 3 r 2 1 4
+jj 3 1 2
+jj 3 r 2 1 9
+jj 3 r 1 1 6
+jj 3 1 1
+jj 3 r 2 1 8
+jj 3 r 2 1 5
+jj 3 r 7 2
+jj 3 r 1 1 5
+jj 3 r 6 0
+jj 3 r 5 9
+jj 3 9
+jj 3 2 9
+jj 3 r 1 1 4
+jj 3 r 4 1
+jj 3 r 3 5
+jj 3 1 0
+jj 3 r 2 1 3
+jj 3 r 2 1 2
+jj 3 r 2 0 2
+jj 3 r 2 1 1
+jj 3 r 2 0 8
+jj 3 r 2 0 1
+jj 3 r 1 9 3
+jj 3 r 1 8 3
+jj 3 r 2 0 7
+jj 3 1
+jj 3 r 1 1 3
+jj 3 r 2 0 9
+jj 3 r 2 0 6
+jj 3 r 1 9 9
+jj 3 r 1 9 8
+jj 3 r 1 9 7
+jj 3 r 1 9 6
+jj 3 r 1 9 1
+jj 3 r 4 4
+jj 3 r 1 1 2
+jj 3 r 1 8 1
+jj 3 r 2 0 0
+jj 3 r 1 7 8
+jj 3 r 9 6
+jj 3 r 1 9 2
+jj 3 r 1 7 1
+jj 3 r 1 7 0
+jj 3 r 5 2
+jj 3 r 1 8 2
+jj 3 2 7
+jj 3 r 5 1
+jj 3 r 1 6 8
+jj 3 r 5 0
+jj 3 2 6
+jj 3 r 1 7 9
+jj 3 2 8
+jj 3 r 1 6 6
+jj 3 2 5
+jj 3 r 4 9
+jj 3 2 4
+jj 3 r 1 6 7
+jj 3 r 4 8
+jj 3 r 1 6 4
+jj 3 r 4 7
+jj 3 r 1 6 9
+parser
+re init
+parser
+re init
+parser
+re init
+jj consume token
+jj scan token
+get next token
+get token
+jj ntk
+generate parse exception
+enable tracing
+disable tracing
+import package
+static import
+super import
+b s h import declaration
+eval
+is synchronized
+b s h block
+eval
+eval
+eval block
+kind
+postfix
+b s h unary expression
+eval
+lhs unary operation
+unary operation
+primitive wrapper unary operation
+classinitname
+name
+modifiers
+num interfaces
+extend
+is interface
+b s h class declaration
+eval
+to string
+value
+b s h literal
+eval
+get escape char
+char setup
+string setup
+normal
+last char n l
+sent semi
+state
+command line reader
+read
+read
+main
+source file
+special constructor
+current token
+expected token sequences
+token image
+eol
+set error source file
+get error source file
+parse exception
+parse exception
+parse exception
+get message
+get message
+add escapes
+get error line number
+get error text
+to string
+kind
+value
+return point
+return control
+novalue
+declaring interpreter
+external class loader
+absolute class cache
+absolute non classes
+resolved object methods
+resolved static methods
+defining classes
+defining classes base names
+create class manager
+class exists
+class for name
+load source class
+plain class for name
+get resource
+get resource as stream
+cache class info
+cache resolved method
+get resolved method
+clear caches
+set class loader
+add class path
+reset
+set class path
+reload all classes
+reload classes
+reload package
+do super import
+has super import
+get class name by unq name
+add listener
+remove listener
+dump
+defining class
+is class being defined
+get class being defined
+done defining class
+define class
+class loader changed
+no class def found
+cm unavailable
+b s h switch statement
+eval
+primitive equals
+text
+b s h formal comment
+declaration
+assignment
+name
+type
+type descriptor
+value
+modifiers
+lhs
+variable
+variable
+variable
+variable
+set value
+get value
+get type
+get type descriptor
+get modifiers
+get name
+has modifier
+to string
+var name
+b s h enhanced for statement
+eval
+block name space
+set variable
+set block variable
+we have var
+get non block parent
+get this
+get super
+import class
+import package
+set method
+b s h throw statement
+eval
+bshstatic
+bshthis
+bshsuper
+bshinit
+bshconstructors
+defaultconstructor
+object
+class name
+fq class name
+super class
+super class name
+interfaces
+vars
+super constructors
+constructors
+methods
+class static name space
+class modifiers
+is interface
+class generator util
+generate class
+get a s m modifiers
+generate field
+generate method
+generate constructor
+generate constructor switch
+do switch branch
+get method descriptor
+generate super delegate method
+class contains method
+generate plain return code
+generate parameter reifier code
+generate return code
+get constructor args
+init instance
+get class static this
+get class instance this
+is primitive
+get type descriptors
+descriptor to class name
+get base name
+cast
+assignment
+java base assignable
+java box types assigable
+java varargs assignable
+bsh assignable
+first round assignable
+last round assignable
+valid cast
+invalid cast
+get types
+is signature assignable
+is signature varargs assignable
+is java assignable
+is java base assignable
+is java box types assignable
+is bsh assignable
+cast object
+cast object
+cast error
+cast error
+b s h array initializer
+eval
+eval
+throw type error
+name
+return type node
+params node
+block node
+first throws clause
+modifiers
+return type
+num throws
+b s h method declaration
+insure nodes parsed
+eval return type
+get return type descriptor
+get return type node
+eval
+eval nodes
+to string
+t
+util target error
+util target error
+to eval error
+namespace
+declaring interpreter
+get this
+get interface
+get interface
+this
+get name space
+to string
+run
+invoke method
+invoke method
+bind
+is exposed this method
+declaring name space
+modifiers
+name
+creturn type
+param names
+num args
+cparam types
+method body
+java method
+java object
+bsh method
+bsh method
+bsh method
+get parameter types
+get parameter names
+get return type
+get modifiers
+get name
+invoke
+invoke
+invoke
+invoke impl
+has modifier
+to string
+debug stream
+jjbit vec 0
+jjbit vec 1
+jjbit vec 3
+jjbit vec 4
+jjbit vec 5
+jjbit vec 6
+jjbit vec 7
+jjbit vec 8
+jjnext states
+jjstr literal images
+lex state names
+jjto token
+jjto skip
+jjto special
+input stream
+jjrounds
+jjstate set
+cur char
+cur lex state
+default lex state
+jjnew state cnt
+jjround
+jjmatched pos
+jjmatched kind
+set debug stream
+jj stop string literal dfa 0
+jj start nfa 0
+jj stop at pos
+jj start nfa with states 0
+jj move string literal dfa 0 0
+jj move string literal dfa 1 0
+jj move string literal dfa 2 0
+jj move string literal dfa 3 0
+jj move string literal dfa 4 0
+jj move string literal dfa 5 0
+jj move string literal dfa 6 0
+jj move string literal dfa 7 0
+jj move string literal dfa 8 0
+jj move string literal dfa 9 0
+jj move string literal dfa 1 0 0
+jj move string literal dfa 1 1 0
+jj move string literal dfa 1 2 0
+jj move string literal dfa 1 3 0
+jj move string literal dfa 1 4 0
+jj move string literal dfa 1 5 0
+jj move string literal dfa 1 6 0
+jj move string literal dfa 1 7 0
+jj move string literal dfa 1 8 0
+jj move string literal dfa 1 9 0
+jj move string literal dfa 2 0 0
+jj move string literal dfa 2 1 0
+jj move string literal dfa 2 2 0
+jj move string literal dfa 2 3 0
+jj move string literal dfa 2 4 0
+jj move string literal dfa 2 5 0
+jj move string literal dfa 2 6 0
+jj move string literal dfa 2 7 0
+jj check n add
+jj add states
+jj check n add two states
+jj check n add states
+jj check n add states
+jj move nfa 0
+jj can move 0
+jj can move 1
+jj can move 2
+parser token manager
+parser token manager
+re init
+re init rounds
+re init
+switch to
+jj fill token
+get next token
+split
+bubble sort
+max common prefix
+method string
+normalize class name
+operator
+b s h assignment
+eval
+operation
+version
+debug
+trace
+localscoping
+debug
+system line separator
+shared object
+strict java
+parser
+global name space
+in
+out
+err
+console
+parent
+source file info
+exit on e o f
+eval only
+interactive
+show results
+interpreter
+interpreter
+interpreter
+interpreter
+interpreter
+interpreter
+set console
+init root system object
+set name space
+get name space
+main
+invoke main
+run
+source
+source
+eval
+eval
+eval
+eval
+show eval string
+error
+get in
+get out
+get err
+println
+print
+debug
+get
+getu
+set
+setu
+set
+set
+set
+set
+set
+unset
+get interface
+get jjtree
+get jj input stream
+line
+load r c files
+path to file
+redirect output to file
+set class loader
+get class manager
+set strict java
+get strict java
+static init
+get source file info
+get parent
+set out
+set err
+read object
+get bsh prompt
+set exit on e o f
+set show results
+get show results
+class
+method
+field
+modifiers
+add modifier
+has modifier
+validate for method
+validate for field
+validate for class
+insure no
+to string
+target
+in native code
+target error
+target error
+get target
+to string
+print stack trace
+print stack trace
+print stack trace
+print target error
+x print target error
+in native code
+namespace
+value
+eval name
+last eval name
+finished
+eval base object
+callstack depth
+as class
+class of static method
+reset
+name
+to object
+to object
+complete round
+consume next object field
+resolve this field reference
+get class name space
+to class
+to l h s
+invoke method
+invoke local method
+is compound
+count parts
+prefix
+prefix
+suffix
+suffix
+to string
+javacode
+ns name
+parent
+variables
+methods
+imported classes
+imported packages
+imported commands
+imported objects
+imported static
+package name
+class manager
+this reference
+names
+caller info node
+is method
+is class
+class static
+class instance
+class cache
+name source listeners
+set class static
+set class instance
+get class instance
+name space
+name space
+name space
+set name
+get name
+set node
+get node
+get
+set variable
+set local variable
+set variable
+unset variable
+get variable names
+get method names
+get methods
+enumeration to string array
+flatten method collection
+get parent
+get super
+get global
+get this
+get class manager
+set class manager
+prune
+set parent
+get variable
+get variable
+get variable impl
+get declared variables
+unwrap variable
+set typed variable
+set typed variable
+set method
+get method
+get method
+import class
+import package
+import commands
+get command
+get imported method
+get imported var
+load scripted command
+cache class
+get class
+get class impl
+get imported class impl
+class for name
+get all names
+get all names aux
+add name source listener
+do super import
+to string
+write object
+invoke method
+invoke method
+class loader changed
+name space changed
+load default imports
+get name resolver
+get invocation line
+get invocation text
+identifier to class
+clear
+import object
+import static
+set package
+get package
+set variable
+add command path
+remove command path
+get command
+b s h cast expression
+eval
+is do statement
+b s h while statement
+eval
+node
+message
+callstack
+eval error
+to string
+re throw
+get node
+set node
+get error text
+get error line number
+get error source file
+get script stack trace
+get message
+set message
+prepend message
+type
+b s h primitive type
+get type
+cg
+get class generator
+generate class
+invoke superclass method
+set instance name space parent
+name
+path
+comp paths
+package map
+class source
+maps initialized
+unq name table
+name completion includes unq names
+listeners
+user class path comp
+user class path
+boot class path
+name source listeners
+mapping feedback listener
+bsh class path
+bsh class path
+set path
+add component
+add
+add
+get path components
+get classes for package
+get class source
+set class source
+insure initialized
+insure initialized
+get full path
+get class name by unq name
+get unqualified name table
+build unqualified name table
+get all names
+map
+map
+map
+map class
+reset
+clear cached structures
+class path changed
+traverse dir for classes
+traverse dir for classes aux
+search jar for classes
+is class file name
+is archive file name
+canonicalize class name
+split classname
+remove inner class names
+get user class path components
+get packages set
+add listener
+remove listener
+notify listeners
+get user class path
+get boot class path
+get r t jar path
+main
+to string
+name space changed
+add name source listener
+add mapping feedback
+start class mapping
+class mapping
+error while mapping
+end class mapping
+class manager
+bsh class loader
+bsh class loader
+bsh class loader
+add u r l
+load class
+find class
+get class manager
+bsh package
+base class path
+super import
+full class path
+listeners
+ref queue
+base loader
+loader map
+class manager impl
+class for name
+get resource
+get resource as stream
+get loader for class
+add class path
+reset
+set class path
+reload all classes
+init base loader
+reload classes
+reload package
+get class path
+do super import
+has super import
+get class name by unq name
+add listener
+remove listener
+get base loader
+define class
+class loader changed
+dump
+map
+discrete files class loader
+find class
+to string
+get bsh iterator
+is map
+get from map
+put in map
+iterator
+collection iterator
+create iterator
+next
+has next
+months
+usage
+invoke
+invoke
+data
+length
+byte vector
+byte vector
+put 1
+put 1 1
+put 2
+put 1 2
+put 4
+put 8
+put u t f
+put byte array
+enlarge
+index
+type
+int val
+long val
+float val
+double val
+str val 1
+str val 2
+str val 3
+hash code
+next
+item
+item
+set
+set
+set
+set
+set
+is equal to
+stack size
+successor
+next
+pool next
+owner
+resolved
+position
+reference count
+src and ref positions
+begin stack size
+max stack size
+successors
+next
+pushed
+label
+put
+add reference
+resolve
+void
+boolean
+char
+byte
+short
+int
+float
+long
+double
+array
+object
+void type
+boolean type
+char type
+byte type
+short type
+int type
+float type
+long type
+double type
+sort
+buf
+off
+len
+type
+type
+get type
+get type
+get argument types
+get argument types
+get return type
+get return type
+get type
+get sort
+get dimensions
+get element type
+get class name
+get internal name
+get descriptor
+get method descriptor
+get descriptor
+get internal name
+get descriptor
+get method descriptor
+get descriptor
+get size
+get opcode
+check
+next
+cw
+name
+desc
+access
+max stack
+max locals
+code
+catch count
+catch table
+exception count
+exceptions
+local var count
+local var
+line number count
+line number
+resize
+compute maxs
+stack size
+max stack size
+current block
+block stack
+size
+head
+tail
+pool
+code writer
+init
+visit insn
+visit int insn
+visit var insn
+visit type insn
+visit field insn
+visit method insn
+visit jump insn
+visit label
+visit ldc insn
+visit iinc insn
+visit table switch insn
+visit lookup switch insn
+visit multi a new array insn
+visit try catch block
+visit maxs
+visit local variable
+visit line number
+get arguments and return sizes
+add successor
+get size
+put
+resize instructions
+read unsigned short
+read short
+read int
+write short
+get new offset
+get code size
+get code
+class
+field
+meth
+imeth
+str
+int
+float
+long
+double
+name type
+u t f 8
+index
+pool
+table
+threshold
+access
+name
+super name
+interface count
+interfaces
+source file
+field count
+fields
+compute maxs
+first method
+last method
+inner classes count
+inner classes
+key
+key 2
+key 3
+noarg insn
+sbyte insn
+short insn
+var insn
+implvar insn
+type insn
+fieldormeth insn
+itfmeth insn
+label insn
+labelw insn
+ldc insn
+ldcw insn
+iinc insn
+tabl insn
+look insn
+mana insn
+wide insn
+type
+class writer
+visit
+visit inner class
+visit field
+visit method
+visit end
+to byte array
+new cst
+new u t f 8
+new class
+new field
+new method
+new itf method
+new integer
+new float
+new long
+new double
+new string
+new name type
+get
+put
+put 1 2 2
+set accessible
+empty text
+text
+gap start
+length
+get length
+get text
+get text
+get segment
+insert
+insert
+insert
+ set content
+remove
+gap end
+gap length
+move gap start
+ensure capacity
+prepare gap for insertion
+data
+offset
+len
+next
+buffer segment
+buffer segment
+char at
+length
+sub sequence
+to string
+to string
+sub segment
+linesep
+encoding
+normal priority
+high priority
+mode
+context insensitive
+undo mgr
+token marker
+buffer listeners
+lock
+content mgr
+line mgr
+position mgr
+fold handler
+integer array
+undo in progress
+dirty
+read only
+read only override
+transaction
+loading
+io
+properties
+property lock
+elastic tabstops on
+column block
+column block lock
+j edit buffer
+j edit buffer
+is dirty
+is loading
+set loading
+is performing i o
+set performing i o
+is editable
+is read only
+set read only
+set dirty
+read lock
+read unlock
+write lock
+write unlock
+get length
+get line count
+get line of offset
+get line start offset
+get line end offset
+get line length
+get prior non empty line
+get line text
+get line text
+get line text
+get line segment
+get text
+get text
+get text
+get segment
+insert
+insert
+insert
+remove
+remove trailing white space
+shift indent left
+shift indent right
+indent lines
+indent lines
+simple indent line
+indent line
+get current indent for line
+get ideal indent for line
+get ideal indent for line
+get virtual width
+get offset of virtual column
+insert at column
+insert indented
+is electric key
+mark tokens
+get token marker
+set token marker
+create position
+properties changed
+get tab size
+get indent size
+get property
+get default property
+set property
+set default property
+unset property
+reset cached properties
+get string property
+set string property
+get boolean property
+get boolean property
+set boolean property
+get integer property
+set integer property
+get pattern property
+get rule set at offset
+get keyword map at offset
+get context sensitive property
+get mode
+set mode
+set mode
+set mode
+is fold start
+is fold end
+invalidate cached fold levels
+get fold level
+get fold at line
+get fold handler
+set fold handler
+undo
+redo
+is transaction in progress
+begin compound edit
+end compound edit
+inside compound edit
+is undo in progress
+get undo id
+add buffer listener
+add buffer listener
+remove buffer listener
+get buffer listeners
+set undo limit
+can undo
+can redo
+is context insensitive
+set context insensitive
+fire fold level changed
+fire content inserted
+fire content removed
+fire pre content inserted
+fire pre content removed
+fire begin undo
+fire end undo
+fire begin redo
+fire end redo
+fire transaction complete
+fire fold handler changed
+fire buffer loaded
+is file read only
+set file read only
+load text
+invalidate fold levels
+parse buffer local properties
+mark tokens
+get listener
+content inserted
+parse buffer local properties
+get indent rules
+update column blocks
+get tab stop position
+indent using elastic tabstops
+get column block
+dummy fold handler
+get fold level
+fold handler provider
+name
+get name
+get fold level
+get preceding fold levels
+equals
+hash code
+get fold handler
+get fold modes
+fold handler
+to string
+end offsets
+fold levels
+line context
+line count
+gap line
+gap width
+first invalid line context
+first invalid fold level
+get line of offset line
+line manager
+get line count
+get line of offset
+get line end offset
+get fold level
+set fold level
+set first invalid fold level
+get first invalid fold level
+get line context
+set line context
+set first invalid line context
+get first invalid line context
+ content inserted
+content inserted
+content removed
+set line end offset
+move gap
+folds
+get fold handler
+get fold modes
+add fold handler
+indent fold handler
+get leading whitespace width
+get fold level
+get preceding fold levels
+iteration
+buffer
+positions
+position manager
+create position
+content inserted
+content removed
+fold level changed
+content inserted
+pre content inserted
+pre content removed
+content removed
+transaction complete
+fold handler changed
+buffer loaded
+ring
+count
+wrap
+kill ring
+get instance
+set instance
+properties changed
+load
+save
+reset
+add list data listener
+remove list data listener
+get element at
+get size
+remove element
+insert element at
+changed
+add
+remove
+virtual to physical index
+index of
+explicit fold handler
+get fold level
+buffer
+undos first
+undos last
+redos first
+limit
+undo count
+compound edit count
+compound edit
+undo clear dirty
+redo clear dirty
+undo id
+undo manager
+set limit
+clear
+can undo
+undo
+can redo
+redo
+begin compound edit
+end compound edit
+inside compound edit
+get undo id
+content inserted
+content removed
+reset clear dirty
+add edit
+get merge edit
+get last edit
+revise undo id
+get replace from remove insert
+get compressed replace from replace replace
+error occurred
+view
+buffer
+session
+vfs
+path
+markers path
+markers save request
+ run
+write markers
+iobufsize
+progress interval
+load data
+end offsets
+new path
+error occurred
+view
+buffer
+session
+vfs
+path
+markers path
+buffer i o request
+to string
+get char i o buffer size
+get byte i o buffer size
+autodetect
+read
+write
+get write encoding error message
+get first guilty character index
+buffer load request
+ run
+get naked stream
+get content length
+rewind contents stream
+read contents
+read markers
+buffer save request
+ run
+make backup
+want two stage save
+buffer autosave request
+ run
+clean up incomplete
+buffer insert request
+ run
+buffers
+listeners
+name sorter
+path sorter
+sorter
+buffer set
+add buffer
+add buffer at
+get buffer
+get previous buffer
+get next buffer
+index of
+size
+get all buffers
+get all buffers
+add buffer set listener
+remove buffer set listener
+to string
+sort
+properties changed
+move buffer
+remove buffer
+scope
+buffer set manager
+handle edit pane update
+handle properties changed
+count buffer sets
+set scope
+get scope
+add buffer
+add buffer
+move buffer
+remove buffer
+remove buffer
+remove buffer
+buffer removed
+ remove buffer
+create untitled buffer
+get owners
+get owner
+buffer added
+buffer removed
+buffer moved
+buffer set sorted
+accept
+get transferable
+instance
+services
+transfer handler
+get instance
+register transferable service
+get transferable
+j edit file list
+supported
+files
+list v f s file transferable
+get transfer data flavors
+is data flavor supported
+get transfer data
+text
+mode
+j edit rich text
+get text
+get mode
+to string
+data flavors
+flavors
+j edit transferable
+get transfer data flavors
+is data flavor supported
+get transfer data
+j edit rich text data flavor
+html
+accept
+get transferable
+supported data flavor
+text
+mode
+rich text transferable
+get transfer data flavors
+is data flavor supported
+get transfer data
+comptable
+hgap
+vgap
+distance to borders
+extended grid layout
+extended grid layout
+add layout component
+add layout component
+lookup constraints
+remove layout component
+get layout alignment x
+get layout alignment y
+minimum layout size
+preferred layout size
+maximum layout size
+invalidate layout
+layout container
+redistribute space
+get size
+build grid
+to string
+delegated
+filtered indices
+inverted indices
+filter
+list
+filtered list model
+set list
+get delegated
+set delegated
+reset filter
+set filter
+prepare filter
+pass filter
+save selection
+restore selection
+get true row
+get internal 2 external row
+get element at
+get size
+contents changed
+interval added
+interval removed
+action context
+list model
+list
+add
+remove
+move up
+move down
+reset
+caption
+buttons
+abstract context option pane
+abstract context option pane
+ init
+get context menu
+save context menu
+add button
+ save
+update buttons
+reload context list
+view
+start field
+end field
+ok
+cancel
+select line range
+ok
+cancel
+action performed
+create field panel
+editor
+ok
+cancel
+is o k
+original abbrev
+abbrevs
+edit abbrev dialog
+edit abbrev dialog
+get abbrev
+get expansion
+init
+check for existing abbrev
+delegated
+filtered indices
+inverted indices
+filter
+table
+filtered table model
+filtered table model
+set table
+get delegated
+set delegated
+reset filter
+set filter
+prepare filter
+pass filter
+save selection
+restore selection
+get row count
+get column count
+get column name
+get column class
+is cell editable
+get value at
+set value at
+get true row
+get internal 2 external row
+table changed
+dummy
+j check box list
+j check box list
+set model
+set model
+get checked values
+select all
+get values
+get selected value
+get cell renderer
+init
+left model
+right model
+left
+right
+left label
+right label
+left panel
+right panel
+select all button
+select none button
+ping pong list
+ping pong list
+set left tooltip
+set right tooltip
+set left title
+set right title
+remove left title
+remove right title
+get left size
+get right size
+get left data iterator
+get right data iterator
+move all to left
+move all to right
+model
+table
+remaining count
+task monitor
+add notify
+remove notify
+waiting
+running
+done
+status updated
+maximum updated
+value updated
+update tasks count
+view
+input handler
+handle key
+process key event
+ preprocess key event
+process key event sub
+get repeat count
+set repeat count
+get last action
+read next char
+invoke action
+invoke action
+invoke last action
+user input
+invoke read next char
+max
+default max
+max size
+default max size
+name
+models
+modified
+saver
+history model
+add item
+insert element at
+get item
+remove element
+remove all elements
+get name
+get model
+load history
+save history
+set max
+get max
+set max size
+get max size
+set default max
+get default max
+set default max size
+get default max size
+set saver
+get current size
+view
+key handler
+candidates
+list
+completion popup
+completion popup
+dispose
+reset
+get candidates
+get selected index
+set selected index
+do selected completion
+key pressed
+key typed
+fit in screen
+move relative
+move relative pages
+pass key event to view
+marker list
+view
+previous
+next
+clear
+marker viewer
+request default focus
+action performed
+handle edit pane update
+handle view update
+handle buffer update
+add notify
+remove notify
+refresh list
+go to selected marker
+update selection
+dockable name
+dockable window manager
+clone
+entry
+menu
+floating window container
+register
+remove
+unregister
+show
+is visible
+dispose
+get dockable window manager
+get minimum size
+property change
+edit pane
+updating
+item selected before
+buffer switcher
+update buffer list
+context add dialog last selection
+is o k
+separator
+action
+combo
+list
+ok
+cancel
+context add dialog
+ok
+cancel
+get selection
+update list
+name
+splitter
+pane tree
+stage
+ok
+cancel
+apply
+current pane
+deferred option panes
+options dialog
+options dialog
+add option group
+add option pane
+ok
+cancel
+ok
+dispose
+action performed
+value changed
+create option tree model
+get default group
+init
+select pane
+select pane
+save
+update size
+center
+top buttons
+left buttons
+bottom buttons
+right buttons
+alternate layout
+center
+top
+left
+bottom
+right
+top buttons
+left buttons
+bottom buttons
+right buttons
+is alternate layout
+set alternate layout
+add layout component
+add layout component
+remove layout component
+preferred layout size
+minimum layout size
+maximum layout size
+layout container
+adjust docking areas to fit
+get layout alignment x
+get layout alignment y
+invalidate layout
+italics
+bold
+fg color check box
+fg color
+bg color check box
+bg color
+ok
+cancel
+ok clicked
+invoke for caret
+style editor
+style editor
+initialize
+action performed
+ok
+cancel
+get style
+windows
+left
+right
+top
+bottom
+clones
+last entry
+show stack
+resize pos
+resize rect
+continuous layout
+set docking layout
+get docking layout
+dockable window manager impl
+set main panel
+init
+float dockable window
+show dockable window
+hide dockable window
+get dockable
+is dockable window visible
+is dockable window docked
+close current area
+close
+get top docking area
+get left docking area
+get bottom docking area
+get right docking area
+create popup menu
+paint children
+handle dockable window update
+handle properties changed
+handle plugin update
+set resize pos
+finish resizing
+properties changed
+add entry
+get all plugin entries
+dispose dockable window
+controller
+history text area
+get model
+set model
+set instant popups
+get instant popups
+add current to history
+set text
+process key event
+process mouse event
+text
+history model
+index
+current
+popup
+instant popups
+history text
+fire action performed
+get index
+set index
+get model
+set model
+set instant popups
+get instant popups
+add current to history
+do backward search
+do forward search
+history previous
+history next
+get document
+get text
+set text
+get input start
+show popup menu
+show popup menu
+shortcut
+assigned to
+ok
+remove
+cancel
+clear
+is o k
+binding
+all bindings
+debug buffer
+grab key dialog
+grab key dialog
+get shortcut
+is o k
+get focus traversal keys enabled
+process key event
+init
+get symbolic name
+update assigned to
+get key binding
+key handler
+enter enabled
+enhanced dialog
+enhanced dialog
+get enter enabled
+set enter enabled
+ok
+cancel
+ init
+last
+last nothing
+last numkeypad
+last alt
+is bindable
+is printable
+is mac control
+is numeric keypad
+process key event
+numeric keypad key
+view
+buffer list
+buffer model
+select all
+save
+discard
+cancel
+ok
+select all flag
+close dialog
+close dialog
+is o k
+ok
+cancel
+update buttons
+current bar
+task handler
+view
+panel
+box
+caret status
+message comp
+message
+mode widget
+fold widget
+encoding widget
+wrap widget
+indent widget
+multi select widget
+rect select widget
+overwrite widget
+line sep widget
+buf
+temp timer
+current message is i o
+seg
+show caret status
+caret test str
+status bar
+properties changed
+add notify
+remove notify
+get message
+set message and clear
+set message
+set message component
+update caret status
+update buffer status
+update misc status
+get widget
+ get widget
+ok
+plugin mgr
+error list dialog
+ok
+cancel
+remainder
+row
+col
+colspan
+effective colspan
+rowspan
+effective rowspan
+placeholder
+main constraints
+component
+extended grid layout constraints
+extended grid layout constraints
+extended grid layout constraints
+extended grid layout constraints
+get colspan placeholder
+get rowspan placeholder
+get row
+get col
+set col
+get colspan
+get effective colspan
+get rowspan
+get effective rowspan
+get component
+is placeholder
+get work copy
+equals
+hash code
+to string
+view
+text area
+buffer
+word
+no word sep
+complete word
+complete word
+get non alpha numeric word chars
+get word to complete
+get visible buffers
+get completions
+get completions
+complete word
+reset words
+key pressed
+key typed
+open
+create table model
+updatelist model
+view
+buffer
+panel
+ok
+cancel
+buffer options
+ok
+cancel
+action
+enhanced button
+is focus traversable
+panel
+wm
+drag start
+dockable panel
+get window container
+show dockable
+get minimum size
+get preferred size
+set bounds
+font selector
+is o k
+family field
+family list
+size field
+size list
+style field
+style list
+preview
+ok
+cancel
+hidefonts
+font selector dialog
+font selector dialog
+font selector dialog
+font selector dialog
+ok
+cancel
+get selected font
+init
+get font list
+create text field and list panel
+update preview
+list handler
+list model
+list
+copy
+tail
+filter
+tail is on
+show debug
+show message
+show notice
+show warning
+show error
+log viewer
+set bounds
+handle properties changed
+add notify
+remove notify
+focus on default component
+set filter
+properties changed
+scroll to tail
+scroll later if required
+flavors
+text area
+ok
+cancel
+flavor list
+paste special dialog
+ok
+cancel
+view
+editor
+global
+mode specific
+cancel
+add abbrev dialog
+c
+revalidate blocked
+rollover button
+rollover button
+update u i
+set enabled
+set border painted
+revalidate
+paint
+abbrev
+before caret
+after caret
+abbrev editor
+get abbrev
+set abbrev
+get expansion
+set expansion
+get abbrev field
+get before caret text area
+get after caret text area
+register list
+content text area
+document handler
+view
+editing
+split pane
+popup
+register viewer
+focus on default component
+handle register changed
+add notify
+remove notify
+move
+refresh list
+insert register
+clear selected index
+to escape
+history
+history mod time
+load
+save
+load from reader
+namespace
+view
+temp
+repeat count
+action
+popup
+close
+action bar
+get field
+go to action bar
+invoke
+get completions
+complete
+show next time
+next tip
+close
+tip text
+current tip
+tip of the day
+ok
+cancel
+next tip
+save layout failed
+load layout title
+load layout message
+save layout title
+save layout message
+actions
+instance
+current mode
+global mode
+docking layout manager
+save
+save as
+load
+load
+get saved layouts
+add action
+init
+create actions
+remove actions
+can change edit mode
+handle message
+get current edit mode
+save mode layout
+load mode layout
+load current mode layout
+save current mode layout
+get mode perspective
+view
+buffer tree
+buffer tree model
+root
+select all
+select all in progress
+reload
+ignore
+close
+files changed dialog
+ok
+cancel
+update enabled
+select all
+action
+view
+list model
+clips
+clip text
+insert
+cancel
+paste from list dialog
+ok
+cancel
+cleanup
+get selected clip text
+update buttons
+show clip text
+browser
+selected files
+local
+ok button
+cancel button
+name text field
+info icon
+readable
+write
+file properties dialog
+add components to pane
+create north panel all
+create center panel all
+create south panel all
+create north panel
+create center panel
+create south panel
+ok
+cancel
+create and show g u i
+anti alias
+font selector
+font selector
+paint component
+is anti alias enabled
+set anti alias enabled
+update text
+set anti alias enabled
+positive only
+numeric text field
+numeric text field
+process key event
+splitter width
+dockable panel
+button panel
+wm
+position
+close box
+menu btn
+button group
+null button
+dimension
+dockables
+buttons
+current
+popup
+most recent
+panel window container
+get dockable window manager
+register
+unregister
+remove
+show most recent
+show
+is visible
+get current
+get dimension
+get position
+get dockables
+save
+set dimension
+sort dockables
+get wrapped dimension
+show
+bindings
+active
+listener list
+shortcut prefix active event
+add change event listener
+remove change event listener
+fire prefix state change
+get bindings
+get active
+fm
+win
+image
+progress
+progress height
+progress count
+label
+last label
+first advance time
+last advance time
+default font
+label font
+version color 1
+version color 2
+splash screen
+dispose
+advance
+advance
+log advance time
+paint component
+paint string
+default input handler
+default input handler
+default input handler
+is prefix active
+set current bindings
+handle key
+get symbolic modifier name
+get modifier string
+top
+bottom
+top tool bars
+bottom tool bars
+tool bar manager
+add tool bar
+remove tool bar
+add tool bar
+remove tool bar
+about dialog
+action performed
+close dialog
+create
+create docking layout
+color well button
+get selected color
+set selected color
+last key press event
+last key press accepted
+mods
+c
+a
+m
+s
+trans map
+add translation
+translate key event
+parse key
+parse key stroke
+set modifier mapping
+get symbolic modifier name
+modifiers to string
+get modifier string
+lazy append
+parse modifiers
+parse key code
+bean shell error dialog
+bean shell error dialog
+controller
+enter adds to history
+select all on focus
+history text field
+history text field
+history text field
+history text field
+set instant popups
+get instant popups
+set enter adds to history
+set enter adds to history
+set select all on focus
+set select all on focus
+get model
+set model
+add current to history
+set text
+fire action performed
+process key event
+process mouse event
+fixed num rows
+fixed num columns
+mode
+size
+hgap
+vgap
+take sizes into account
+distance to borders
+nrows
+ncols
+minimum row heights
+minimum col widths
+row heights
+col widths
+maximum row heights
+maximum col widths
+variable grid layout
+variable grid layout
+variable grid layout
+variable grid layout
+variable grid layout
+add layout component
+add layout component
+remove layout component
+get layout alignment x
+get layout alignment y
+preferred layout size
+minimum layout size
+maximum layout size
+layout container
+invalidate layout
+to string
+get layout size
+update
+redistribute space
+floating
+top
+left
+bottom
+right
+plugins
+positions
+view
+factory
+windows
+t bottom
+t top
+t left
+t right
+close toggle
+alternate layout prop
+alternate layout
+dockable window manager
+set main panel
+show dockable window
+hide dockable window
+dispose dockable window
+float dockable window
+is dockable window docked
+is dockable window visible
+close current area
+get docking layout
+get left docking area
+get right docking area
+get top docking area
+get bottom docking area
+init
+close
+apply docking layout
+add dockable window
+remove dockable window
+toggle dockable window
+get dockable window
+toggle dock areas
+will toggle hide
+dockable title changed
+close listener
+get view
+get dockable
+get dockable title
+set dockable title
+get registered dockable windows
+get dockable window plugin name
+set docking layout
+add plugin dockable
+handle dockable window update
+handle properties changed
+handle plugin update
+long title
+short title
+apply alternate layout
+dockable loaded
+docking position changed
+get alternate layout prop
+properties changed
+create dockable
+get dockable position
+focus dockable
+get long title property name
+frames
+current
+delay
+timer
+host
+icon
+animated icon
+get frames
+get icon
+get rate
+set frames
+set icon
+set rate
+start
+stop
+create menu
+text area dialog
+text area dialog
+text area dialog
+text area dialog
+init
+ok
+cancel
+instance
+dockable window factories
+get instance
+dockable window factory
+load dockable windows
+unload dockable windows
+cache dockable windows
+register dockable window
+get registered dockable windows
+get dockable window factory
+get dockable window plugin class
+get dockable window iterator
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get widget
+get tool tip location
+tray icon
+restore
+user dir
+args
+set tray icon args
+add tray icon
+remove tray icon
+j edit tray icon
+set tray icon args
+restore
+user dir
+args
+j edit swing tray icon
+handle message
+set tray icon args
+parent
+menu
+mouse listener
+popup menu listener
+j tray icon
+get menu
+set menu
+help viewer
+toc model
+toc root
+toc
+nodes
+help t o c panel
+select node
+load
+create node
+create t o c
+load t o c
+base u r l
+short u r l
+back
+forward
+viewer
+viewer scroll pane
+title
+splitter
+history model
+toc
+queued t o c reload
+help viewer
+help viewer
+help viewer
+goto u r l
+get current scroll position
+get current page
+dispose
+handle plugin update
+get base u r l
+get short u r l
+history updated
+get component
+queue t o c reload
+back
+forward
+type
+history
+arrow button
+drop button
+history list
+arrow action listener
+history button
+set enabled
+add action listener
+action performed
+get parent history button
+ignore
+words
+files
+help index
+index editor help
+index directory
+index j a r
+index u r l
+lookup word
+get file
+ignore word
+index stream
+add word
+help viewer
+search field
+results
+index
+help search panel
+get help index
+history pos
+history
+listeners
+help history model
+forward
+has next
+back
+has previous
+add to history
+set current scroll position
+set current entry
+update title
+get previous u r ls
+get next u r ls
+add help history model listener
+remove help history model listener
+fire update
+aligned
+close bracket indent rule
+apply
+indent next lines
+indent next line
+unindent this line
+unindent next lines
+indent open bracket
+indent close bracket
+unaligned open bracket
+unaligned close bracket
+open char
+close char
+deep indent rule
+apply
+get indent
+open bracket
+close bracket
+bracket indent rule
+get brackets
+get brackets
+to string
+prev prev action
+prev action
+this action
+regexp
+collapse
+regexp indent rule
+apply
+to string
+line matches
+apply
+aligned
+open bracket indent rule
+apply
+get open bracket count
+handle collapse
+last action count
+key event interceptor
+read next char
+repeat count
+last action
+repeat count threshold
+prefix str
+shortcut on
+bindings
+current bindings
+abstract input handler
+add key binding
+add key binding
+add key binding
+remove key binding
+remove all key bindings
+get key binding
+get last action count
+reset last action count
+get key event interceptor
+set key event interceptor
+is prefix active
+set bindings
+set current bindings
+handle key
+process key event
+send shortcut prefix off
+invoke action
+invoke action
+to string
+process key event key stroke handling
+text area
+text area input handler
+process key event
+process key event sub
+get action
+invoke action
+invoke action
+handle key
+user input
+invoke read next char
+input handler
+default input handler provider
+get input handler
+url v f s
+construct path
+ create input stream
+ create output stream
+get file path
+b o m 1 6
+u t f 8 b o m
+bom map
+plain
+bom
+encoding with b o m
+get text reader
+get text writer
+get permissive text reader
+source
+comp
+sources
+behavior
+target
+latch
+copy file worker
+copy file worker
+copy file worker
+copy file worker
+ run
+copy file list
+copy
+get target name
+to string
+file
+directory
+filesystem
+name
+path
+symlink path
+delete path
+type
+length
+hidden
+can read
+can write
+color calculated
+color
+fetched attrs
+find completion
+find completion
+get icon
+get icon
+get default icon
+get default icon
+v f s file
+v f s file
+get v f s
+get name
+set name
+is binary
+get path
+set path
+get symlink path
+set symlink path
+get delete path
+set delete path
+get type
+set type
+get length
+set length
+is hidden
+set hidden
+is readable
+set readable
+is writeable
+set writeable
+get extended attribute
+get color
+to string
+fetched attrs
+fetch attrs
+valid encoding pattern
+pattern
+replacement
+regex encoding detector
+detect encoding
+extract replacement
+service class
+get encoding
+get available names
+get selected names
+get text reader
+get text writer
+has encoding
+protocol
+fs view
+file roots v f s
+get parent of path
+ list files
+ get file
+list roots
+protocol
+instance
+lock
+favorites
+favorites v f s
+get parent of path
+ list files
+ get file
+ delete
+ rename
+load favorites
+add to favorites
+save favorites
+get favorites
+detect encoding
+get x m l encoding
+read cap
+write cap
+browse cap
+delete cap
+rename cap
+mkdir cap
+low latency cap
+case insensitive cap
+non awt session cap
+ea type
+ea status
+ea size
+ea modified
+iobufsize
+name
+caps
+ext attrs
+colors
+lock
+vfs
+vfs
+get name
+get capabilities
+is markers file supported
+get extended attributes
+get file name
+get file path
+get parent of path
+construct path
+get file separator
+get two stage save name
+reload directory
+create v f s session
+create v f s session safe
+load
+save
+copy
+copy
+copy
+copy
+insert
+ canon path
+ list directory
+ list directory
+ list directory
+ list files
+ get file
+ delete
+ rename
+ mkdir
+ backup
+ create input stream
+ create output stream
+ save complete
+ finish two stage save
+ end v f s session
+get default color for
+list files
+load colors
+service
+file v f s
+url v f s
+error
+error lock
+errors
+vfs update lock
+vfs updates
+error displayer active
+init
+start
+get file v f s
+get url v f s
+get v f s for protocol
+get v f s for path
+get v f ss
+wait for requests
+error occurred
+get request count
+run in a w t thread
+run in work thread
+error
+error
+error
+send v f s update
+v f s manager
+permissions property
+fs view
+file v f s
+get parent of path
+construct path
+get file separator
+get two stage save name
+save
+insert
+recursive delete
+ canon path
+ list files
+ get file
+ delete
+ rename
+ mkdir
+ create input stream
+ create output stream
+ save complete
+get permissions
+set permissions
+glob
+pattern
+glob v f s file filter
+accept
+accept
+get description
+to string
+set glob
+get glob
+get marked stream
+is gzipped
+get encoding detectors
+get detected encoding
+get encoding detector service
+body
+charset encoding
+get text reader
+get text writer
+get permissive text reader
+buffer size
+file
+body
+charset
+local file save task
+ run
+compare
+update every time
+update
+context
+shortcut
+action
+enhanced check box menu item
+get preferred size
+paint
+dir
+directory provider
+update every time
+update
+update every time
+update
+accelerator font
+accelerator foreground
+accelerator selection foreground
+shortcut
+action
+enhanced menu item
+get preferred size
+paint
+update every time
+update
+create macros menu
+initial component count
+context
+provider code
+provider
+eb stub
+enhanced menu
+enhanced menu
+enhanced menu
+menu selected
+menu deselected
+menu canceled
+init
+finalize
+update every time
+update
+update every time
+update
+add to letter map
+update every time
+update
+view
+update every time
+update
+action performed
+editor started
+has been exit cancelled
+editor exit requested
+get view
+cancel exit
+has been exit cancelled
+position changing
+position changing
+position changing
+state
+properties changing
+get state
+register name
+register changed
+get register name
+get register value
+param string
+created
+closed
+edit pane changed
+activated
+what
+view update
+get what
+get view
+param string
+m buffer
+buffer changing
+get buffer
+created
+destroyed
+buffer changed
+position changing
+buffer changing
+bufferset changed
+what
+edit pane update
+get what
+get edit pane
+param string
+editor exiting
+loaded
+activated
+deactivated
+unloaded
+what
+exit
+version
+plugin update
+get what
+is exiting
+get plugin j a r
+get plugin version
+param string
+path
+is dir
+v f s path selected
+get view
+get path
+is directory
+created
+closing
+load started
+loaded
+closed
+dirty changed
+markers changed
+saving
+saved
+properties changed
+what
+view
+buffer update
+get what
+get buffer
+get view
+param string
+search settings changed
+path
+v f s update
+get path
+param string
+name
+dynamic menu changed
+get menu name
+param string
+properties changed
+activated
+deactivated
+what
+dockable
+dockable window update
+get what
+get dockable
+param string
+properties changed
+properties changed
+docking framework
+window table
+window model
+auto load mode layout
+auto save mode layout
+dockable set selection
+docking options prefix
+auto load mode layout prop
+auto load mode layout label
+auto save mode layout prop
+auto save mode layout label
+docking option pane
+ init
+ save
+create docking framework chooser
+create docking options panel
+create window table scroller
+create window model
+gutter enabled property
+selection area enabled property
+selection area bgcolor property
+default selection gutter width
+gutter font
+gutter foreground
+gutter background
+gutter highlight interval
+gutter highlight color
+line numbers enabled
+gutter current line highlight enabled
+gutter current line highlight
+gutter structure highlight enabled
+gutter structure highlight
+gutter marker highlight enabled
+gutter marker highlight
+gutter fold markers
+fold painter
+gutter focus border
+gutter no focus border
+painters
+gutter enabled
+gutter components
+min line number digits
+selection area enabled
+selection area bg color
+selection area width
+gutter option pane
+ init
+ save
+set gutter components enabled state
+add fold style chooser
+is gutter enabled
+get min line number digits
+is selection area enabled
+get selection area background
+get selection area width
+browser context option pane
+get context menu
+save context menu
+encoding
+line separator
+gzipped
+modes
+mode
+folding
+wrap
+max line len
+tab size
+indent size
+check mod status
+no tabs
+buffer
+elastic tabstops
+auto indent
+buffer option pane
+ init
+ save
+show toolbar
+list model
+list
+add
+remove
+move up
+move down
+edit
+reset
+icon list
+tool bar option pane
+ init
+ save
+update buttons
+reload button list
+include options link
+context option pane
+ init
+get context menu
+save context menu
+verify
+layout
+layout icon 1
+layout icon 2
+layout icon 3
+layout icon 4
+alternate docking layout
+alternate tool bar layout
+abbreviate paths
+show full path
+floatable toolbars
+show searchbar
+beep on search auto wrap
+show buffer switcher
+buffer switcher max row count
+bufferset scope
+sort buffers
+sort by name
+full screen includes menu
+full screen includes toolbar
+full screen includes status
+view option pane
+ init
+ save
+default encoding
+encoding autodetect
+encoding detectors
+fallback encodings
+line separator
+ping pong list
+encodings option pane
+ init
+ save
+no focus border
+style model
+style table
+syntax hilite option pane
+ init
+ save
+create style table scroller
+create style table model
+built in
+built in names
+get
+set
+foreground color
+background color
+mem foreground color
+mem background color
+show statusbar
+show statusbar plain
+list model
+preview status bar
+list
+add
+remove
+move up
+move down
+edit
+show caret line number
+show caret dot
+show caret virtual
+show caret offset
+show caret buffer length
+status bar option pane
+ init
+ save
+update buttons
+update preview
+sets combo box
+expand on input
+abbrevs table
+global abbrevs
+mode abbrevs
+add
+edit
+remove
+abbrevs option pane
+ init
+ save
+update enabled
+edit
+add
+built in icon themes
+old theme
+lfs
+look and feel
+primary font
+secondary font
+help viewer font
+history
+menu spillover
+show tips
+show splash
+text colors
+decorate frames
+decorate dialogs
+anti alias extras
+icon themes
+system tray icon
+use quartz
+appearance option pane
+ init
+ save
+update enabled
+set file flag
+default directory
+show toolbar
+show menubar
+show icons
+show hidden files
+sort ignore case
+sort mix files and dirs
+double click close
+current buffer filter
+use default icons
+browser option pane
+ init
+ save
+check file status none
+check file status focus
+check file status focus buffer
+check file status all
+check mod status
+check mod status upon
+recent files
+hypersearch results warning
+save caret
+sort recent
+persistent markers
+restore
+restore remote
+restore c l i
+restore splits
+use default locale
+lang
+general option pane
+ init
+ save
+global options
+global options
+global options
+global options
+create option tree model
+cancel
+init
+get default group
+mirror label
+disable obsolete
+settings dir
+download source
+delete downloads
+cache for spinner
+spinner model
+mira model
+mira list
+update mirrors
+update status
+plugin manager option pane
+ init
+ save
+update mirror label
+colors model
+colors table
+add
+remove
+move up
+move down
+browser colors option pane
+ init
+ save
+update enabled
+set selected row
+default mode
+undo count
+reset undo on save
+global
+mode props
+current
+caption box
+mode
+use defaults
+filename glob
+firstline glob
+no word sep
+camel cased words
+folding
+collapse folds
+wrap
+max line len
+tab size
+indent size
+no tabs
+elastic tabstops
+auto indent
+deep indent
+large file mode
+ask large file mode
+no highlight large file mode
+limited syntax large file mode
+full syntax large file mode
+editing option pane
+ init
+ save
+save mode
+select mode
+update enabled
+http enabled
+http host
+http port
+http user
+http pass
+http non proxy
+socks enabled
+socks host
+socks port
+firewall option pane
+ init
+ save
+plugins group
+plugin options
+plugin options
+plugin options
+plugin options
+create option tree model
+get default group
+save as uses f s b
+two stage save
+confirm save all
+autosave
+autosave untitled
+suppress not saved confirm untitled
+use m d 5for dirty calculation
+backups
+backup directory
+backup prefix
+backup suffix
+backup every save
+save backup option pane
+ init
+ save
+selected keymap
+duplicate keymap
+reset keymap
+delete keymap
+keymaps
+key table
+models
+filtered model
+select model
+all bindings
+filter t f
+shortcuts option pane
+ init
+ save
+set filter
+init models
+reload models
+create model
+add bindings
+create binding
+reset buttons
+font
+print header
+print footer
+print line numbers
+print folds
+color
+tab size
+glyph vector
+force 1 3
+print option pane
+ init
+ save
+font
+font subst
+font subst list
+font subst system fonts
+foreground color
+background color
+blink caret
+block caret
+thick caret
+caret color
+selection color
+selection fg
+selection fg color
+multiple selection color
+line highlight
+line highlight color
+structure highlight
+structure highlight color
+eol markers
+eol marker color
+wrap guide
+wrap guide color
+electric borders
+anti alias
+frac font metrics
+strip trailing e o l
+complete from all buffers
+line spacing
+text area option pane
+ init
+ save
+drag and drop
+join non word chars
+middle mouse paste
+ctrl for rectangular selection
+gutter click actions
+click action keys
+click modifier keys
+mouse option pane
+ init
+ save
+thread
+progress
+stop
+count
+done
+value so far
+roster
+plugin manager progress
+set value
+set maximum
+set status
+done
+table
+scrollpane
+plugin model
+window
+info box
+choose button
+updates
+layout
+plugin set
+asc icon
+desc icon
+install panel
+load plugin set
+update model
+handle message
+loading
+format size
+download dir
+operations
+to load
+roster
+add remove
+add install
+get operation
+get operation count
+is empty
+perform operations in work thread
+perform operations in a w t thread
+add operation
+get download dir
+path
+plugin list
+plugin set
+plugin set entry
+plugin
+jar
+author
+branch
+obsolete
+version
+date
+download
+download size
+download source
+download source size
+size
+dep what
+dep from
+dep to
+dep plugin
+name
+description
+state stack
+plugin list handler
+resolve entity
+attribute
+characters
+start element
+end element
+start document
+end document
+push element
+peek element
+pop element
+instance
+tab pane
+done
+mgr options
+plugin options
+installer
+updater
+manager
+plugin list
+queued update
+downloading plugin list
+parent
+property pluginset
+get instance
+dispose
+handle properties changed
+handle plugin update
+show plugin manager
+ok
+cancel
+get plugin list
+plugin removed
+plugin manager
+init
+should update plugin list
+update plugin list
+check for obsolete plugins
+disable plugin
+plugin list updated
+process key events
+id
+description
+location
+country
+continent
+mirrors
+mirror
+state stack
+path
+mirror list handler
+resolve entity
+characters
+start element
+end element
+start document
+end document
+push element
+peek element
+pop element
+xml
+mirrors
+mirror list
+get xml
+get mirrors
+read xml
+download xml
+add
+finished
+plugin detail
+title
+entry
+plugin detail panel
+set plugin
+g z i p m a g i c 1
+g z i p m a g i c 2
+milliseconds per minute
+plugins
+plugin hash
+plugin sets
+id
+cached u r l
+task
+gzip u r l
+plugin list
+read plugin list
+download plugin list
+add plugin
+add plugin set
+finished
+dump
+get mirror id
+build mirror
+get auto selected mirror
+hide libraries
+table
+scrollpane
+plugin detail panel
+plugin model
+window
+popup
+selected plugins
+jar names
+manage panel
+update
+load plugin set
+get declared jars
+format
+job
+get print job
+page setup
+print
+get page format
+save print spec
+header color
+header text color
+footer color
+footer text color
+line number color
+text color
+job
+format
+view
+buffer
+font
+styles
+header
+footer
+line numbers
+current page
+current page start
+current physical line
+end
+lm
+line list
+frc
+token handler
+buffer printable
+print
+print
+print page
+paint header
+paint footer
+format
+job
+get print job
+page setup
+print
+get page format
+in
+plugin
+resource
+plugin res u r l connection
+connect
+get input stream
+get header field
+open connection
+view
+matcher
+results
+root search node
+selection
+search string
+select node
+hyper search request
+ run
+search in selection
+do hyper search
+do hyper search
+search
+replace
+replace method
+replace n s
+regexp
+whole word
+ignore case
+reverse
+beanshell
+wrap
+matcher
+fileset
+set search string
+get search string
+set replace string
+get replace string
+set whole word
+set ignore case
+get whole word
+get ignore case
+set regexp
+get regexp
+set reverse search
+get reverse search
+set bean shell replace
+get bean shell replace
+set auto wrap around
+get auto wrap around
+set search matcher
+get search matcher
+set search file set
+get search file set
+get smart case replace
+hyper search
+hyper search
+find
+find
+find
+replace
+replace
+replace all
+replace all
+escape regexp
+load
+save
+handle error
+init replace
+record
+replace in selection
+ replace
+replace one
+replace one
+regexp bean shell replace
+regexp replace
+literal bean shell replace
+get column on other line
+current buffer
+all buffers
+directory
+view hash
+view
+find
+replace
+string replace
+bean shell replace
+keep dialog
+whole word
+ignore case
+regexp
+hyper search
+wrap
+search back
+search forward
+search selection
+search current buffer
+search all buffers
+search directory
+filter
+directory
+search sub directories
+skip binary files
+skip hidden
+choose
+synchronize
+find btn
+replace btn
+replace and find btn
+replace all btn
+close btn
+saving
+focus order
+get search dialog
+show search dialog
+set search string
+ok
+cancel
+handle search settings changed
+set visible
+init focus order
+dispose
+search dialog
+create find label and field
+create replace label and field
+create field panel
+create search settings panel
+create multi file panel
+create buttons panel
+update enabled
+save
+close or keep dialog
+load
+glob
+view
+all buffer set
+get view
+get file filter
+get code
+ get files
+node file
+show full path
+file sep
+get node file
+hyper search folder node
+to string
+pattern
+pattern end
+ignore case
+fwd skip
+fwd suffix
+back skip
+back suffix
+boyer moore search matcher
+boyer moore search matcher
+next match
+match
+to string
+generate skip array
+get skip index
+generate suffix array
+view
+find
+ignore case
+regexp
+hyper search
+whole word
+timer
+was error
+default background
+default foreground
+error foreground
+error background
+close
+search start
+search reverse
+is removable
+search bar
+get field
+set hyper search
+update
+properties changed
+find
+incremental search
+timer incremental search
+set close button visibility
+return value
+whole word
+no word sep
+search matcher
+next match
+set no word sep
+get no word sep
+is whole word
+is end word
+directory
+glob
+recurse
+directory list set
+get directory
+set directory
+get file filter
+set file filter
+is recursive
+set recursive
+get code
+ get files
+flags
+re
+pattern
+pattern search matcher
+pattern search matcher
+pattern search matcher
+next match
+to string
+get flag
+files
+get first file
+get last file
+get next file
+get prev file
+get files
+get file count
+get code
+invalidate cached list
+get prev or next file
+ get files
+tree view displayed
+search string
+result nodes
+search matcher
+no word sep
+hyper search operation node
+to string
+is tree view displayed
+set tree view displayed
+restore flat nodes
+cache result nodes
+remove node from cache
+insert tree nodes
+get search matcher
+get search string
+path
+buffer
+line
+str
+occur
+occur count
+get buffer
+get selection
+go to
+to string
+hyper search result
+buffer opened
+buffer closed
+add occur
+path equals
+equals
+name
+highlight prop
+view
+caption
+result tree
+result tree root
+result tree model
+highlight
+clear
+multi
+stop
+multi status
+m open
+m open new view
+m open new plain view
+m open new split
+hyper search results
+focus on default component
+add notify
+remove notify
+visit buffers
+handle buffer update
+traverse nodes
+get tree model
+get tree
+search started
+set search status
+search failed
+search done
+search done
+update highlight status
+update multi status
+go to selected node
+remove selected node
+remove all nodes
+hide dockable
+trim search string
+parse highlight style
+expand all nodes
+get first file
+get last file
+get next file
+get prev file
+get files
+get file count
+get code
+path
+show full path
+file sep
+count
+hyper search file node
+get buffer
+go to
+to string
+equals
+get count
+set count
+style
+width
+empty text
+font subst enabled
+font subst system fonts enabled
+preferred fonts
+font subst list
+glyph cache capacity
+glyph cache
+background
+str
+glyphs
+paint chunk list
+paint chunk backgrounds
+offset to x
+x to offset
+properties changed
+chunk
+chunk
+chunk
+is accessible
+is initialized
+is tab
+snippet before
+snippet after
+snippet before line offset
+offset to x
+x to offset
+init
+get font subst list
+get subst font
+draw glyphs
+layout glyph vector
+layout glyphs
+do font substitution
+get glyph cache
+max chunk len
+styles
+font render context
+expander
+out
+wrap margin
+physical line offset
+init
+get chunk list
+handle token
+create chunk
+init chunk
+init chunks
+merge adjucent chunks
+can merge
+make wrapped line
+recalculate tab width in wrap margin
+end offset of whitespaces
+make screen line in wrap margin
+make screen line
+mode name
+marker
+keywords
+state stack
+prop name
+prop value
+props
+mode props
+rules
+reload modes
+x mode handler
+resolve entity
+characters
+start element
+end element
+start document
+end document
+get token marker
+get mode properties
+error
+get token marker
+add keyword
+push element
+peek element
+pop element
+find parent
+major actions
+seq
+span
+mark previous
+mark following
+eol span
+action hints
+no line break
+no word break
+is escape
+regexp
+end regexp
+match type context
+match type rule
+at line start
+at whitespace end
+at word start
+up hash char
+up hash chars
+start pos match
+start
+start regexp
+end pos match
+end
+end regexp
+action
+token
+match type
+escape rule
+delegate
+create sequence rule
+create regexp sequence rule
+create regexp sequence rule
+create span rule
+create regexp span rule
+create regexp span rule
+create e o l span rule
+create regexp e o l span rule
+create regexp e o l span rule
+create mark following rule
+create mark previous rule
+create escape rule
+to string
+parser rule
+parser rule
+token types
+null
+c o m m e n t 1
+c o m m e n t 2
+c o m m e n t 3
+c o m m e n t 4
+digit
+function
+invalid
+k e y w o r d 1
+k e y w o r d 2
+k e y w o r d 3
+k e y w o r d 4
+label
+l i t e r a l 1
+l i t e r a l 2
+l i t e r a l 3
+l i t e r a l 4
+markup
+operator
+id count
+end
+id
+offset
+length
+rules
+next
+string to token
+token to string
+token
+to string
+instance
+modes
+remove all
+get mode
+get mode for file
+get mode for file
+get modes
+add mode
+load mode
+load mode
+error
+region matches
+first token
+last token
+line context
+init
+get tokens
+handle token
+get line context
+set line context
+get parser rule set
+create token
+add token
+fg color
+bg color
+font
+syntax style
+get foreground color
+get background color
+get font
+instance
+handle token
+set line context
+standard
+mode name
+set name
+props
+keywords
+rule count
+rule map
+imports
+terminate char
+ignore case
+default token
+escape rule
+highlight digits
+digit r e
+ no word sep
+no word sep
+built in
+get standard rule set
+parser rule set
+get mode name
+get set name
+get name
+get properties
+set properties
+resolve imports
+add rule set
+add rule
+get rules
+get rule count
+get terminate char
+set terminate char
+get ignore case
+set ignore case
+get keywords
+set keywords
+get highlight digits
+set highlight digits
+get digit regexp
+set digit regexp
+get escape rule
+set escape rule
+get default
+set default
+get no word sep
+set no word sep
+is built in
+to string
+map length
+map
+ignore case
+no word sep
+keyword map
+keyword map
+lookup
+add
+add
+get non alpha numeric chars
+get keywords
+get ignore case
+set ignore case
+add
+get string map key
+get segment map key
+rule sets
+main rule set
+token handler
+line
+context
+keywords
+pattern
+last offset
+line length
+pos
+whitespace end
+seen whitespace end
+token marker
+add rule set
+get main rule set
+get rule set
+get rule sets
+mark tokens
+check delegate end
+offset matches
+handle rule start
+handle rule end
+handle no word break
+handle token with spaces
+mark keyword
+substitute
+match token
+check hash string
+property manager
+name
+mouse actions
+get action for event
+text area
+saved buffer
+saved caret
+text area drop handler
+drag enter
+drag over
+drag exit
+drop
+text area
+elastic tabstops tab expander
+next tab stop
+get tab size
+extensions
+add extension
+remove extension
+get extensions
+paint screen line range
+get tool tip text
+paint screen line range
+text area
+mouse handler
+mouse pressed
+mouse released
+buffer
+screen lines
+screen line manager
+is screen line count valid
+get screen line count
+set screen line count
+invalidate screen line counts
+invalidate screen line count
+reset
+content inserted
+content removed
+buffer map
+first line
+scroll line count
+screen line mgr
+folds
+initialized
+in use
+buffer
+text area
+buffer handler
+elastic tab stop listener
+get display manager
+release
+buffer closed
+text area disposed
+get buffer
+is line visible
+is outside narrowing
+get first visible line
+get last visible line
+get next visible line
+get prev visible line
+get screen line count
+get scroll line count
+collapse fold
+expand fold
+expand all folds
+expand folds
+expand folds
+expand folds
+narrow
+init
+notify screen line changes
+set first line
+set first physical line
+invalidate screen line counts
+update screen line count
+buffer loaded
+fold handler changed
+display manager
+reset anchors
+dispose
+show line range
+hide line range
+set screen line count
+ expand fold
+text area exception
+lowest layer
+default layer
+highest layer
+fold painter property
+fold painter service
+default fold painter service
+fold marker size
+selection gutter width
+enabled
+text area
+mouse handler
+extension mgr
+gutter size
+collapsed size
+line number width
+disabled size
+interval highlight
+current line highlight
+fold color
+selection area bg color
+fm
+alignment
+interval
+current line highlight enabled
+expanded
+selection area enabled
+structure highlight
+structure highlight color
+border width
+focus border
+no focus border
+fold painter
+buffer
+buffer listener
+min line number digits
+selection area width
+set fold painter
+gutter
+paint component
+add extension
+add extension
+remove extension
+get extensions
+get tool tip text
+set border
+update border
+set border
+set min line number digit count
+get min line number digit count
+get line number digit count
+set buffer
+update line number width
+dispose
+set font
+set gutter enabled
+is selection area enabled
+set selection area enabled
+set selection area background
+set selection area width
+get highlighted foreground
+set highlighted foreground
+get current line foreground
+set current line foreground
+get fold color
+set fold color
+get preferred size
+get minimum size
+get line number alignment
+set line number alignment
+is expanded
+set expanded
+toggle expanded
+get highlight interval
+set highlight interval
+is current line highlight enabled
+set current line highlight enabled
+get structure highlight color
+set structure highlight color
+is structure highlight enabled
+set structure highlight enabled
+set selection popup handler
+get selection popup handler
+set mouse actions provider
+paint line
+owner
+composed text layout
+composed caret x
+last committed at
+last committed text
+input method support
+get caret rectangle
+paint valid line
+get text location
+get location offset
+get insert position offset
+get committed text
+get committed text length
+cancel latest committed text
+get selected text
+input method text changed
+caret position changed
+text area
+drag start line
+drag start offset
+drag start
+click count
+dragged
+quick copy drag
+control
+ctrl for rectangular selection
+maybe drag and drop
+text area mouse handler
+mouse pressed
+do single click
+do double click
+do triple click
+mouse moved
+mouse dragged
+do single drag
+do double drag
+do triple drag
+mouse released
+is popup trigger
+is middle button
+is right button
+get selection pivot caret
+get selection pivot line
+show cursor
+paint fold end
+paint fold middle
+paint fold start
+paint fold shape
+display manager
+text area
+physical line
+scroll line
+call changed
+call reset
+pre content inserted scroll lines
+pre content removed scroll lines
+anchor
+reset
+changed
+to string
+move physical line
+move scroll line
+pre content inserted
+content inserted
+pre content removed
+content removed
+get physical line
+set physical line
+get scroll line
+set scroll line
+is call changed
+set call changed
+is call reset
+set call reset
+get display manager
+get text area
+reset call state
+line
+col start index
+col end index
+line length
+column block line
+get line
+get column start index
+get column end index
+set line length
+get line length
+to string
+update line no
+display manager
+text area
+buffer
+delayed update
+delayed multiline update
+delayed update start
+delayed update end
+buffer handler
+buffer loaded
+fold handler changed
+fold level changed
+content inserted
+pre content inserted
+pre content removed
+content removed
+transaction complete
+do delayed update
+delay update
+get ready to break fold
+text area
+handled insertion
+handled deletion
+single tab deleted
+elastic tab stop buffer listener
+fully update column blocks
+content inserted
+content removed
+transaction complete
+pre content inserted
+pre content removed
+scroll line count
+changed
+reset
+pre content inserted
+content inserted
+pre content removed
+content removed
+paint fold shape
+selection
+text area
+selection manager
+get selection count
+get selection
+set selection
+add to selection
+add to selection
+set selection
+get selection at offset
+remove from selection
+resize selection
+get selected lines
+invert selection
+get selection start and end
+inside selection
+lowest layer
+background layer
+line background layer
+below selection layer
+selection layer
+wrap guide layer
+below most extensions layer
+default layer
+block caret layer
+bracket highlight layer
+text layer
+caret layer
+highest layer
+text area
+styles
+caret color
+selection color
+multiple selection color
+line highlight color
+structure highlight color
+eol marker color
+wrap guide color
+fold line style
+block caret
+thick caret
+line highlight
+structure highlight
+eol markers
+wrap guide
+anti alias
+frac font metrics
+rendering hints
+selection fg
+selection fg color
+fm
+extra line spacing
+extension mgr
+caret extension
+font render context
+hidden cursor
+default cursor
+set bounds
+add notify
+set cursor
+reset cursor
+show cursor
+hide cursor
+get focus traversal keys enabled
+get styles
+set styles
+get caret color
+set caret color
+get selection color
+set selection color
+get multiple selection color
+set multiple selection color
+get line highlight color
+set line highlight color
+is line highlight enabled
+set line highlight enabled
+get selection fg color
+set selection fg color
+is selection fg color enabled
+set selection fg color enabled
+get structure highlight color
+set structure highlight color
+is structure highlight enabled
+set structure highlight enabled
+is block caret enabled
+set block caret enabled
+is thick caret enabled
+set thick caret enabled
+get e o l marker color
+set e o l marker color
+get e o l markers painted
+set e o l markers painted
+get wrap guide color
+set wrap guide color
+is wrap guide painted
+set wrap guide painted
+get fold line style
+set fold line style
+set anti alias
+get anti alias
+set fractional font metrics enabled
+is fractional font metrics enabled
+get font render context
+add extension
+add extension
+remove extension
+get extensions
+get tool tip text
+get font metrics
+get line height
+get font height
+get line extra spacing
+set line extra spacing
+set font
+get string width
+get rendering hints
+update
+paint
+next tab stop
+get preferred size
+get minimum size
+text area painter
+update rendering hints
+paint border
+get border insets
+paint fold shape
+parent
+children
+lines
+column block width
+tab sizes dirty
+buffer
+is dirty
+add child
+get children
+get parent
+set width
+set parent
+set lines
+get lines
+column block
+column block
+column block
+get start line
+get end line
+get column width
+is line within this block
+get containing block
+get column block
+search children
+search children
+to string
+throw exception
+set dirty status
+update line no
+update column block line offset
+set tab size dirty status
+are tab sizes dirty
+start
+end
+start line
+end line
+get start
+get end
+get start
+get end
+get start line
+get end line
+overlaps
+to string
+clone
+selection
+selection
+selection
+get text
+set text
+content inserted
+content removed
+none
+standard
+subpixel
+subpixel hrgb
+subpixel vrgb
+subpixel hbgr
+subpixel vbgr
+combo choices
+render hints
+m val
+set
+render hint
+anti alias
+anti alias
+anti alias
+equals
+from string
+to string
+val
+drag source
+compound edit
+same text area
+insert pos
+insert offset
+create transferable
+get source actions
+import data
+import file
+import u r i list
+import text
+export done
+is uri list
+can import
+can import
+j edit embedded text area
+no scroll
+normal scroll
+electric scroll
+focused component
+mouse handler
+chunk cache
+display manager
+selection manager
+action context
+buffer changing
+max horizontal scroll width
+wrap
+hard wrap
+soft wrap
+wrap to width
+max line len
+wrap margin
+tab size
+char width
+scroll bars initialized
+offset x y
+last line partial
+blink
+caret timer
+structure timer
+popup
+popup enabled
+gutter
+painter
+listener list
+caret event
+caret blinks
+elastic tabstops expander
+input handler provider
+input method support
+phys last line
+screen last line
+visible lines
+electric scroll
+horizontal offset
+quick copy
+vertical box
+vertical
+horizontal
+buffer
+caret
+caret line
+caret screen line
+structure matchers
+match
+magic caret
+multi
+overwrite
+rectangular selection mode
+dnd enabled
+queued caret update
+queued scroll mode
+queued fire caret event
+old caret line
+join non word chars
+ctrl for rectangular selection
+text area
+get fold painter
+init input handler
+get action context
+set mouse handler
+set transfer handler
+to string
+dispose
+get input handler
+get painter
+get gutter
+get display manager
+is caret blink enabled
+set caret blink enabled
+get electric scroll
+set electric scroll
+is quick copy enabled
+set quick copy enabled
+get buffer
+set buffer
+is editable
+is drag enabled
+set drag enabled
+get join non word chars
+set join non word chars
+is ctrl for rectangular selection
+set ctrl for rectangular selection
+get first line
+set first line
+get first physical line
+set first physical line
+set first physical line
+get last physical line
+get last screen line
+get visible lines
+get horizontal offset
+set horizontal offset
+scroll up line
+scroll up page
+scroll down line
+scroll down page
+scroll to caret
+scroll to
+scroll to
+add scroll listener
+remove scroll listener
+get physical line of screen line
+get screen line of offset
+get screen line start offset
+get screen line end offset
+xy to offset
+xy to offset
+x to screen line offset
+offset to x y
+offset to x y
+offset to x y
+invalidate screen line range
+invalidate line
+invalidate line range
+get buffer length
+get line count
+get line of offset
+get line start offset
+get line end offset
+get line length
+get text
+get text
+get text
+get line text
+get line text
+get visible line text
+get visible line text
+get visible line segment
+set text
+select all
+select line
+select paragraph
+select word
+select to matching bracket
+select to matching bracket
+select block
+line in structure scope
+invert selection
+get selection count
+get selection
+get selection
+get selection iterator
+select none
+set selection
+set selection
+add to selection
+add to selection
+get selection at offset
+remove from selection
+remove from selection
+resize selection
+extend selection
+extend selection
+get selected text
+get selected text
+get selected text
+set selected text
+set selected text
+set selected text
+replace selection
+get selected lines
+caret auto scroll
+add structure matcher
+remove structure matcher
+get structure match
+blink caret
+center caret
+scroll and center caret
+set caret position
+set caret position
+move caret position
+move caret position
+move caret position
+get caret position
+get caret line
+get magic caret position
+set magic caret position
+add caret listener
+remove caret listener
+go to next bracket
+go to next character
+go to next line
+go to next page
+go to next paragraph
+go to next word
+go to next word
+go to prev bracket
+go to prev character
+go to prev line
+go to prev page
+go to prev paragraph
+go to prev word
+go to prev word
+go to prev word
+home
+end
+smart home
+smart end
+go to start of line
+go to end of line
+go to end of code
+go to start of white space
+go to end of white space
+go to first visible line
+go to last visible line
+go to buffer start
+go to buffer end
+go to matching bracket
+user input
+is overwrite enabled
+set overwrite enabled
+toggle overwrite enabled
+backspace
+backspace word
+backspace word
+backspace word
+delete
+delete to end of line
+delete line
+delete paragraph
+delete to start of line
+delete word
+delete word
+is multiple selection enabled
+toggle multiple selection enabled
+set multiple selection enabled
+is rectangular selection enabled
+toggle rectangular selection enabled
+set rectangular selection enabled
+go to parent fold
+go to next fold
+go to prev fold
+collapse fold
+collapse fold
+expand fold
+select fold
+select fold
+narrow to fold
+narrow to selection
+add explicit fold
+line comment
+range comment
+format paragraph
+spaces to tabs
+tabs to spaces
+to upper case
+to lower case
+remove trailing white space
+insert enter and indent
+insert tab and indent
+indent selected lines
+turn on elastic tabstops
+shift indent left
+shift indent right
+join lines
+add left of scroll bar
+remove left of scroll bar
+add notify
+remove notify
+get focus traversal keys enabled
+get focus cycle root
+process key event
+add top component
+remove top component
+get input method requests
+add status listener
+remove status listener
+properties changed
+add action set
+get mark position
+is caret visible
+is structure highlight visible
+update max horizontal scroll width
+recalculate visible lines
+fold structure changed
+update scroll bar
+ finish caret update
+invalidate structure match
+start drag and drop
+fire narrow active
+ set horizontal offset
+invalidate selected lines
+finish caret update
+fire caret event
+fire scroll event
+fire status changed
+fire bracket selected
+ change line
+line contains space and tabs
+insert
+insert tab
+user input tab
+do word wrap
+update bracket highlight with delay
+update structure highlight
+show structure status message
+recalculate last physical line
+get rect params
+delete next character
+delete prev code point
+delete
+tall caret delete
+shift tall caret left
+set max line length
+add explicit fold
+range line comment
+join line at
+is right click popup enabled
+set right click popup enabled
+get right click popup
+set right click popup
+handle popup trigger
+create popup menu
+show popup menu
+show popup menu
+get prev character offset
+get next character offset
+get character boundary at
+get tab expander
+skew
+pre content removed num lines
+first line
+pre content inserted
+content inserted
+pre content removed
+content removed
+changed
+scroll verify
+reset
+phys down
+phys up
+scroll down
+scroll up
+ensure physical line is visible
+to string
+get skew
+set skew
+fvm
+fvmcount
+lastfvmget
+range map
+range map
+reset
+first
+last
+lookup
+search
+put
+put 2
+next
+prev
+show
+hide
+count
+dump
+content inserted
+pre content removed
+property manager
+standalone text area
+init text area
+init gutter
+init painter
+get property
+get boolean property
+get boolean property
+get integer property
+get font property
+get font property
+get color property
+get color property
+properties changed
+init buffer
+create text area
+load properties
+main
+text area
+buffer
+line info
+out full
+out full physical line
+first invalid line
+last screen line p
+last screen line
+need full repaint
+token handler
+chunk cache
+get max horizontal scroll width
+get screen line of offset
+recalculate visible lines
+set buffer
+scroll down
+scroll up
+invalidate all
+reset
+invalidate chunks from phys
+get line info
+get line subregion count
+get subregion of offset
+x to subregion offset
+x to subregion offset
+subregion offset to x
+subregion offset to x
+get subregion start offset
+get subregion end offset
+get below position
+get above position
+need full repaint
+get line infos for physical line
+get line infos for physical line
+get first screen line
+get update start line
+update chunks up to
+line to chunk list
+view
+fold painter property
+fold painter service
+default fold painter service
+j edit text area
+dispose
+get fold painter
+home
+end
+smart home
+smart end
+go to buffer end
+go to matching bracket
+go to buffer start
+replace selection
+show go to line dialog
+user input
+add explicit fold
+format paragraph
+do word count
+show word count dialog
+get view
+get fold painter name
+handle popup trigger
+create popup menu
+handle properties changed
+center
+right
+left
+bottom
+top
+center
+left
+right
+bottom
+top
+add layout component
+remove layout component
+preferred layout size
+minimum layout size
+layout container
+get insets
+paint fold start
+paint fold end
+paint fold middle
+paint screen line range
+paint valid line
+paint invalid line
+get tool tip text
+visit
+visit
+visit
+visit
+offset
+length
+seg
+segment char sequence
+segment char sequence
+char at
+length
+sub sequence
+to string
+instance
+listeners
+tasks
+io wait lock
+task manager
+count tasks
+count io tasks
+add task listener
+remove task listener
+fire waiting
+fire running
+fire done
+fire status updated
+fire value updated
+fire maximum updated
+visit
+wait for io tasks
+cancel tasks by class
+decorate
+move file
+copy stream
+copy stream
+file length
+close quietly
+close quietly
+close quietly
+close quietly
+close quietly
+close quietly
+close quietly
+i o utilities
+property manager
+get color hex string
+parse color
+parse style
+parse style
+load styles
+load styles
+syntax utilities
+array
+len
+integer array
+integer array
+add
+get
+get size
+set size
+clear
+get array
+property change listeners
+get tree cell renderer component
+new instance
+configure tree cell renderer component
+value
+status
+maximum
+label
+thread
+state
+cancellable
+task
+run
+ run
+set value
+set maximum
+set status
+get value
+get status
+get maximum
+get state
+get label
+set label
+is cancellable
+set cancellable
+cancel
+to string
+maxlines
+debug
+message
+notice
+warning
+error
+lock
+log
+log line count
+wrap
+level
+stream
+line sep
+real out
+real err
+list model
+time format
+max throwables
+throwables
+beep on output
+last beep time
+init
+set log writer
+get beep on output
+set beep on output
+flush stream
+close stream
+get log list model
+log
+log
+create print stream
+ log exception
+ log
+urgency to string
+base
+reverse char sequence
+base sequence
+char at
+length
+sub sequence
+to string
+chars to entities
+parse x m l
+find entity
+x m l utilities
+thread pool
+core pool size
+run in dispatch thread
+run in dispatch thread and wait
+run in dispatch thread now
+run in background
+run in background
+thread utilities
+parse highlight style
+style 2html
+highlight string
+append string 2html
+color 2html
+segment buffer
+append
+append
+ensure capacity
+serial version u i d
+string list
+string list
+add all
+split
+to string
+to array
+join
+join
+join
+main
+kb format
+mb format
+chars to escapes
+chars to escapes
+get indent string
+get leading white space
+get leading white space
+get trailing white space
+get leading white space width
+get leading white space width
+create white space
+truncate white space
+create white space
+get virtual width
+get offset of virtual column
+compare strings
+objects equal
+glob to r e
+region matches
+starts with
+get boolean
+format file size
+standard utilities
+md 5
+arraysep
+root
+properties bean
+properties bean
+load
+save
+clean
+get property descriptors
+encode
+parse
+the text
+listeners
+add text listener
+remove text listener
+fire text changed
+to string
+set text
+waiting
+running
+done
+status updated
+maximum updated
+value updated
+open file
+open
+ascii encoder
+ascii encoding
+get text reader
+get text writer
+get permissive text reader
+get text reader
+get permissive text reader
+accept
+current keymap
+property manager
+user keymap folder
+system keymap folder
+keymap manager impl
+get keymap
+get keymap names
+get keymap
+get keymap state
+reset keymap
+delete user keymap
+copy keymap
+reload
+get keymap file
+get user keymap file
+get system keymap file
+get keymaps from folder
+get current keymap name
+props
+name
+file
+modified
+keymap impl
+get input stream
+load properties
+get shortcut
+set shortcut
+to string
+hash code
+equals
+save
+migrate
+check file status
+migrate
+name
+execute
+one time migration service
+do migration
+option group
+splitter
+pane tree
+current pane
+option tree model
+deferred option panes
+stage
+title
+option group pane
+add text listener
+get title
+set title
+value changed
+select pane
+select pane
+ init
+ save
+save
+plugin option group
+create option tree model
+tabs
+panes
+shown panes
+ok
+cancel
+apply
+tabbed option dialog
+tabbed option dialog
+set selected index
+setup tabs
+action performed
+add option pane
+add option group
+ok
+ok
+cancel
+state changed
+global options
+plugin options
+starting index
+combined options
+combined options
+combined options
+ init
+root
+global option group
+global option group
+add group
+reader
+writer
+native 2 a s c i i encoding
+iso 8 8 5 9 1
+buffer array
+buffer
+one time set up
+one time tear down
+set up
+tear down
+get reader
+get throttled reader
+get permissive reader
+get throttled permissive reader
+read should convert escape sequence
+read char array should convert escape sequence
+read char array int int should convert escape sequence
+read char buffer should convert escape sequence
+read should throw exception on incomplete escape sequence
+read char array should throw exception on incomplete escape sequence
+read char array int int should throw exception on incomplete escape sequence
+read char buffer should throw exception on incomplete escape sequence
+read should throw exception on missing input after u
+read char array should throw exception on missing input after u
+read char array int int should throw exception on missing input after u
+read char buffer should throw exception on missing input after u
+read should throw exception on malformed input
+read char array should throw exception on malformed input
+read char array int int should throw exception on malformed input
+read char buffer should throw exception on malformed input
+permissive read should accept incomplete escape sequence
+permissive read char array should accept incomplete escape sequence
+permissive read char array int int should accept incomplete escape sequence
+permissive read char buffer should accept incomplete escape sequence
+permissive read should accept missing input after u
+permissive read char array should accept missing input after u
+permissive read char array int int should accept missing input after u
+permissive read char buffer should accept missing input after u
+permissive read should accept malformed input
+permissive read char array should accept malformed input
+permissive read char array int int should accept malformed input
+permissive read char buffer should accept malformed input
+read should correctly handle e o f
+read char array should correctly handle e o f
+read char array int int should correctly handle e o f
+read char buffer should correctly handle e o f
+read should correctly handle e o f after backslash
+read char array should correctly handle e o f after backslash
+read char array int int should correctly handle e o f after backslash
+read char buffer should correctly handle e o f after backslash
+read should correctly handle less than 5 non escape characters after backslash
+read char array should correctly handle less than 5 non escape characters after backslash
+read char array int int should correctly handle less than 5 non escape characters after backslash
+read char buffer should correctly handle less than 5 non escape characters after backslash
+read should throw exception on malformed input with throttled reader
+read char array should throw exception on malformed input with throttled reader
+read char array int int should throw exception on malformed input with throttled reader
+read char buffer should throw exception on malformed input with throttled reader
+read should convert escape sequence with throttled input stream
+read char array should convert escape sequence with throttled input stream
+read char array int int should convert escape sequence with throttled input stream
+read char buffer should convert escape sequence with throttled input stream
+read should read backslash without following u as backslash
+read char array should read backslash without following u as backslash
+read char array int int should read backslash without following u as backslash
+read char buffer should read backslash without following u as backslash
+permissive read should accept malformed input with throttled reader
+permissive read char array should accept malformed input with throttled reader
+permissive read char array int int should accept malformed input with throttled reader
+permissive read char buffer should accept malformed input with throttled reader
+read char array should read on after collapsing escape sequences
+read char array int int should read on after collapsing escape sequences
+read char buffer should read on after collapsing escape sequences
+read should ignore escape sequence that follows one backslash
+read char array should ignore escape sequence that follows one backslash
+read char array int int should ignore escape sequence that follows one backslash
+read char buffer should ignore escape sequence that follows one backslash
+read should convert escape sequence that follows two backslashes
+read char array should convert escape sequence that follows two backslashes
+read char array int int should convert escape sequence that follows two backslashes
+read char buffer should convert escape sequence that follows two backslashes
+different read methods should be usable on the same stream
+read should ignore escape sequence that follows three backslashes
+read char array should ignore escape sequence that follows three backslashes
+read char array int int should ignore escape sequence that follows three backslashes
+read char buffer should ignore escape sequence that follows three backslashes
+read should ignore incomplete escape sequence that follows one backslash
+read char array should ignore incomplete escape sequence that follows one backslash
+read char array int int should ignore incomplete escape sequence that follows one backslash
+read char buffer should ignore incomplete escape sequence that follows one backslash
+read should ignore malformed escape sequence that follows one backslash
+read char array should ignore malformed escape sequence that follows one backslash
+read char array int int should ignore malformed escape sequence that follows one backslash
+read char buffer should ignore malformed escape sequence that follows one backslash
+different read methods should have a common escape sequence handling
+skip should throw exception if to skip is negative
+skip should not do anything if to skip is zero
+skip should skip given amount if available
+skip should skip all if to skip is greater than input length
+multiple skip calls should work
+text reader with null as class parameter should work
+reader should be able to decode what writer has encoded
+reader should read single characters if writer added an escaping backslash
+reader should decode if writer has written escape sequence as single characters
+write int should encode a s c i i characters correctly
+write char array int int should encode a s c i i characters correctly
+write string int int should encode a s c i i characters correctly
+write char array should encode a s c i i characters correctly
+write string should encode a s c i i characters correctly
+append char should encode a s c i i characters correctly
+append char sequence int int should encode a s c i i characters correctly
+append char sequence should encode a s c i i characters correctly
+write int should encode non a s c i i characters correctly
+write char array int int should encode non a s c i i characters correctly
+write string int int should encode non a s c i i characters correctly
+write char array should encode non a s c i i characters correctly
+write string should encode non a s c i i characters correctly
+append char should encode non a s c i i characters correctly
+append char sequence int int should encode non a s c i i characters correctly
+append char sequence should encode non a s c i i characters correctly
+append char sequence int int should encode null correctly
+append char sequence should encode null correctly

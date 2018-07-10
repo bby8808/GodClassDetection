@@ -1,0 +1,187 @@
+package swr.actions.combine.multithread;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaModelMarker;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+
+import gr.uom.java.distance.MySystem;
+import swr.actions.aider.ActionsAider;
+import swr.actions.combine.Combination;
+import swr.actions.combine.CombinationPiece;
+import swr.actions.combine.CombineAction;
+import swr.actions.combine.PreCombination;
+import swr.actions.combine.delete.DeleteAction;
+import swr.actions.combine.export.ExportDataSetAction;
+import swr.actions.combine.importproject.ImportProject;
+
+public class PackageThread{
+	private IPackageFragment pack;
+	private int packCount;
+	private MySystem systemForExport;
+	
+	public PackageThread(MySystem system, IPackageFragment pack, int packCount){
+		this.pack = pack;
+		this.packCount = packCount;
+		this.systemForExport = system;
+	}
+	public void run() {
+		System.out.println("in package "+pack.getElementName()+" thread");
+		int cuCount = 0;
+		ArrayList<CombinationPiece> pieces;
+		printCurrentMemory(0);
+		try {
+			pieces = combine(pack,packCount,cuCount);
+			printCurrentMemory(1);
+			String dir = "K://byf//trainset//trainset_0407//"+pack.getJavaProject().getElementName();
+			ExportDataSetAction exportAction = new ExportDataSetAction();
+			exportAction.exportFullMN(dir, pieces);
+			for(int i=0; i<pieces.size(); i++){
+				printCurrentMemory(2);
+				exportAction.exportDataSet(dir+"//"+pack.getElementName(), systemForExport, pieces, i);
+				printCurrentMemory(3);
+				ImportProject buildNewProject = new ImportProject();
+				//buildNewProject.checkJDeodorantResult(dir+"//"+pack.getElementName(), pack.getJavaProject().getProject(), pieces,packCount, i);
+				printCurrentMemory(4);
+			}
+			printCurrentMemory(5);
+			//CombineAction.numOfPieces+=pieces.size();
+			DeleteAction delete = new DeleteAction();
+			delete.deleteAllCompbinationPieces(pack, pieces);
+			printCurrentMemory(6);
+			pack.getJavaProject().getProject().clearHistory(null);
+			printCurrentMemory(7);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	private void printCurrentMemory(int i){
+		System.out.println("============="+packCount+i+"==============");
+		Runtime runtime = Runtime.getRuntime();
+		int freeMemory = (int) (runtime.freeMemory()/1024/1024);
+		int totalMemory = (int) (runtime.totalMemory()/1024/1024);
+		int maxMemory = (int) (runtime.maxMemory()/1024/1024);
+		System.out.println("free memory: "+freeMemory+"\ntotal memory: "+totalMemory+"\nmax memory:"+maxMemory);
+		System.out.println("=============after gc==============");
+		runtime.gc();
+		freeMemory = (int) (runtime.freeMemory()/1024/1024);
+		totalMemory = (int) (runtime.totalMemory()/1024/1024);
+		maxMemory = (int) (runtime.maxMemory()/1024/1024);
+		System.out.println("free memory: "+freeMemory+"\ntotal memory: "+totalMemory+"\nmax memory:"+maxMemory);
+	}
+	
+	private ArrayList<CombinationPiece> combine(IPackageFragment pack, int packCount, int cuCount) throws CoreException{
+//		ICompilationUnit cp1 = pack.getCompilationUnit("RecentFiles.java");
+//		ICompilationUnit cp2 = pack.getCompilationUnit("TransformDialog.java");
+		ArrayList<CombinationPiece> pieces = new ArrayList<CombinationPiece>();
+			PreCombination preCombination = new PreCombination();
+			ArrayList<ICompilationUnit> CUPool = preCombination.filteCUPool(pack);
+			
+			for(int i=0; i<CUPool.size(); i++){
+				
+				for(int j=i+1; j<CUPool.size(); j++){
+//					if(count>MAX_CU_NUM){
+//						return filtWrongPiece(pack, pieces);
+//					}
+					ICompilationUnit cp1 = CUPool.get(i);
+					ICompilationUnit cp2 = CUPool.get(j);
+					if(preCombination.preCombine(cp1, cp2)){
+						//System.out.println("unit1: "+cp1.getElementName());
+						//System.out.println("unit2: "+cp2.getElementName());
+						System.out.println("combining "+cuCount+"th piece in "+pack.getElementName());
+						CombinationPiece piece = combineCompilationUnits(pack, cp1, cp2, "NewClass"+packCount+(cuCount++));
+						if(piece !=null)
+							pieces.add(piece);
+					}
+				}
+			}
+		
+		return filtWrongPiece(pack,pieces);
+		//return pieces;
+	}
+	
+	public ArrayList<CombinationPiece> filtWrongPiece(IPackageFragment pack, ArrayList<CombinationPiece> pieces) throws CoreException{
+		pack.getJavaProject().getProject().build(IncrementalProjectBuilder.INCREMENTAL_BUILD, null);
+		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		//System.out.println("filting in "+pieces.size()+" pieces");
+		ArrayList<CombinationPiece> deletePieces = new ArrayList<CombinationPiece>();
+		int count =0;
+		for(CombinationPiece piece:pieces){
+			ICompilationUnit unit = piece.getUnit();
+			ArrayList <IMarker> result = new ArrayList <IMarker>();
+			IResource r = unit.getResource();
+			try {
+				IMarker[] markers = r.findMarkers(IJavaModelMarker.JAVA_MODEL_PROBLEM_MARKER, true, IResource.DEPTH_ZERO);
+				for (IMarker marker: markers){
+				//	System.out.println("\t"+r.getName()+" has "+marker.getType());
+			        Integer severityType = (Integer) marker.getAttribute(IMarker.SEVERITY);
+			        if (severityType.intValue() == IMarker.SEVERITY_ERROR)
+			        	result.add(marker);
+			    }
+			    if(result.size() >0 ){
+			    //	System.out.println("delete unit "+ unit.getElementName());
+			    	deletePieces.add(piece);
+			    	unit.delete(true, new NullProgressMonitor());
+			    	count++;
+			    }
+			    	
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
+		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		pieces.removeAll(deletePieces);
+		System.out.println();
+		System.out.println("========================");
+		System.out.println("filt "+ count+" units in "+pack.getElementName());
+		System.out.println("left "+pieces.size()+" new units in "+pack.getElementName());
+		System.out.println("========================");
+		System.out.println();
+		//openEndDialog();
+		return pieces;
+	}
+	
+	public CombinationPiece combineCompilationUnits(IPackageFragment newPack, 
+			ICompilationUnit unit1, ICompilationUnit unit2, String className) throws JavaModelException{
+//		System.out.println("unit1: "+unit1.getElementName());
+//		System.out.println("unit2: "+unit2.getElementName());
+		IType mainType1 = ActionsAider.getMainType(unit1);
+		IType mainType2 = ActionsAider.getMainType(unit2);
+		ICompilationUnit[] units = {unit1, unit2};
+		IType[] mainTypes = {mainType1, mainType2};
+		Combination combination = new Combination(units, mainTypes);
+		CombinationPiece combiPiece = combination.createNewCompilationUnit(className, newPack);
+		
+	//	IType newType = combination.createNewType(newUnit, className);
+
+//		try {
+//			saveUnit(newUnit, project);
+//		} catch (MalformedTreeException | BadLocationException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		if(checkErrorMarkers(newUnit))
+//			return null;
+
+		return combiPiece;
+	}
+
+}

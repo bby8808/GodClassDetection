@@ -1,0 +1,652 @@
+package swr.actions.combine.export;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IField;
+import org.eclipse.jdt.core.IMember;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+
+import gr.uom.java.distance.DistanceMatrix;
+import gr.uom.java.distance.MyClass;
+import gr.uom.java.distance.MySystem;
+import swr.actions.aider.ActionsAider;
+import swr.actions.combine.CombinationPiece;
+import swr.actions.combine.CombinedMembers;
+
+public class ExportDataSetAction{
+	private String base;
+	private String trainDir = "//train";
+	private String testDir = "//test";
+	private String mnFile = "//mn_train.txt";
+	private String lbFile = "//lb_train.txt";
+	private String jcFile = "//jc_train.txt";
+	private MySystem system;
+	private DistanceMatrix distanceMatrix;
+	int size1;
+	int size2;
+	//int batchSize = 50000;
+	public ExportDataSetAction(String base,MySystem system){
+		this.base = base;
+		this.system = system;
+		this.distanceMatrix = new DistanceMatrix(system);
+		size1 = 0;
+		size2 = 0;
+	}
+	
+	public void exportDataSet(MySystem system, ArrayList<CombinationPiece> pieces, 
+			int index0) throws Exception{
+		//String trainset_dir = dir+"//";
+
+		//String mnFullFile = dir+"full_mn//mn_full.txt";
+		List<CombinationPiece> filtedPieces = new ArrayList<CombinationPiece>();
+		DistanceMatrix distanceMatrix = new DistanceMatrix(system);
+
+		for(int i=0; i<pieces.size(); i++){
+			if(i==index0)
+				continue;
+			if(filtPiece(pieces.get(i),pieces.get(index0))!=null)
+				filtedPieces.add(pieces.get(i));
+		}
+		String newCUName = pieces.get(index0).getUnit().getElementName();
+
+		String path1 = base + newCUName+trainDir +mnFile;
+		String path2 = base + newCUName+trainDir +lbFile;
+		exportMLTrainSet(path1,path2,filtedPieces,index0);
+		String path3 = base + newCUName+testDir+mnFile;
+		String path4 = base + newCUName+testDir+lbFile;
+		exportMLTestSet(path3,path4,pieces,index0);
+		String path5 = base + newCUName+trainDir +jcFile;
+		String path6 = base + newCUName+testDir+jcFile;
+		exportJCTrainSet(path5, filtedPieces, index0);
+		exportJCTestSet(system, distanceMatrix, path6, pieces, index0);
+
+		//exportFullMN(mnFullFile,pieces);
+	}
+	
+	private CombinationPiece filtPiece(CombinationPiece piece, CombinationPiece piece0){
+		for(String formerClass:piece.getFormerClasses()){
+			for(String formerClass0:piece0.getFormerClasses()){
+				if(formerClass.equals(formerClass0)){
+					System.out.println("delete piece: "+piece.getUnit().getElementName());
+					return null;
+				}
+			}
+		}
+		return piece;
+	}
+	
+	private BufferedWriter getWriter(String filePath) throws IOException{
+		File file = new File(filePath);
+		if(!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+		if(!file.exists())
+			file.createNewFile();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+		return writer;
+	}
+	
+	public void exportFullMN(List<ICompilationUnit> units) throws IOException, JavaModelException{
+		String mnFullFile = base+"//full_mn//mn_full.txt";
+		BufferedWriter writer = getWriter(mnFullFile);
+		for(ICompilationUnit unit:units){
+			IType mainType = ActionsAider.getMainType(unit);
+			for(IField field:mainType.getFields()){
+				String name = field.getElementName();
+				String token = tokenize(name);
+				writer.write(token+"\n");
+			}
+		}
+		writer.flush();
+		writer.close();
+	}
+	
+	public void exportMLTrainSet(String mnPath, String lbPath,
+			List<CombinationPiece> pieces, int index) throws IOException{
+		BufferedWriter writer1 = getWriter(mnPath);
+		BufferedWriter writer2 = getWriter(lbPath);
+		for(int i=0; i<pieces.size(); i++){
+			if(i==index)
+				break;
+			CombinationPiece piece = pieces.get(i);
+			writeln(piece, writer1, writer2);
+		}
+		writer1.flush();
+		writer1.close();
+		writer2.flush();
+		writer2.close();
+	}
+	
+	public void exportMLTestSet(String mnPath, String lbPath,
+			ArrayList<CombinationPiece> pieces, int index) throws IOException{
+		BufferedWriter writer1 = getWriter(mnPath);
+		BufferedWriter writer2 = getWriter(lbPath);
+		
+		CombinationPiece piece = pieces.get(index);
+		//System.out.println("ml test"+i+": "+piece.getUnit().getElementName());
+		writeln(piece, writer1, writer2);
+		
+		writer1.flush();
+		writer1.close();
+		writer2.flush();
+		writer2.close();
+	}
+	
+	public void exportJCTrainSet(String jcPath,List<CombinationPiece> pieces, int index) throws Exception{
+		
+		BufferedWriter writer = getWriter(jcPath);
+		for(int i=0; i<pieces.size(); i++){
+			if(index==i)
+				continue;
+			CombinationPiece piece =pieces.get(i);
+			double[][] jaccard = buildJaccardMatrix(piece);
+			for(int k=0; k<jaccard.length; k++){
+				for(int j=k+1; j<jaccard.length; j++){
+//					double[][] newJaccard = transformMatrix(jaccard,i,j);
+//					writerMatrix(2,newJaccard,writer3);
+					writer.write(String.valueOf(jaccard[k][j])+"\n");
+				}
+			}
+		}
+		writer.close();
+	}
+	
+//	public void exportJCTestSet(MySystem system, double[][] jaccards, String jcPath,
+//			ArrayList<CombinationPiece> pieces, int testIndex) throws IOException{
+//		BufferedWriter writer = getWriter(jcPath);
+//		//for(int i:testIndex){
+//			//CombinationPiece piece = pieces.get(i);
+//			//System.out.println("jc test"+i+": "+piece.getUnit().getElementName());
+//		writerMatrix(jaccards,writer);
+//		//}
+//		writer.close();
+//	}
+	
+	public void exportJCTestSet(MySystem system, DistanceMatrix distanceMatrix, String jcPath,
+			ArrayList<CombinationPiece> pieces, int testIndex) throws Exception{
+		BufferedWriter writer = getWriter(jcPath);
+		double[][] jaccards = buildJaccardMatrix(pieces.get(testIndex));
+		writerMatrix(pieces.get(testIndex).getCombineSize(),jaccards,writer);
+		writer.close();
+	}
+	
+	private void openWrongDialog(String unit1, String unit2){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		final String u1= unit1;
+		final String u2 = unit2;
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Wrong:NullException");
+ 		        dialog.setMessage("class1:"+u1+"\nclass2:"+u2);
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+		return;
+	}
+	
+	public double[][] buildJaccardMatrix(CombinationPiece piece) throws Exception{
+		String[] units = piece.getFormerClasses();
+		int size = piece.getCombineSize();
+		MyClass[] classes = new MyClass[size];
+		for(int i=0; i<size; i++){
+			MyClass class1 = system.getClass(units[i]);
+			if(class1==null){
+				System.out.println(units[i]);
+				throw new Exception();
+			}
+			classes[i]=class1;
+		}
+		double[][] jaccard = distanceMatrix.getJaccardDistanceMatrix(classes,false);
+		
+		if(jaccard==null)
+			throw new Exception();
+		if(jaccard.length!=piece.getMembers().size()){
+			System.out.println(piece.getUnit().getElementName());
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<piece.getMembers().size(); i++){
+				System.out.println(piece.getMembers().get(i));
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			distanceMatrix.getJaccardDistanceMatrix(classes, true);
+			throw new Exception();
+		}
+		return jaccard;
+	}
+	
+	private void writerMatrix(int size, double[][] jaccard, BufferedWriter writer) throws IOException{
+		writer.write(size+": ");
+		for (int k=0; k < 2; k++) {
+			for(int j=0; j<jaccard[k].length; j++){
+				writer.write(String.valueOf(jaccard[k][j])+"\b");
+			}
+			writer.write(";");
+		}
+		writer.write("\n");
+		writer.flush();
+	}
+	
+	private void writeln(CombinationPiece piece, BufferedWriter writer1, BufferedWriter writer2) throws IOException{
+		ArrayList<CombinedMembers> members = piece.getMembers();
+
+		for(int i=0; i<members.size(); i++){
+			for(int j=i+1; j<members.size(); j++){
+				CombinedMembers cmember1 = members.get(i);
+				CombinedMembers cmember2 = members.get(j);
+				String token1 = tokenize(cmember1.getMemberName());
+				String token2 = tokenize(cmember2.getMemberName());
+				writer1.write(token1+".\t");
+				writer1.write(token2+".\n");
+				if(cmember1.getFormerClass() != cmember2.getFormerClass())
+					writer2.write("0"+"\n");
+				else
+					writer2.write("1"+"\n");
+			}
+			
+		}
+	}
+	
+	public String tokenize(String line){
+        String[] splitString = line.split("((?<=\\.)|(?=\\.))| |((?<=\\{)|(?=\\{))|((?<=\\})|(?=\\}))|((?<=\\()|(?=\\())|((?<=\\))|(?=\\)))|((?<=\\[)|(?=\\[))|((?<=\\])|(?=\\]))|((?<=\\;)|(?=\\;))|((?<=\\,)|(?=\\,))|((?<=\\>)|(?=\\>))|((?<=\\<)|(?=\\<))");
+        String rline = "";
+		for(String token : splitString){
+			token = token.trim();
+			if (token != null && !(token.equals(""))){
+				token = token.replaceAll("\t", "");
+				token = token.replaceAll(" ", "");
+				token = token.replaceAll("/", " ");
+				token = token.replaceAll("\n", " ");
+				boolean isWord=token.matches("[a-zA-Z0-9_$]+");
+				boolean isCapitalWord = token.matches("[A-Z_$]+")||token.matches("[A-Z]+")||token.matches("[A-Z_]+")||token.matches("[A-Z$]+");
+				if(isWord)
+					if(!isCapitalWord){
+						token = token.replaceAll("[A-Z0-9]", " $0");
+						token = token.replaceAll("[_$]", " $0 ");
+						token = token.toLowerCase();
+						rline += token + " ";
+					}
+					else{
+						token = token.toLowerCase();
+						token = token.replaceAll("[0-9_$]", " $0 ");
+						rline += token + " ";
+					}
+			}
+			
+		}
+		rline = rline.trim();
+		rline = rline.replaceAll("[_$]", "");
+		rline = rline.replaceAll("   ", " ");
+		rline = rline.replaceAll("  ", " ");
+		return rline;
+	}
+	
+	void openEndDialog(){
+		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		Display.getDefault().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+            	MessageBox dialog=new MessageBox(shell,SWT.OK|SWT.ICON_INFORMATION);
+ 		        dialog.setText("Finish");
+ 		        dialog.setMessage("Export Finished!");
+ 		        dialog.open();
+ 		        return;
+            }
+		});
+	}
+	public void exportTrainUnits(String testUnit, ICompilationUnit[] trainUnits) throws Exception{
+		//String pack = trainUnits[0].getParent().getElementName();
+//		String dir = base+"//"+testUnit+trainDir+"//batch";
+//		int batchIndex=0;
+		String dir = base+"//"+testUnit+trainDir;
+		for(int i=0; i<trainUnits.length; i++){
+			for(int j=i+1; j<trainUnits.length; j++){
+//				if(batchSize<=0){
+//					batchIndex++;
+//					batchSize=50000;
+//				}
+//				BufferedWriter writer1 = getWriter(dir+batchIndex+mnFile);
+//				BufferedWriter writer2 = getWriter(dir+batchIndex+lbFile);
+//				BufferedWriter writer3 = getWriter(dir+batchIndex+jcFile);
+				BufferedWriter writer1 = getWriter(dir+mnFile);
+				BufferedWriter writer2 = getWriter(dir+lbFile);
+				BufferedWriter writer3 = getWriter(dir+jcFile);
+				int memberSize = exportTrainMembers(writer1,writer2,trainUnits[i],trainUnits[j]);
+				exportTrainJaccard(writer3,memberSize,trainUnits[i],trainUnits[j]);
+				writer1.close();
+				writer2.close();
+				writer3.close();
+			}
+		}
+	}
+	public void exportTrainUnits(List<ICompilationUnit> trainUnits) throws Exception{
+		//String pack = trainUnits[0].getParent().getElementName();
+//		String dir = base+"//"+testUnit+trainDir+"//batch";
+//		int batchIndex=0;
+		String dir = base+trainDir;
+		for(int i=0; i<trainUnits.size(); i++){
+			for(int j=i+1; j<trainUnits.size(); j++){
+//				if(batchSize<=0){
+//					batchIndex++;
+//					batchSize=50000;
+//				}
+//				BufferedWriter writer1 = getWriter(dir+batchIndex+mnFile);
+//				BufferedWriter writer2 = getWriter(dir+batchIndex+lbFile);
+//				BufferedWriter writer3 = getWriter(dir+batchIndex+jcFile);
+				System.out.println("train unit1: "+trainUnits.get(i).getElementName());
+				System.out.println("train unit2: "+trainUnits.get(j).getElementName());
+				BufferedWriter writer1 = getWriter(dir+mnFile);
+				BufferedWriter writer2 = getWriter(dir+lbFile);
+				BufferedWriter writer3 = getWriter(dir+jcFile);
+				int memberSize = exportTrainMembers(writer1,writer2,trainUnits.get(i),trainUnits.get(j));
+				exportTrainJaccard(writer3,memberSize,trainUnits.get(i),trainUnits.get(j));
+				writer1.close();
+				writer2.close();
+				writer3.close();
+			}
+		}
+	}
+	public void exportTrainUnits(List<CombinationPiece> pieces, int index) throws Exception{
+		String dir = base+"//"+pieces.get(index).getUnit().getElementName()+trainDir;
+		exportMLTrainSet(dir+mnFile,dir+lbFile,pieces,index);
+		exportJCTrainSet(dir+jcFile,pieces,index);
+	}
+	private void exportHomoTrainMembers(BufferedWriter writer1,BufferedWriter writer2,ICompilationUnit[] units) throws JavaModelException, IOException{
+		for(ICompilationUnit unit: units){
+			IType type1 =  ActionsAider.getMainType(unit);
+			IField[] fields1 = type1.getFields();
+			IMethod[] methods1 = type1.getMethods();
+			ArrayList<String> simpleMethods1 = new ArrayList<String>();
+			for(IMethod method1:methods1){
+				if(method1.isConstructor())
+					continue;
+				simpleMethods1.add(method1.getElementName());
+			}
+			for(int i=0; i<fields1.length; i++){
+				for(int j=i+1; j<fields1.length; j++){
+					writeln(writer1, writer2, fields1[i].getElementName(),fields1[j].getElementName(),1);
+				}
+				for(int j=0; j<simpleMethods1.size(); j++){
+					writeln(writer1, writer2, fields1[i].getElementName(),simpleMethods1.get(j),1);
+				}
+			}
+			
+		}
+	}
+	
+	private void exportTrainJaccard(BufferedWriter writer3, int memberSize,
+			ICompilationUnit unit1, ICompilationUnit unit2) throws Exception{
+		String packCode1 = unit1.getParent().getElementName()+"."+unit1.getElementName();
+		String packCode2 = unit2.getParent().getElementName()+"."+unit2.getElementName();
+		MyClass class1 = system.getClass(packCode1.substring(0, packCode1.length()-5));
+		MyClass class2 = system.getClass(packCode2.substring(0, packCode2.length()-5));
+		if(class1==null){
+			System.out.println(packCode1);
+			throw new Exception();
+		}else if(class2==null){
+			System.out.println(packCode2);
+			throw new Exception();
+		}
+		
+		MyClass[] classes = new MyClass[2];
+		classes[0] = class1;
+		classes[1] = class2;
+		double[][] jaccard = distanceMatrix.getJaccardDistanceMatrix(classes,false);
+		
+		if(jaccard==null)
+			throw new Exception();
+		if(jaccard.length!=memberSize){
+			double[][] jaccard1 = distanceMatrix.getJaccardDistanceMatrix(class1);
+			double[][] jaccard2 = distanceMatrix.getJaccardDistanceMatrix(class2);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<jaccard.length; i++){
+				for (int j=0; j<jaccard[i].length; j++){
+					System.out.print(jaccard[i][j]+" ");
+				}
+				System.out.println("\n");
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<jaccard1.length; i++){
+				for (int j=0; j<jaccard1[i].length; j++){
+					System.out.print(jaccard1[i][j]+" ");
+				}
+				System.out.println("\n");
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<jaccard2.length; i++){
+				for (int j=0; j<jaccard2[i].length; j++){
+					System.out.print(jaccard2[i][j]+" ");
+				}
+				System.out.println("\n");
+			}
+			System.out.println(unit1.getElementName()+"====="+unit2.getElementName());
+			System.out.println("~~~~~~~~~~~~~~unit1-"+ActionsAider.getMainType(unit1).getFields().length+"-"+ActionsAider.getMainType(unit1).getMethods().length+"~~~~~~~~~~~~~~");
+			for(int i=0; i<ActionsAider.getMainType(unit1).getFields().length; i++){
+				System.out.println(ActionsAider.getMainType(unit1).getFields()[i].getElementName());
+			}
+			System.out.println("~~~~~~~~~~~~~~unit2-"+ActionsAider.getMainType(unit2).getFields().length+"-"+ActionsAider.getMainType(unit2).getMethods().length+"~~~~~~~~~~~~~~");
+			for(int i=0; i<ActionsAider.getMainType(unit2).getFields().length; i++){
+				System.out.println(ActionsAider.getMainType(unit2).getFields()[i].getElementName());
+			}
+			System.out.println("~~~~~~~~~~~~~~unit1-"+ActionsAider.getMainType(unit1).getFields().length+"-"+ActionsAider.getMainType(unit1).getMethods().length+"~~~~~~~~~~~~~~");
+			for(int i=0; i<ActionsAider.getMainType(unit1).getMethods().length; i++){
+				if(ActionsAider.getMainType(unit1).getMethods()[i].isConstructor())
+					continue;
+				System.out.println(ActionsAider.getMainType(unit1).getMethods()[i].getElementName());
+			}
+			System.out.println("~~~~~~~~~~~~~~unit2-"+ActionsAider.getMainType(unit2).getFields().length+"-"+ActionsAider.getMainType(unit2).getMethods().length+"~~~~~~~~~~~~~~");
+			for(int i=0; i<ActionsAider.getMainType(unit2).getMethods().length; i++){
+				if(ActionsAider.getMainType(unit2).getMethods()[i].isConstructor())
+					continue;
+				System.out.println(ActionsAider.getMainType(unit2).getMethods()[i].getElementName());
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			distanceMatrix.getJaccardDistanceMatrix(classes, true);
+			throw new Exception();
+		}
+		for(int i=0; i<jaccard.length; i++){
+			for(int j=i+1; j<jaccard.length; j++){
+//				double[][] newJaccard = transformMatrix(jaccard,i,j);
+//				writerMatrix(2,newJaccard,writer3);
+				writer3.write(String.valueOf(jaccard[i][j])+"\n");
+			}
+		}
+		
+	}
+	
+	private double[][] transformMatrix(double[][] jaccard, int i, int j){
+		double[][] newJaccard = new double[jaccard.length][jaccard.length];
+		double[] temp1 = jaccard[i];
+		double[] temp2 = jaccard[j];
+		
+		for(int k=jaccard.length-1; k>j; k--){
+			newJaccard[k] = jaccard[k];
+		}
+		for(int k=j; k>i; k--){
+			newJaccard[k] = jaccard[k-1];
+		}
+		for(int k=i+1; k>1; k--){
+			newJaccard[k] = jaccard[k-2];
+		}
+		newJaccard[0] = temp1;
+		newJaccard[1] = temp2;
+		
+		for(int k=0; k<jaccard.length; k++){
+			temp1[k] = newJaccard[k][i];
+			temp2[k] = newJaccard[k][j];
+		}
+		for(int k=j;k>i;k--){
+			for(int m=0; m<jaccard.length; m++){
+				newJaccard[m][k] = jaccard[m][k-1];
+			}
+		}
+		for(int k=i+1; k>1; k--){
+			for(int m=0; m<jaccard.length; m++){
+				newJaccard[m][k] = jaccard[m][k-2];
+			}
+		}
+		for(int k=0; k<jaccard.length; k++){
+			newJaccard[k][0]=temp1[k];
+			newJaccard[k][1]=temp2[k];
+		}
+		return newJaccard;
+	}
+	
+	private int exportTrainMembers(BufferedWriter writer1,BufferedWriter writer2,
+			ICompilationUnit unit1, ICompilationUnit unit2) throws JavaModelException, IOException{
+		IType type1 =  ActionsAider.getMainType(unit1);
+		IType type2 =  ActionsAider.getMainType(unit2);
+		IField[] fields1 = type1.getFields();
+		IField[] fields2 = type2.getFields();
+		IMethod[] methods1 = type1.getMethods();
+		ArrayList<String> simpleMethods1 = new ArrayList<String>();
+		for(IMethod method1:methods1){
+			if(method1.isConstructor())
+				continue;
+			simpleMethods1.add(method1.getElementName());
+		}
+		IMethod[] methods2 = type2.getMethods();
+		ArrayList<String> simpleMethods2 = new ArrayList<String>();
+		for(IMethod method2:methods2){
+			if(method2.isConstructor())
+				continue;
+			simpleMethods2.add(method2.getElementName());
+		}
+		exportMLTrainSet(writer1,writer2,fields1,fields2,simpleMethods1,simpleMethods2);
+		return fields1.length+fields2.length+simpleMethods1.size()+simpleMethods2.size();
+	}
+	
+	private void exportMLTrainSet(BufferedWriter writer1,BufferedWriter writer2,
+			IField[] fields1, IField[] fields2, ArrayList<String> methods1, ArrayList<String> methods2) throws IOException{
+
+		for(int i=0; i<fields1.length; i++){
+			for(int j=i+1; j<fields1.length; j++){
+				writeln(writer1, writer2, fields1[i].getElementName(),fields1[j].getElementName(),1);
+				size1++;
+			}
+			for(int j=0; j<fields2.length; j++){
+				writeln(writer1, writer2, fields1[i].getElementName(),fields2[j].getElementName(),0);
+				size2++;
+			}
+			for(int j=0; j<methods1.size(); j++){
+				writeln(writer1, writer2, fields1[i].getElementName(),methods1.get(j),1);
+				size1++;
+			}
+			for(int j=0; j<methods2.size(); j++){
+				writeln(writer1, writer2, fields1[i].getElementName(),methods2.get(j),0);
+				size2++;
+			}
+		}
+
+		for(int i=0; i<fields2.length; i++){
+			for(int j=i+1; j<fields2.length; j++){
+				writeln(writer1, writer2, fields2[i].getElementName(),fields2[j].getElementName(),1);
+				size1++;
+			}
+			for(int j=0; j<methods1.size(); j++){
+				writeln(writer1, writer2, fields2[i].getElementName(),methods1.get(j),0);
+				size2++;
+			}
+			for(int j=0; j<methods2.size(); j++){
+				writeln(writer1, writer2, fields2[i].getElementName(),methods2.get(j),1);
+				size1++;
+			}
+		}
+		
+		for(int i=0; i<methods1.size(); i++){
+			for(int j=i+1; j<methods1.size(); j++){
+				writeln(writer1, writer2, methods1.get(i),methods1.get(j),1);
+				size1++;
+			}
+			for(int j=0; j<methods2.size(); j++){
+				writeln(writer1, writer2, methods1.get(i),methods2.get(j),0);
+				size2++;
+			}
+		}
+		for(int i=0; i<methods2.size(); i++){
+			for(int j=i+1; j<methods2.size(); j++){
+				writeln(writer1, writer2, methods2.get(i),methods2.get(j),1);
+				size1++;
+			}
+		}
+		System.out.println("size1: "+size1);
+		System.out.println("size2: "+size2);
+		writer1.flush();
+		writer2.flush();
+	}
+	
+	private void writeln(BufferedWriter writer1,BufferedWriter writer2,
+			String name1, String name2, int label) throws IOException{
+		name1 = tokenize(name1);
+		name2 = tokenize(name2);
+		writer1.write(name1+".\t");
+		writer1.write(name2+".\n");
+		writer2.write(String.valueOf(label)+"\n");
+//		batchSize--;
+	}
+	
+	public void exportTestUnits(CombinationPiece piece) throws Exception{
+		String dir = base+"//"+piece.getUnit().getElementName()+testDir;
+		BufferedWriter writer1 = getWriter(dir+mnFile);
+		BufferedWriter writer2 = getWriter(dir+lbFile);
+		BufferedWriter writer3 = getWriter(dir+jcFile);
+		writeln(piece, writer1, writer2);
+		exportTestJaccard(writer3,piece);
+		writer1.close();
+		writer2.close();
+		writer3.close();
+	}
+	
+	private void exportTestJaccard(BufferedWriter writer3,CombinationPiece piece) throws Exception{
+		String[] units = piece.getFormerClasses();
+		int size = piece.getCombineSize();
+		MyClass[] classes = new MyClass[size];
+		for(int i=0; i<size; i++){
+			MyClass class1 = system.getClass(units[i]);
+			if(class1==null){
+				System.out.println(units[i]);
+				throw new Exception();
+			}
+			classes[i]=class1;
+		}
+		double[][] jaccard = distanceMatrix.getJaccardDistanceMatrix(classes,false);
+		
+		if(jaccard==null)
+			throw new Exception();
+		if(jaccard.length!=piece.getMembers().size()){
+			System.out.println(piece.getUnit().getElementName());
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			for(int i=0; i<piece.getMembers().size(); i++){
+				System.out.println(piece.getMembers().get(i));
+			}
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			distanceMatrix.getJaccardDistanceMatrix(classes, true);
+			throw new Exception();
+		}
+		
+		for(int i=0; i<jaccard.length; i++){
+			for(int j=i+1; j<jaccard.length; j++){
+//				double[][] newJaccard = transformMatrix(jaccard,i,j);
+//				writerMatrix(piece.getCombineSize(),newJaccard,writer3);
+				writer3.write(String.valueOf(jaccard[i][j])+"\n");
+			}
+		}
+		
+	}
+
+}

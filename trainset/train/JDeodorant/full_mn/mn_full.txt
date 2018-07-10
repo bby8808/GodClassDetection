@@ -1,0 +1,3758 @@
+all clone group i ds
+clone d r output parser
+read input file
+get all clone groups
+get common path prefix
+get all source directories
+get i document
+get clone tool parser
+clone group i d
+clone instances
+sub clone of
+clone group
+get clone group i d
+set clone group i d
+add clone
+get clone instances
+equals
+hash code
+get clone group size
+to string
+contains class level clone
+get subclone of
+set sub clone of
+is sub clone
+is sub clone of
+remove clones existing in file
+update clones existing in file
+is updated
+get clones relative location
+results file
+deckard output parser
+read input file
+belonging clone group
+location info
+clone i d
+source folder
+package name
+class name
+i method signature
+method signature
+method name
+containing class fully qualified name
+original code fragment
+clone instance
+clone instance
+get actual code fragment
+get belonging clone group
+set belonging clone group
+get location info
+update offsets
+get status
+get original code fragment
+get clone i d
+set clone i d
+get source folder
+set source folder
+get package name
+set package name
+get class name
+set class name
+get method name
+set method name
+get method signature
+set method signature
+get i method signature
+set i method signature
+is subclone of
+equals
+hash code
+to string
+is class level clone
+validate integrity
+set containing class fully qualified name
+get containing class fully qualified name
+file path
+start offset
+end offset
+length
+start line
+start column
+end line
+end column
+updated start offset
+updated end offset
+clone instance location info
+clone instance location info
+is white space character
+read file contents
+get lines
+get number of chars for lines
+get containing file path
+get start offset
+get end offset
+get length
+get start line
+get start column
+get end line
+get end column
+get containing file contents
+update offsets
+equals
+hash code
+to string
+get clone location status
+get updated start offset
+get updated end offset
+document
+con q a t output parser
+read input file
+get files id to path map
+document
+ni cad output parser
+read input file
+java project
+clone group map
+clone group list
+get java project
+add
+iterator
+get clone groups
+get clone groups count
+contains clone group
+remove clones existing in file
+update clones existing in file
+serial version u i d
+markers
+compilation error detected exception
+get markers
+root
+complete expression
+type variable expression map
+type variable static field map
+type variable subclass map
+type method invocation expression map
+type method invocation static field map
+type method invocation subclass map
+if statement expression analyzer
+put type variable expression
+get target variables
+get type variable expression
+put type variable static field
+get type variable static field
+put type variable subclass
+get type variable subclass
+put type method invocation expression
+get target method invocations
+get type method invocation expression
+put type method invocation static field
+get type method invocation static field
+put type method invocation subclass
+get type method invocation subclass
+process expression
+process extended operands
+get instanceof expressions
+get infix expressions with equals operator
+get remaining expression
+all parent nodes are conditional and operators
+all parent nodes are conditional or operators
+get number of conditional operator nodes
+get complete expression
+to string
+name
+arguments
+enum name
+enum constant declaration
+hash code
+enum constant declaration object
+set enum constant declaration
+get enum constant declaration
+get name
+add argument
+equals
+set enum name
+get enum name
+equals
+hash code
+to string
+comment
+text
+type
+start line
+end line
+hash code
+comment object
+set comment
+get comment
+get text
+get type
+get start line
+get end line
+get i type root
+get start position
+get length
+equals
+hash code
+to string
+type check elimination
+type declaration
+type check method
+fields
+methods
+type variable counter map
+type method invocation counter map
+complex expression map
+type check code fragment analyzer
+process type check code fragment
+process type check code fragment branches
+process remaining if statement expressions
+extract operand
+is valid type variable
+is valid type method invocation
+contains type variable key
+contains type method invocation key
+constructor invocation object
+constructor invocation object
+set constructor invocation
+get constructor invocation
+method invocation object
+method invocation object
+set method invocation
+get method invocation
+type
+name
+simple name
+hash code
+variable binding key
+local variable instruction object
+get type
+get name
+get variable binding key
+set simple name
+get simple name
+equals
+equals
+equals
+hash code
+to string
+class type
+generic type
+array dimension
+hash code
+type object
+get class type
+get generic type
+set generic
+set array dimension
+get array dimension
+equals class type
+equals generic type
+equals
+hash code
+to string
+extract type object
+get move method refactoring opportunities
+get extract class refactoring opportunities
+get type check elimination refactoring opportunities
+get extract method refactoring opportunities
+process method
+type
+array access
+array access object
+get type
+get array access
+set array access
+owner class
+type
+name
+ static
+simple name
+hash code
+variable binding key
+field instruction object
+field instruction object
+get owner class
+get type
+get name
+get variable binding key
+is static
+set static
+set simple name
+get simple name
+equals
+hash code
+to string
+super method invocation object
+super method invocation object
+set super method invocation
+get super method invocation
+type
+name
+variable declaration
+hash code
+local variable declaration object
+get type
+get name
+get variable declaration
+set variable declaration
+equals
+equals
+hash code
+to string
+system object
+examined project
+jls
+a s t reader
+a s t reader
+build project
+get number of compilation units
+get recursively inner types
+parse a s t
+parse a s t
+process comments
+process type declaration
+process enum declaration
+process field declaration
+process method declaration
+get system object
+get examined project
+get a s t
+array creation object
+get array creation
+set array creation
+i type root
+set current i type root
+generate a s t information
+type
+name
+varargs
+single variable declaration
+hash code
+parameter object
+get type
+get name
+is varargs
+set single variable declaration
+get single variable declaration
+equals
+hash code
+to string
+get variable declaration
+anonymous class declaration
+class object
+set anonymous class declaration
+get anonymous class declaration
+get class object
+set class object
+get i type root
+get i file
+get superclass
+accessed field from this class
+to string
+parameter list
+thrown exceptions
+class instance creation object
+get class instance creation
+set class instance creation
+add parameter
+get parameter list iterator
+get parameter type list
+get parameter list
+add thrown exception
+get thrown exceptions
+to string
+name
+type
+comment list
+ static
+access
+class name
+fragment
+hash code
+field object
+set variable declaration fragment
+get variable declaration fragment
+set access
+get access
+get name
+get type
+add comment
+add comments
+get comment list iterator
+is static
+set static
+generate field instruction
+equals
+set class name
+get class name
+equals
+hash code
+to string
+get variable declaration
+sub types
+type search requestor
+accept search match
+return type
+ abstract
+ static
+ synchronized
+ native
+constructor object
+test annotation
+hash code
+method object
+set return type
+get return type
+set abstract
+is abstract
+is static
+set static
+is synchronized
+set synchronized
+is native
+set native
+get name
+has test annotation
+set test annotation
+get exceptions in java doc throws
+get access
+get method declaration
+get method body
+generate method invocation
+generate super method invocation
+is getter
+is setter
+is collection adder
+is delegate
+valid target object
+one to many relationship with target class
+contains field access of enclosing class
+contains method call with this expression as argument
+contains null check for target object
+overrides method
+overrides method
+get class name
+get comment list iterator
+get parameter list iterator
+get parameter
+get method invocations
+get super method invocations
+get constructor invocations
+get field instructions
+get super field instructions
+get local variable declarations
+get local variable instructions
+get creations
+get literals
+get anonymous class declarations
+get exceptions in throw statements
+contains method invocation
+contains field instruction
+contains super method invocation
+get invoked methods through fields
+get non distinct invoked methods through fields
+get invoked methods through parameters
+get non distinct invoked methods through parameters
+get invoked methods through local variables
+get invoked methods through this reference
+get non distinct invoked methods through this reference
+get invoked static methods
+get defined fields through fields
+get used fields through fields
+get non distinct defined fields through fields
+get non distinct used fields through fields
+get defined fields through parameters
+get used fields through parameters
+get non distinct defined fields through parameters
+get non distinct used fields through parameters
+get defined fields through local variables
+get used fields through local variables
+get defined fields through this reference
+get non distinct defined fields through this reference
+get used fields through this reference
+get non distinct used fields through this reference
+get declared local variables
+get defined local variables
+get used local variables
+get parameters passed as arguments in method invocations
+get parameters passed as arguments in super method invocations
+get parameters passed as arguments in constructor invocations
+contains super method invocation
+contains super field access
+get parameter type list
+get parameter list
+equals
+equals
+equal parameter types
+equals
+hash code
+to string
+get signature
+owner class
+type
+name
+ static
+simple name
+hash code
+super field instruction object
+get owner class
+get type
+get name
+is static
+set static
+set simple name
+get simple name
+equals
+hash code
+to string
+literal type
+value
+type
+literal
+hash code
+literal object
+get literal type
+get value
+get type
+get literal
+equals
+hash code
+to string
+i type root
+start position
+length
+node type
+hash code
+a s t information
+recover a s t node
+get i type root
+get start position
+get length
+equals
+hash code
+from
+to
+container
+field object
+association
+get field object
+get to
+get from
+is container
+set container
+equals
+to string
+association list
+acceptable origin class names
+association detection
+contains field object
+get associations of class
+generate associations
+check collection attribute
+check for container association
+check full path for container association
+check path for container association
+recurse
+get associations ending to
+get association
+expression
+abstract expression
+abstract expression
+process expression
+get expression
+hash code
+equals
+to string
+synchronized statement object
+composite statement
+method body object
+get composite statement
+generate type check eliminations
+get field instructions
+get super field instructions
+get local variable declarations
+get local variable instructions
+get method invocations
+get super method invocations
+get constructor invocations
+get creations
+get literals
+get anonymous class declarations
+get exceptions in throw statements
+contains method invocation
+contains field instruction
+contains super method invocation
+get invoked methods through fields
+get invoked methods through parameters
+get non distinct invoked methods through fields
+get non distinct invoked methods through parameters
+get invoked methods through local variables
+get invoked methods through this reference
+get non distinct invoked methods through this reference
+get invoked static methods
+get defined fields through fields
+get used fields through fields
+get non distinct defined fields through fields
+get non distinct used fields through fields
+get defined fields through parameters
+get used fields through parameters
+get non distinct defined fields through parameters
+get non distinct used fields through parameters
+get defined fields through local variables
+get used fields through local variables
+get defined fields through this reference
+get non distinct defined fields through this reference
+get used fields through this reference
+get non distinct used fields through this reference
+get declared local variables
+get defined local variables
+get used local variables
+get parameters passed as arguments in method invocations
+get parameters passed as arguments in super method invocations
+get parameters passed as arguments in constructor invocations
+contains super method invocation
+contains super field access
+process statement
+get try statements
+string representation
+catch clauses
+finally clause
+try statement object
+get statements inside try block
+has resources
+add catch clause
+get catch clauses
+set finally clause
+get finally clause
+get expressions
+string representation
+get if statements
+get switch statements
+get try statements
+has finally clause closing variable
+has catch clause
+statement object
+to string
+string representation
+statement list
+expression list
+composite statement object
+add statement
+get statements
+add expression
+get expressions
+get field instructions in expressions
+get super field instructions in expressions
+get local variable declarations in expressions
+get local variable instructions in expressions
+get method invocations in expressions
+get super method invocations in expressions
+get creations in expressions
+get array creations in expressions
+get class instance creations in expressions
+get literals in expressions
+get anonymous class declarations in expressions
+get invoked static methods in expressions
+get used fields through this reference in expressions
+get defined fields through this reference in expressions
+get invoked methods through this reference in expressions
+get non distinct invoked methods through this reference in expressions
+get non distinct invoked static methods in expressions
+get non distinct defined fields through this reference in expressions
+get non distinct used fields through this reference in expressions
+get parameters passed as arguments in method invocations in expressions
+get parameters passed as arguments in super method invocations in expressions
+string representation
+get if statements
+get switch statements
+get try statements
+to string
+cfg
+entry node
+nesting map
+variable declarations in method
+fields accessed in method
+dominated block map
+i file
+monitor
+pdg
+get entry node
+get method
+get i file
+get variable declaration objects in method
+get variable declarations in method
+get fields accessed in method
+is directly nested within block node
+is nested within block node
+get nested nodes within block node
+get variable declarations and accessed fields in method
+get variables with method body scope
+get all declared variables
+get total number of statements
+get node iterator
+get defined attributes of reference
+get assignment nodes of variable criterion
+get assignment nodes of variable criterion including declaration
+handle throw exception nodes
+is control dependent
+handle switch case nodes
+is directly dependent on switch node
+handle jump nodes
+get inner most loop nodes for jump nodes
+get loop node under label
+get inner most loop node
+contains node with i d
+create control dependencies from entry node
+find parent of block node
+process c f g node
+process control predicate
+is nested
+perform alias analysis
+create data dependencies
+create data dependencies from entry node
+alias search
+data dependence search
+anti dependence search
+output dependence search
+get basic blocks
+forward reachable blocks
+directly dominates
+dominated blocks
+dominated blocks
+boundary blocks
+block based region
+get returned variables
+get first def
+get last use
+label
+inner most loop node
+c f g continue node
+get label
+is labeled
+get inner most loop node
+set inner most loop node
+defined variables
+used variables
+thrown exception types
+variable declarations in method
+maximum call graph analysis depth
+method call analyzer
+process arguments of internal method invocation
+process argument of internal method invocation
+process argument of external method invocation
+get argument position
+process internal method invocation
+process external method invocation
+exact sub type
+get invoked method declaration
+handle already analyzed method
+compose variable
+extract type declarations
+extract anonymous class declarations
+equal type
+equal signature
+equal signature ignoring subclass type differences
+get matching method declarations for sub type
+is unprocessed method
+loopback flow
+true control flow
+false control flow
+flow
+is loopback flow
+set loopback flow
+is true control flow
+set true control flow
+is false control flow
+set false control flow
+to string
+p d g synchronized node
+object slice union map
+p d g object slice union collection
+get slice unions
+p d g output dependence
+p d g data dependence
+hash code
+plain variable
+plain variable
+plain variable
+contains plain variable
+starts with variable
+get initial variable
+equals
+hash code
+to string
+statement
+basic block
+pdg node
+hash code
+c f g node
+get statement
+get a s t statement
+is leader
+immediately follows branch node
+is first
+is branch
+is join
+set basic block
+get basic block
+get p d g node
+set p d g node
+equals
+hash code
+to string
+compare to
+slice union map
+p d g slice union collection
+get slice unions
+p d g control predicate node
+determine defined and used variables
+c f g branch loop node
+get join node
+get nested basic blocks
+push new list
+join top list
+place new list second from top
+join second from top list
+method
+unjoined conditional nodes
+switch break map
+directly nested nodes in blocks
+basic block c f g
+cfg
+get method
+get basic block c f g
+get basic blocks
+get directly nested nodes in blocks
+process
+process synchronized statement
+process try statement
+find block node control parent
+process do statement
+process loop statement
+get action
+is block without composite parent
+process non composite statement
+create non composite node
+previous nodes contain break or return
+directly nested node
+directly nested node in block
+process switch statement
+process if statement
+handle action
+create top down flow
+get number of immediate blocks
+is loop
+get common next node
+get most recent switch node
+pdg
+method
+boundary block
+node criterion
+local variable criterion
+slice nodes
+remaining nodes
+passed parameters
+indispensable nodes
+removable nodes
+returned variables in original method
+i file
+method size
+p d g slice
+p d g slice
+get variable declarations and accessed fields in method
+get method
+get i file
+get method size
+get boundary block
+get extracted method invocation insertion node
+get node criterion
+get local variable criterion
+get slice nodes
+get passed parameters
+get removable nodes
+node belongs to block based region
+edge belongs to block based region
+get declaration of variable criterion
+declaration of variable criterion belongs to slice nodes
+declaration of variable criterion belongs to removable nodes
+node criterion is duplicated
+satisfies rules
+slice contains branch statement without innermost loop
+slice contains return statement
+declaration of variable criterion is duplicated
+return statement is control dependent on slice node
+is control dependent on slice node
+non duplicated slice node anti depends on non removable node
+node depends on non removable node
+non duplicated slice node output depends on non removable node
+duplicated slice node with class instantiation has dependence on removable node
+node critetion is declaration of variable criterion
+variable criterion is returned variable in original method
+contains duplicate node with state changing method invocation
+slice contains declaration
+compute slice
+compute slice
+get def nodes
+traverse backward
+to string
+is default
+c f g switch case node
+is default
+pdg
+method
+boundary block
+node criteria
+local variable criterion
+i file
+method size
+subgraph
+slice nodes
+passed parameters
+indispensable nodes
+removable nodes
+p d g slice union
+is nested inside
+get throw statement nodes within region
+get variable declarations and accessed fields in method
+get method
+get i file
+get method size
+get boundary block
+get node criteria
+get extracted method invocation insertion node
+get local variable criterion
+get slice nodes
+get passed parameters
+get removable nodes
+get declaration of variable criterion
+declaration of variable criterion belongs to slice nodes
+declaration of variable criterion belongs to removable nodes
+slice contains declaration
+all node criteria are duplicated
+return statement is control dependent on slice node
+is control dependent on slice node
+non duplicated slice node anti depends on non removable node
+node depends on non removable node
+non duplicated slice node output depends on non removable node
+duplicated slice node with class instantiation has dependence on removable node
+contains duplicate node with state changing method invocation
+variable criterion is returned variable in original method
+slice contains only one node criterion and declaration of variable criterion
+declaration of variable criterion is duplicated
+slice contains return statement
+slice contains branch statement without innermost loop
+comply with user thresholds
+slice equals method body
+variable criterion is stream closed in finally block
+slice contains variable declaration closed in finally block
+satisfies rules
+src
+dst
+graph edge
+get src
+get dst
+returned variable
+c f g exit node
+get returned variable
+p d g statement node
+determine defined and used variables
+p d g anti dependence
+declared variables
+defined variables
+used variables
+created types
+thrown exception types
+method call analyzer
+p d g expression
+get declared variable iterator
+get defined variable iterator
+get used variable iterator
+defines local variable
+uses local variable
+throws exception
+determine defined and used variables
+process arguments of internal method invocation
+process arguments of internal class instance creation
+pdg
+method
+boundary block
+all node criteria
+object reference
+i file
+method size
+subgraph
+slice nodes
+passed parameters
+indispensable nodes
+removable nodes
+p d g object slice union
+is nested inside
+get throw statement nodes within region
+get variable declarations and accessed fields in method
+get method
+get i file
+get method size
+get boundary block
+get extracted method invocation insertion node
+get object reference
+get slice nodes
+get passed parameters
+get removable nodes
+get declaration of object reference
+declaration of object reference belongs to slice nodes
+declaration of object reference belongs to removable nodes
+slice contains declaration
+all node criteria are duplicated
+return statement is control dependent on slice node
+is control dependent on slice node
+non duplicated slice node anti depends on non removable node
+node depends on non removable node
+non duplicated slice node output depends on non removable node
+duplicated slice node with class instantiation has dependence on removable node
+contains duplicate node with state changing method invocation
+object slice equals method body
+object slice has minimum size
+object reference is returned variable in original method
+declaration of object reference is duplicated
+slice contains return statement
+slice contains branch statement without innermost loop
+comply with user thresholds
+variable criterion is stream closed in finally block
+slice contains variable declaration closed in finally block
+satisfies rules
+c f g branch do loop node
+get join node
+get nested basic blocks
+true control dependence
+hash code
+p d g control dependence
+is true control dependence
+is false control dependence
+same label
+equals
+hash code
+to string
+returned variable
+p d g exit node
+get returned variable
+control parent
+c f g block node
+get control parent
+set control parent
+handled exceptions
+has resources
+c f g try node
+has resources
+get handled exceptions
+has finally clause closing variable
+has catch clause
+c f g throw node
+basic blocks
+forward reachable blocks
+basic block c f g
+get basic blocks
+forward reachable blocks
+c f g branch if node
+get immediately nested nodes in true control flow
+get immediately nested nodes in false control flow
+control parent
+p d g block node
+get control dependence parent
+determine defined and used variables
+method
+p d g method entry node
+get method
+get basic block
+equals
+hash code
+to string
+label
+inner most loop node
+c f g break node
+get label
+is labeled
+get inner most loop node
+set inner most loop node
+c f g synchronized node
+c f g branch switch node
+block num
+id
+leader
+nodes
+try nodes
+previous basic block
+next basic block
+basic block
+get id
+get leader
+get nodes
+get all nodes
+get all nodes including try
+get last node
+add
+add try node
+get previous basic block
+set previous basic block
+get next basic block
+set next basic block
+reset block num
+to string
+right part
+hash code
+composite variable
+composite variable
+composite variable
+composite variable
+get right part
+get left part
+get final variable
+get initial variable
+contains plain variable
+starts with variable
+get right part after prefix
+equals
+hash code
+to string
+p d g try node
+has finally clause closing variable
+has catch clause
+determine defined and used variables
+sub tree mappers
+get sub tree mappers
+clone instance mapper
+get c d t nodes in breadth first order
+generate control dependence sub tree
+generate control dependence sub tree with the first node as root
+add node in order
+insert c d t node in tree
+insert c d t node in tree after sibling
+get sub tree c d t node
+all nodes nested under else
+is nested under else
+get control parent
+get parent
+all statements are in anonymous class declaration or catch clause or finally block
+is nested under anonymous class declaration or catch clause or finally block
+is finally block of try statement
+get sub tree c d t nodes
+is inside
+has only key word
+get p d g
+get i method
+recursive get i method
+get i method with signature
+symmetrical if node pair
+hash code
+p d g else mapping
+get node g 1
+get node g 2
+get node differences
+is advanced match
+get symmetrical if node pair
+set symmetrical if node pair
+equals
+hash code
+to string
+parent
+mapping
+children
+clone structure node
+set parent
+is else if
+find node g 1
+find node g 2
+is gap node g 1 in additional matches
+is gap node g 2 in additional matches
+add gap child
+process false control dependent gap
+add child
+contains child symmetrical to node
+contains control child of node
+contains control parent of node
+contains mapped return statement in direct children
+contains mapped throw statement in direct children
+has else descendant
+last if else if chain contains return or throw statements
+get parent
+get mapping
+get descendants
+get descendant nodes g 1
+get descendant nodes g 2
+get children
+is root
+to string
+equals
+compare to
+control statement list
+statement list
+get statement list
+get control statement list
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+key 1
+key 2
+variable binding key pair
+get key 1
+get key 2
+equals
+hash code
+to string
+i compilation unit 1
+i compilation unit 2
+solutions
+top down c d t mapper
+process top down
+second phase
+get solutions
+is subsumed by current solutions
+get maximum complete sub tree matches
+find top down matches
+p d g sub tree mapper
+get nodes in region 1
+get nodes in region 2
+get else nodes of symmetrical if statement 1
+get else nodes of symmetrical if statement 2
+get if parent children 1
+get if parent children 2
+get nodes in region
+get else nodes of symmetrical if statement
+get if parent children
+compare
+control statements list
+statements list
+start node
+extract statements visitor
+get statements list
+get control statements list
+visit
+is start node nested under anonymous class declaration
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+pdg
+root
+control dependence tree generator
+get root
+process control dependences
+check if try node is nested under other try node or else
+search for node
+search for else node
+number of outgoing false control dependences
+is expression statement with conditional expression
+bottom up sub tree matches
+sub tree mappers
+p d g mapper
+add node in order
+generate control dependence sub tree
+insert c d t node in tree
+insert c d t node in tree after sibling
+get bottom up sub tree matches
+get sub tree mappers
+pdg 1
+pdg 2
+i compilation unit 1
+i compilation unit 2
+mapped nodes g 1
+mapped nodes g 2
+non mapped nodes g 1
+non mapped nodes g 2
+common passed parameters
+declared local variables in mapped nodes
+declared local variables in mapped nodes within anonymous class
+directly accessed local fields g 1
+directly accessed local fields g 2
+indirectly accessed local fields g 1
+indirectly accessed local fields g 2
+directly modified local fields g 1
+directly modified local fields g 2
+indirectly modified local fields g 1
+indirectly modified local fields g 2
+directly accessed local methods g 1
+directly accessed local methods g 2
+indirectly accessed local methods g 1
+indirectly accessed local methods g 2
+precondition violations
+renamed variables
+renamed fields
+variables to be returned g 1
+variables to be returned g 2
+non mapped p d g nodes g 1 movable before
+non mapped p d g nodes g 1 movable after
+non mapped p d g nodes g 1 movable before and after
+non mapped p d g nodes g 2 movable before
+non mapped p d g nodes g 2 movable after
+non mapped p d g nodes g 2 movable before and after
+additionally matched nodes g 1
+additionally matched nodes g 2
+declared local variables in additionally matched nodes g 1
+declared local variables in additionally matched nodes g 2
+clone structure root
+final state
+all nodes in sub tree p d g 1
+all nodes in sub tree p d g 2
+clone refactoring type
+declared variables in remaining nodes defined by mapped nodes g 1
+declared variables in remaining nodes defined by mapped nodes g 2
+precondition examiner
+get clone structure root
+get maximum state with minimum differences
+get all nodes in sub tree p d g 1
+get all nodes in sub tree p d g 2
+find non mapped nodes
+find declared variables in remaining nodes defined by mapped nodes
+find declared variables in mapped nodes used by non mapped nodes
+find passed parameters
+common passed parameters already contain one of the keys
+sort variables
+appears in multiple differences
+appears only in differences 1
+appears only in differences 2
+appears only as part of differences 1
+appears only as part of differences 2
+is inside difference
+find renamed variable name 1
+find renamed variable name 2
+extract passed parameters
+get variable binding
+find locally accessed fields
+get all super types up to common superclass
+get additional locally accessed fields and methods
+get p d g 1
+get p d g 2
+get method name 1
+get method name 2
+get removable nodes g 1
+get removable nodes g 2
+get remaining nodes g 1
+get remaining nodes g 2
+get non mapped p d g nodes g 1 movable before
+get non mapped p d g nodes g 1 movable after
+get non mapped p d g nodes g 2 movable before
+get non mapped p d g nodes g 2 movable after
+get additionally matched nodes g 1
+get additionally matched nodes g 2
+get variables to be returned g 1
+get variables to be returned g 2
+get declared variables in remaining nodes defined by mapped nodes g 1
+get declared variables in remaining nodes defined by mapped nodes g 2
+get directly accessed local fields g 1
+get directly accessed local fields g 2
+get indirectly accessed local fields g 1
+get indirectly accessed local fields g 2
+get directly modified local fields g 1
+get directly modified local fields g 2
+get indirectly modified local fields g 1
+get indirectly modified local fields g 2
+get accessed local methods g 1
+get accessed local methods g 2
+get directly accessed local methods g 1
+get directly accessed local methods g 2
+get indirectly accessed local methods g 1
+get indirectly accessed local methods g 2
+get declared local variables in mapped nodes
+get declared local variables in mapped nodes within anonymous class
+get declared local variables in additionally matched nodes g 1
+get declared local variable binding keys in additionally matched nodes g 1
+get declared local variables in additionally matched nodes g 2
+get declared local variable binding keys in additionally matched nodes g 2
+get common passed parameters
+get node differences
+get sorted node differences
+get non overlapping node differences
+find renamed variables
+already contains one of the keys
+get additionally matched fragments not being under mapped statement
+get variables
+get binding signature pair for variable 1
+get binding signature pair for variable 2
+get precondition violations
+get renamed variables
+get renamed variable bindings
+variables to be returned
+is assignment to array access
+mapped node declares variable
+check preconditions about returned variables
+check if all possible execution flows end in return
+get all nodes in clone block
+contain switch case
+find switch case before
+find switch case after
+extract conditional return statements
+extract return statements after id
+conditional return statement
+branch statement with innermost loop
+switch case statement with innermost switch
+check if statement is super constructor invocation
+check if statement is this constructor invocation
+check if statement contains super method invocation
+check clone structure node for preconditions
+check preconditions
+get declared methods
+get declared fields
+is variable with type mismatch difference
+find methods called from type
+check difference for method argument passing
+process non mapped node
+is the only unmapped node inside mapped try block
+control parent examines variable used in non mapped node
+control parent examines variable used in difference expression
+control parent examines variable in condition
+process non mapped nodes movable before and after
+examine if non mapped nodes update the same variable
+movable non mapped node before non mapped nodes movable after
+movable before first mapped node
+is first non mapped node
+movable non mapped node before first mapped node
+is last non mapped node
+movable non mapped node after last mapped node
+is void method call
+is method call difference covering entire statement
+is field update
+is updated
+is field
+is parameterizable expression
+expression uses variable whose state is modified by previous statements
+is advanced match node
+is expression under statement
+is expression within expression
+get method binding
+get clone type
+is type 3
+get clone refactoring type
+is template method applicable
+compute refactoring type
+infeasible refactoring
+pull up to common superclass
+superclass directly inherited from refactored subclasses
+superclass is one of refactored subclasses
+superclass inherited only by refactored subclasses
+extract to utility class
+clone fragments do not access fields or methods
+extract simple names
+extract simple names
+extract method invocations
+extract method invocations
+extract this expressions
+extract this expressions
+all accessed local methods have matching signatures
+get return type binding
+extract type binding
+find return type binding
+determine type
+extract return type binding
+identical node map
+identical statement decomposer
+get identical node map
+hash code
+p d g else gap
+get node g 1
+get node g 2
+get node differences
+equals
+hash code
+to string
+clone fragment a s t nodes 1
+clone fragment a s t nodes 2
+p d g region sub tree mapper
+get nodes in region 1
+get nodes in region 2
+get else nodes of symmetrical if statement 1
+get else nodes of symmetrical if statement 2
+get if parent children 1
+get if parent children 2
+get nodes in region
+get else nodes of symmetrical if statement
+get if parent children
+clone fragment contains p d g node
+node 1
+node 2
+node differences
+additional fragments 1
+additional fragments 2
+hash code
+control dependence tree node match pair
+get node 1
+get node 2
+get node differences
+get additional fragments 1
+get additional fragments 2
+if statement inside else if chain
+is else if chain sibling
+get distinct difference count
+get distinct difference count including type mismatches
+get non distinct difference count
+get non distinct difference count including type mismatches
+hash code
+equals
+to string
+compare to
+node g 1
+node g 2
+node differences
+hash code
+p d g node gap
+get node g 1
+get node g 2
+get node differences
+is false control dependent
+is nested under else
+equals
+hash code
+to string
+node g 1
+node g 2
+matcher
+node differences
+additionally matched fragments 1
+additionally matched fragments 2
+symmetrical if node pair
+symmetrical if else
+hash code
+p d g node mapping
+get node g 1
+get node g 2
+get node differences
+is advanced match
+get additionally matched fragments 1
+get additionally matched fragments 2
+contains additionally matched fragment 1
+contains additionally matched fragment 2
+get type root 1
+get type root 2
+get symmetrical if node pair
+set symmetrical if node pair
+is symmetrical if else
+set symmetrical if else
+is false control dependent
+is node 1 false control dependent
+is node 2 false control dependent
+is nested under else
+matching variable difference
+is void method call difference covering entire statement
+declares inconsistently renamed variable
+declares variable with variable name mismatch
+equals
+hash code
+to string
+compare
+binding 1
+binding 2
+has qualified type
+variable binding pair
+variable binding pair
+get binding 1
+get binding 2
+has qualified type
+get variable binding key pair
+equals
+hash code
+to string
+edge g 1
+edge g 2
+hash code
+p d g edge mapping
+get edge g 1
+get edge g 2
+is compatible
+equal data
+equals
+hash code
+to string
+object node map
+code fragment decomposer
+get object node map
+get nodes defining attributes of reference
+get node declaring reference
+get declared variables
+get defined field map
+switch case node map
+switch body decomposer
+get switch case node map
+children
+node mappings
+visited edges g 1
+restricted nodes g 1
+restricted nodes g 2
+mapping state
+set restricted nodes g 1
+set restricted nodes g 2
+add child
+get mapped nodes g 1
+get mapped nodes g 2
+get node differences
+get sorted node differences
+get non overlapping node differences
+get distinct difference count
+get distinct difference count including type mismatches
+get non distinct difference count
+get non distinct difference count including type mismatches
+get node mapping relative id diff
+get edit distance of differences
+get maximum common sub graphs
+clear
+contains same state
+get leaves
+get node mapping size
+get size
+traverse
+nodes declare variable used in mapped nodes
+edge mapping with already visited nodes
+prune branch
+symmetrical if nodes
+mapped control parents
+incoming data dependencies from unvisited nodes
+node is unmapped temporary variable declaration
+incoming data dependencies from non matching nodes
+find node declaring variable
+find mapping with both nodes
+find mapping with node g 1
+find mapping with node g 2
+contains both nodes in mappings
+contains node g 1 in mappings
+contains node g 2 in mappings
+get child state with node mapping
+contains at least one node in mappings
+contains node in mappings
+get node mappings
+get sorted node mappings
+same node mappings
+equals
+to string
+parent
+node
+level
+children
+if parent
+else if child
+is else node
+is ternary
+control dependence tree node
+control dependence tree node
+control dependence tree node
+parent child relationship
+if else relationship
+get node
+get node
+get else node
+get control predicate nodes in level
+get else nodes in level
+get max level
+get root
+is leaf
+get leaves
+if statement inside else if chain
+get number of if parents
+get number of else if children
+get length of else if chain
+get if parents
+get else if children
+is else node
+set else node
+is ternary
+set ternary
+get siblings
+get previous sibling
+are all siblings leaves
+get control dependence tree nodes in level
+shallow copy
+get parent
+get node
+get level
+get children
+get descendants
+get node count
+get nodes in breadth first order
+get if parent
+set if parent
+get else if child
+set else if child
+set if parent and else if child
+hash code
+equals
+to string
+get id
+get else child
+match pairs
+complete sub tree match
+get match pairs
+get additional fragments 1
+get additional fragments 2
+is advanced match
+get control dependence tree nodes 1
+get control dependence tree nodes 2
+add start point
+subsumes
+to string
+i compilation unit 1
+i compilation unit 2
+solutions
+force top down match for sibings
+bottom up c d t mapper
+bottom up c d t mapper
+process bottom up
+contains sibling match
+contains match
+is subsumed by current solutions
+get solutions
+find bottom up matches
+if statements with equal else if chains
+if statement with single else against ternary operator
+already mapped
+consolas bold font
+apply styles
+statement
+statement precondition violation
+get statement
+get violation
+get styled violation
+qualified type 1
+qualified type 2
+uncommon superclass precondition violation
+get violation
+get styled violation
+expression 1
+expression 2
+dual expression precondition violation
+get expression 1
+get expression 2
+get violation
+get styled violation
+common super type
+common super type members
+dual expression with common super type precondition violation
+get violation
+get styled violation
+returned variables g 1
+returned variables g 2
+returned variable precondition violation
+get violation
+get styled violation
+tahoma normal font
+apply styles
+expression
+expression precondition violation
+get expression
+get violation
+get styled violation
+suggestion
+precondition violation
+suggestion
+get precondition violation
+get suggestion
+set suggestion
+first value
+second value
+type
+weight
+hash code
+difference
+difference
+get type
+get first value
+get second value
+get weight
+set weight
+equals
+hash code
+to string
+expression 1
+expression 2
+differences
+binding signature pair
+a s t node difference
+get differences
+get expression 1
+get expression 2
+get binding signature pair
+add difference
+contains difference type
+contains only difference type
+is parameterizable
+type mismatch
+is variable type mismatch
+is expression of if statement nested at level zero
+is qualifier of qualified name
+is expression of field access
+is empty
+is parent node difference of
+is parent
+is left hand side of assignment
+get parent expression of method name or type name
+get weight
+hash code
+equals
+to string
+differences
+type root 1
+type root 2
+additionally matched fragments 1
+additionally matched fragments 2
+a s t node matcher
+match
+add difference
+get differences
+get type root 1
+get type root 2
+get additionally matched fragments 1
+get additionally matched fragments 2
+to string
+is parameterizable
+method invocation match with missing expression and different name and different arguments
+only variable type mismatch differences
+is type holder
+get type binding
+type binding match
+subclass type mismatch
+is number primitive type
+valid common super type
+is tagging interface
+common super type
+implements interface
+add type binding
+get all super types
+is infix expression with composite parent
+process class instance creation arguments
+process method invocation arguments
+overloaded methods
+is expression within method invocation argument
+match
+match
+match
+match
+match
+match
+match
+match
+match
+reduce weight of reversed arguments
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+match
+setter replaced with field assignment
+field assignment replaced with setter
+getter method for field
+setter method for field
+is nested under anonymous class declaration
+is finally block of try statement
+has empty initializer
+loop match
+get occurrences of simple name
+generate abstract loop
+report additional fragments
+if match
+generate abstract control structure
+report additional fragments
+report additional fragments
+id 1
+id 2
+node pair
+hash code
+equals
+binding keys
+binding signature
+binding signature
+binding signature
+get occurrences
+contains binding
+contains only binding
+signature without methods
+get size
+get length
+equals
+hash code
+to string
+signature 1
+signature 2
+is gap
+binding signature pair
+binding signature pair
+binding signature pair
+get signature 1
+get signature 2
+set gap
+is reverse
+get weight
+equals
+hash code
+to string
+invoker 1
+invoker 2
+argument 1
+argument 2
+field 1
+field 2
+setter method name
+invoker differences
+argument differences
+field assignment replaced with setter invocation difference
+get setter method name
+get invoker differences
+add invoker difference
+get argument differences
+add argument difference
+get invoker 1
+set invoker 1
+get invoker 2
+set invoker 2
+get argument 1
+set argument 1
+get argument 2
+set argument 2
+get field 1
+set field 1
+get field 2
+set field 2
+binding keys
+get binding keys
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+handle expression
+handle type
+handle parameters
+invoker 1
+invoker 2
+getter method name
+invoker differences
+field access replaced with getter invocation difference
+get getter method name
+get invoker differences
+add invoker difference
+get invoker 1
+set invoker 1
+get invoker 2
+set invoker 2
+if control case
+match
+match
+switch control case
+match
+match
+match case condition
+get constant value
+get literal value
+first
+second
+pair
+equals
+hash code
+get first
+set first
+get second
+set second
+to string
+if control structure
+initialize fields
+match
+match
+match
+get additional fragments
+get if and ternary structure match list
+match expression statement expressions
+get ternary argument index
+is same assignee
+has one conditional expression
+un block
+unparenthesize
+conditional expression
+condition
+then expression
+else expression
+ternary control structure
+ternary control structure
+initialize fields
+get conditional expression
+get condition
+get then expression
+get else expression
+match
+match
+match
+get additional fragments
+variable
+switch control structure
+create switch cases
+add to all
+match
+match
+match
+get additional fragments
+condition control variables
+conditional loop
+conditional loop
+conditional loop
+get condition control variables
+generate condition control variables
+get all variable modifiers in parent block
+get additional fragments
+match
+match
+find equivalent expression
+get difference
+updater
+update value
+variable updater
+variable updater
+get updater
+get update value
+match
+compare
+is updating variable
+is same variable
+is collection size invocation
+is data structure size invocation
+is length field access
+is collection
+is subclass of
+is subinterface of
+get variable declaration
+get all variable declarations
+find parent method declaration
+get update value
+get increment value
+assignment update value
+get integer value
+is variable left operand
+is variable right operand
+un block
+get variable initialized using control variable
+get variable declarations and assignments containing access using variable
+is access using variable
+get occurrences of simple name
+is expression an argument
+conditional loop a s t node matcher
+is infix expression with composite parent
+match
+compare types
+variable node
+data structure access expression
+control variable
+get variable
+get data structure access expression
+get condition containing variable
+get start value
+set method invocation start value
+get value contributing modifiers
+get all variable modifiers in parent method
+get end value
+get iterator data structure expression
+get variable updaters
+get all first level updaters
+remove expressions in a conditional expression
+condition control variable
+enhanced for loop
+get control variable
+generate condition control variable
+get additional fragments
+match
+match
+root node
+system object
+delegation tree
+get delegations
+exists node
+exists node
+get depth
+get delegation path list
+delegation path list
+delegation detection
+get all delegation paths
+get delegation paths of size
+subclass map
+complete inheritance detection
+add subclass to superclass
+generate inheritance hierarchies
+get tree
+recursively construct tree
+get roots
+get matching trees
+inheritance tree list
+type binding inheritance detection
+get inheritance tree list
+generate inheritance trees
+extends or implements
+get tree
+get leaves in deepest levels
+inheritance tree list
+inheritance detection
+get inheritance tree list
+generate inheritance trees
+get tree
+class cohesion map
+connectivity metric
+class cohesion
+use common field or one invokes the other
+get system average connectivity
+system
+import coupling map
+m m import coupling
+calculate coupling
+get class average coupling
+get system average coupling
+lcom 2 map
+lcom 3 map
+lcom
+class l c o m
+get system average l c o m 2
+get system average l c o m 3
+super method invocations
+visit
+get super method invocations
+instance of
+instance of
+instance of
+instance checker
+get variable instructions
+get variable instructions
+get method invocations
+get super method invocations
+get method invocations
+get super method invocations
+get field accesses
+get super field accesses
+get field accesses
+get super field accesses
+get class instance creations
+get class instance creations
+get array creations
+get array creations
+get array accesses
+get array accesses
+get this expressions
+get this expressions
+get type literals
+get literals
+get literals
+get cast expressions
+get infix expressions
+get infix expressions
+get instanceof expressions
+get instanceof expressions
+get assignments
+get assignments
+get postfix expressions
+get postfix expressions
+get prefix expressions
+get prefix expressions
+get variable declaration expressions
+get variable declaration expressions
+get conditional expressions
+get conditional expressions
+get variable modifiers
+get variable modifiers
+get all expressions
+get expressions
+get expressions
+get expressions
+instance of
+type bindings
+visit
+visit
+visit
+visit
+get type bindings
+instance of
+instance of
+instance of
+type bindings
+types
+visit
+visit
+get type bindings
+get types
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance checker
+get constructor invocations
+get variable declaration statements
+get branching statements
+get try statements
+get switch statements
+get if statements
+get return statements
+get break statements
+get continue statements
+get enhanced for statements
+get for statements
+get while statements
+get do statements
+get type declaration statements
+get statements
+get total number of statements
+stop words
+find topics
+get stop words
+instance of
+is delegate
+is getter
+is setter
+create variable
+process method invocation expression
+get right most simple name
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+instance of
+camel case pattern
+humanised string
+acronym
+humanise
+camel case word matcher
+reset
+add to acronym
+append word
+append acronym if there is one
+capitalise first letter
+minimum
+compute levenshtein distance
+adjacencies
+add edge
+get adjacent
+reverse edge
+reverse graph
+get reversed list
+get source node set
+get all edges
+index
+stack
+list
+scc
+tarjan algorithm
+tarjan
+belong to the same strongly connected component
+cluster set
+hierarchical
+clustering
+insert columns
+insert rows
+insert
+delete columns range
+delete columns
+delete rows range
+delete rows
+into
+transpose
+name
+visited
+lowlink
+index
+hash code
+node
+get name
+equals
+hash code
+to string
+compare to
+from
+to
+weight
+hash code
+edge
+get source
+get target
+equals
+hash code
+to string
+compare to
+source method invocation map
+target method invocation map
+source field read map
+source field write map
+target field read map
+target field write map
+source class
+method to be moved
+target class
+feature envy visualization data
+handle used fields
+handle defined fields
+find field instruction
+find local variable instruction
+process external method invocations
+get source method invocation map
+get target method invocation map
+get source field read map
+get source field write map
+get target field read map
+get target field write map
+get source class
+get method to be moved
+get target class
+to string
+get distinct source dependencies
+get distinct target dependencies
+type
+label
+locator
+is write
+j connection
+get type
+get label
+is write
+get locator
+set right left anchors
+set left left anchors
+set left right anchors
+set right right anchors
+set method to method style
+set write style
+set read style
+set dotted line
+set label
+set slight bend router
+set full bend router
+get insets
+paint
+tool tip canvas
+class figure
+god class information control
+has contents
+set input
+set input
+create content
+compute size hint
+name
+outgoing connections
+left anchor
+right anchor
+entity figure
+entity figure
+get left anchor
+set left anchor
+get right anchor
+set right anchor
+get name
+get outgoing connections
+add left left connection
+add right right connection
+add right left connection
+add left right connection
+add to source method connection
+add to target method connection
+add to same class write connection r r
+add to same class write connection l l
+add to same class read connection r r
+add to same class read connection l l
+add to same class method connection r r
+add to same class method connection l l
+add left right method connection
+add right left method connection
+add to source read connection
+add to source write connection
+add to source weak read connection
+add to source weak write connection
+add to target bend connection
+add to source bend connection
+add to target read connection
+add to target write connection
+section one
+section two
+section three
+section compartment
+get section one
+get section two
+get section three
+root
+primary
+connections
+connection list
+feature envy diagram
+get root
+id
+run
+dispose
+create information control
+is supported
+internal method invocation map
+external method invocation map
+internal field read map
+internal field write map
+external field read map
+external field write map
+extracted methods
+extracted fields
+source class
+god class visualization data
+insert to map
+insert to map
+is invocation to extracted method
+is access to extracted field
+find field instruction
+get internal method invocation map
+get external method invocation map
+get internal field read map
+get internal field write map
+get external field read map
+get external field write map
+get extracted methods
+get extracted fields
+get source class
+to string
+method call map to string
+field access map to string
+get distinct target dependencies
+get distinct source dependencies
+contains non accessed field in extracted class
+field figure
+method figure
+extract method figure
+method section compartment
+field section compartment
+class figure
+add three compartments
+add two compartments
+add field compartment
+add method compartment
+add method section compartment
+add field section compartment
+get field section compartment
+get method section compartment
+get fields compartment
+get methods compartment
+get extract method compartment
+root
+primary
+connections
+canvas
+god class diagram
+create diagram
+create information control
+is supported
+connection list
+legend
+new check box
+proposals
+my content proposal provider
+get proposals
+diagram
+class figure
+smelly class mouse listener
+mouse pressed
+mouse released
+mouse double clicked
+num of attributes
+num of methods
+name
+original tooltip
+candidates
+is selected
+original color
+original border
+is inner class
+max num
+min num
+p m class figure
+calculate size
+set m a x n u m
+set m i n n u m
+compare to
+draw
+number of classes
+get candidates
+set candidates
+get name
+to string
+get original color
+is selected
+set selected
+set original background color
+get original tooltip
+set original tooltip
+set to original state
+get original border
+set original border
+is inner class
+set inner class
+normal font
+highlight font
+entity color
+field
+method
+package
+method to method color
+no occurences
+class color
+class
+class font
+root
+primary
+connections
+connection list
+god class diagram 2
+get root
+figure
+location
+class figure mover
+mouse pressed
+mouse dragged
+mouse released
+mouse moved
+mouse double clicked
+mouse entered
+mouse exited
+mouse hover
+right anchor
+get location
+id
+root
+root 2
+is freeform
+zoom input action
+zoom input action
+run
+dispose
+figure
+entity figure listener
+mouse dragged
+mouse entered
+mouse exited
+mouse hover
+mouse moved
+scale
+proportional flow layout
+calculate preferred size
+id
+scale
+freeform root
+root
+is freeform
+zoom action
+zoom action
+run
+dispose
+scale to fit
+input text
+class name
+search dialog
+create
+create dialog area
+is resizable
+save input
+get initial size
+ok pressed
+get class name
+diagram
+package map diagram information provider
+get information
+get area
+left anchor
+get location
+tool tip canvas
+class figure
+feature envied method information control
+has contents
+set input
+set input
+create content
+compute size hint
+children
+name
+depth
+package figure
+package figure
+add to set
+draw
+compare to
+number of classes
+get children set
+get depth
+set depth
+get name
+to string
+very low severity color
+low severity color
+moderate severity color
+high severity color
+highest severity color
+default color
+root
+primary
+project name
+key map
+all class figures
+has sub packages
+min depth
+max
+min
+selected class
+package map diagram
+get root
+calculate severity color
+calculate depth color
+calculate depth
+get all class figures
+get selected class
+set selected class
+get project name
+create class figure
+create smelly class
+compare
+expression
+owner
+method invocation list
+attribute instruction list
+my abstract expression
+is accessor
+recurse delegations
+set method invocation list
+set attribute instruction list
+contains attribute instruction
+contains method invocation
+add method invocation
+add attribute instruction
+get number of attribute instructions
+get number of method invocations
+get method invocation iterator
+get attribute instruction iterator
+set owner
+get owner
+get expression
+set expression
+to string
+set attribute instruction reference
+get entity set
+equals
+system
+source class
+extracted entities
+leave delegate
+target class name
+visualization data
+user rate
+topics
+extract class candidate refactoring
+get target class name
+set target class name
+get extracted entities
+get extracted methods
+get delegate methods
+get extracted field fragments
+get leave delegate
+leave delegate
+is applicable
+valid remaining methods in source class
+valid remaining fields in source class
+is read object
+is read object
+is write object
+is write object
+is equals
+is hash code
+is to string
+is clone
+is compare to
+contains field access of enclosing class
+overrides method
+contains super method invocation
+is synchronized
+get entity set
+get positions
+get source
+get source class type declaration
+get source entity
+get target
+get target class type declaration
+to string
+get annotation text
+get god class visualization data
+get source i file
+get target i file
+get user rate
+set user rate
+compare to
+find topics
+get topics
+get distinct source dependencies
+get distinct target dependencies
+entity index map
+class index map
+entity list
+class list
+entity map
+class map
+system
+maximum number of source class members accessed by move method candidate
+maximum number of source class members accessed by extract class candidate
+distance matrix
+generate distances
+identify conceptual bindings
+target class inherited by another candidate target class
+get move method candidate refactorings by access
+compute access map
+get extract class candidate refactorings
+get jaccard distance matrix
+class origin
+method name
+return type
+parameter list
+my method invocation
+get class origin
+get method name
+get return type
+get parameter list
+get number of parameters
+set class origin
+equals
+to string
+class origin
+method name
+return type
+parameter list
+method body
+is abstract
+access
+method object
+hash code
+my method
+set method object
+get method object
+get access
+set access
+set method body
+generate method invocation
+is abstract
+set abstract
+contains parameter
+set class origin
+remove parameter
+add parameter
+get class origin
+get method name
+set method name
+get return type
+get parameter list
+set attribute instruction reference
+get abstract statement
+get method invocation iterator
+get attribute instruction iterator
+get number of attribute instructions
+get number of method invocations
+get number of parameters
+equals
+equals
+hash code
+to string
+get entity set
+get full entity set
+source
+candidates
+extracted concepts
+extract class candidate group
+get extracted concepts
+get source
+add candidate
+get candidates
+group concepts
+find concept terms
+compare to
+class origin
+class type
+name
+reference
+my attribute instruction
+is reference
+set reference
+get class origin
+set class origin
+get class type
+get name
+equals
+to string
+system
+source class
+target class
+source method
+additional methods to be moved
+moved method name
+visualization data
+user rate
+move method candidate refactoring
+is applicable
+leave delegate
+target class contains method with source method signature
+is source class a test class
+is target class an interface
+is target class an enum
+valid target object
+one to many relationship with target class
+overrides method
+contains field assignment
+contains assignment to target class variable
+contains super method invocation
+is synchronized
+contains method call with this expression as argument
+contains null check for target object
+get source class type declaration
+get target class type declaration
+get source i file
+get target i file
+get source method declaration
+get source class
+get target class
+get source method
+get additional methods to be moved
+get moved method name
+set moved method name
+to string
+get source entity
+get source
+get target
+get entity set
+get positions
+get annotation text
+get feature envy visualization data
+get number of distinct envied elements
+get user rate
+set user rate
+compare to
+get distinct source dependencies
+get distinct target dependencies
+statement list
+expression list
+my composite statement
+my composite statement
+add statement
+get statement iterator
+add expression
+get expression iterator
+set attribute instruction reference
+get abstract statement
+update
+add attribute instruction in statements or expressions containing method invocation
+insert method invocation before statement
+remove statement
+replace sibling statements with method invocation
+remove all statements except from sibling statements
+get entity set
+name
+superclass
+attribute list
+method list
+class object
+hash code
+my class
+get name
+get superclass
+set superclass
+get class object
+set class object
+add attribute
+get attribute
+get method
+get method
+get method list
+add method
+remove method
+remove attribute
+get attribute list
+get attribute iterator
+get method iterator
+get entity set
+equals
+hash code
+to string
+my statement
+my statement
+get distance
+union
+intersection
+concept clusters
+concept entities
+source class
+topics
+extracted concept
+get topics
+get source class
+get concept entities
+get concept clusters
+add concept cluster
+find topics
+compare to
+class map
+association detection
+system object
+my system
+generate system
+generate system with static members
+get class iterator
+get class
+add class
+remove class
+get system object
+get associations of class
+contains association with multiplicity between classes
+class origin
+class type
+name
+method list
+reference
+access
+field object
+hash code
+my attribute
+get field object
+set field object
+get access
+set access
+generate attribute instruction
+set class origin
+get class origin
+get name
+set class type
+get class type
+is reference
+set reference
+add method
+get method iterator
+equals
+equals
+hash code
+to string
+get entity set
+get full entity set
+composite statement
+method body object
+my method body
+process statement
+get method body object
+contains attribute instruction
+contains method invocation
+get number of attribute instructions
+get number of method invocations
+get method invocation iterator
+get attribute instruction iterator
+set attribute instruction reference
+get abstract statement
+add attribute instruction in statements or expressions containing method invocation
+insert method invocation before statement
+remove statement
+replace sibling statements with method invocation
+get entity set
+from version
+to version
+project version pair
+get from version
+get to version
+to string
+type check similarity map
+type check change map
+type check code map
+type checking evolution
+generate type check eliminations within java project
+generate type check eliminations within compilation unit
+generate type check eliminations within type declaration
+generate type check eliminations within method body
+get similarity entries
+get change entries
+get code
+relevant project map
+project evolution
+get project entries
+tokens
+project version
+compare to
+to string
+method similarity map
+method change map
+method code map
+method evolution
+get string representation
+edit distance
+get similarity entries
+get change entries
+get code
+feature envy similarity map
+feature envy change map
+method code map
+feature envy evolution
+get number of envied elements
+get number of accessible members
+get similarity entries
+get change entries
+get code
+initialize default preferences
+p minimum slice size
+p maximum slice size
+p maximum duplication
+p maximum ratio of duplicated to extracted
+p minimum method size
+p maximum call graph analysis depth
+p enable alias analysis
+p project compilation unit cache size
+p library compilation unit cache size
+p enable usage reporting
+p enable source code reporting
+p maximum number of source class members accessed by move method candidate
+p maximum number of source class members accessed by extract class candidate
+returned variable
+required import declarations based on signature
+required import declarations for context
+thrown exceptions
+static field map
+additional static field map
+abstract class name
+create compilation unit changes
+replace type code with state strategy
+apply
+modify context
+create state field
+create state field variable declaration fragment
+replace primitive state field
+remove primitive state field
+generate setter method for state field
+setter method name
+generate getter method for state field
+replace conditional structure with polymorphic method invocation
+initialize returned variable declaration
+add required import declarations to context
+modify type check method
+create getter method for state object
+replace conditional structure with polymorphic method invocation through state object
+type object getter method already exists
+create state strategy hierarchy
+create intermediate class and its subclasses
+modify type field assignments in context class
+modify type field accesses in context class
+get all method declarations in source class
+get method declarations within anonymous class declarations
+get method declarations within anonymous class declarations
+is assignment child
+node exists inside type check code fragment
+generate required import declarations based on signature
+get required import declarations based on branch
+add import declaration
+set public modifier to static fields
+identify type local variable assignments in type check method
+identify type local variable accesses in type check method
+contains static field key
+contains variable
+generate subclass name
+common substring
+common substrings
+get source compilation unit
+get abstract class name
+get type variable simple name
+get static field map entry set
+get additional static field map entry set
+set type name for named constant
+get type name for named constant
+check final conditions
+check initial conditions
+create change
+get name
+getter prefix
+setter prefix
+accessor suffix
+source file
+source compilation unit
+source type declaration
+compilation unit changes
+create compilation unit changes
+java elements to open in editor
+required import declarations in extracted class
+additional arguments added to extracted methods
+additional parameters added to extracted methods
+source method bindings changed with public modifier
+source field bindings with created setter method
+source field bindings with created getter method
+field declarations changed with public modifier
+member type declarations changed with public modifier
+old method invocations within extracted methods
+new method invocations within extracted methods
+old to new extracted method declaration map
+extracted field fragments
+extracted methods
+delegate methods
+extracted type name
+leave delegate for public methods
+statement rewrite map
+constructor final field assignment map
+extracted class constructor parameter map
+extracted fields with this expression in their initializer
+statically imported methods
+extract class refactoring
+get extracted type name
+set extracted type name
+set leave delegate for public methods
+get source compilation unit
+get java elements to open in editor
+append accessor method suffix
+append accessor method suffix
+apply
+handle initialization of extracted fields with this expression in their initializer
+add delegation in extracted method
+remove source methods
+modify extracted method invocations in source class
+exists non transient extracted field fragment
+implements serializable interface
+implements cloneable interface
+static field initializer
+variable binding in extracted fields
+create extracted class
+create clone method
+get average level of targets
+all extracted methods obtained level
+get extracted method
+create extracted method declaration
+variable binding corresponds to extracted field
+method binding corresponds to extracted method
+is parent anonymous class declaration
+find setter method in source class
+find getter method in source class
+create setter method in source class
+create getter method in source class
+modify source member accesses in target class
+handle accessed field not having setter method
+handle accessed field having setter method
+add variable
+add this variable
+is this variable
+contains this variable
+contains variable
+declared in source type declaration or superclass
+add source class parameter to moved method
+add parameter to moved method
+add parameter to moved method
+create name for parameterized field access
+set public modifier to source method
+update access modifier
+modify source static field instructions in target class
+set public modifier to source member type
+update body declaration access modifier
+set public modifier to source field
+create setter method declaration
+create getter method declaration
+add static import declaration
+add import declaration
+create extracted type field reference in source class
+update write object in source class
+create method invocation statement for write object
+update read object in source class
+create assignment statement for read object
+update clone in source class
+create assignment statement for clone
+is write object
+is read object
+is clone
+find clone method
+is clone
+is first statement method invocation expression statement with name
+is first statement variable declaration statement with super clone initializer
+remove field fragments in source class
+modify extracted field assignments in source class
+modify extracted field accesses in source class
+get all method declarations in source class
+get method declarations within anonymous class declarations
+get method declarations within anonymous class declarations
+is assignment child
+get name
+check initial conditions
+check final conditions
+create change
+source compilation unit
+target compilation unit
+source type declaration
+target type declaration
+source method
+target class variable name
+additional arguments added to moved method
+additional type bindings to be imported in target class
+additional methods to be moved
+field declarations changed with public modifier
+member type declarations changed with public modifier
+leave delegate
+moved method name
+is target class variable parameter
+target class variable parameter index
+f changes
+source multi text edit
+target multi text edit
+source compilation unit change
+target compilation unit change
+move method refactoring
+get changes
+get moved method name
+set moved method name
+set leave delegate
+apply
+add required target import declarations
+create moved method
+add additional methods to target class
+remove additional methods from source class
+remove source method
+add delegation in source method
+modify moved method invocation in source class
+modify target method invocations
+modify target public field instructions
+modify source static field instructions in target class
+set public modifier to source member type
+update body declaration access modifier
+set public modifier to source field
+modify source static method invocations in target class
+modify source member accesses in target class
+add source class parameter to moved method
+find subclasses overriding method
+set public modifier to source type declaration
+add parameter to moved method
+add parameter to moved method
+set public modifier to source method
+update access modifier
+modify recursive method invocations of the moved method
+replace target class variable name with this expression in method invocation arguments
+replace target class variable name with this expression in class instance creation arguments
+replace target class variable name with this expression in variable declaration initializers
+replace target class variable name with this expression in infix expressions
+replace target class variable name with this expression in cast expressions
+replace target class variable name with this expression in instanceof expressions
+replace target class variable name with this expression in assignments
+replace target class variable name with this expression in return statements
+replace this expression with source class parameter in method invocation arguments
+replace this expression with source class parameter in class instance creation arguments
+replace this expression with source class parameter in variable declaration initializers
+add param tag element to javadoc
+remove param tag element from javadoc
+check final conditions
+check initial conditions
+create change
+get name
+refactoring id
+mappers
+extract clone refactoring descriptor
+create refactoring
+refactoring id
+source file
+source compilation unit
+source type declaration
+type check elimination
+replace type code with state strategy descriptor
+create refactoring
+generate qualified type from type binding
+create qualified parameterized type
+generate type from type binding
+create parameterized type
+generate wrapper type for primitive type binding
+get simple type bindings
+contains type binding
+has qualified type
+extract type
+is qualified type
+find field declaration
+find getter declaration for field
+find declaring type declaration
+find declaring type declaration
+find type declaration
+find compilation unit
+needs qualifier
+is array length qualified name
+is enum constant in switch case expression
+implements serializable interface
+is serialized field
+source type declaration
+source method declaration
+slice nodes
+slice statements
+removable statements
+duplicated statements
+local variable criterion
+passed parameters
+variable criterion declaration statement
+extracted method invocation insertion statement
+extracted method name
+declaration of variable criterion belongs to slice nodes
+declaration of variable criterion belongs to removable nodes
+i file
+boundary block
+is object slice
+method size
+user rate
+a s t slice
+a s t slice
+a s t slice
+is variable criterion declaration statement is deeper nested than extracted method invocation insertion statement
+depth of nesting
+get source type declaration
+get source method declaration
+get local variable criterion
+get passed parameters
+get slice nodes
+get slice statements
+get removable statements
+get variable criterion declaration statement
+get extracted method invocation insertion statement
+get extracted method name
+set extracted method name
+declaration of variable criterion belongs to slice nodes
+declaration of variable criterion belongs to removable nodes
+get i file
+get boundary block
+is object slice
+get method size
+get highlight positions
+slice to string
+to string
+get number of slice statements
+get number of duplicated statements
+get user rate
+set user rate
+refactoring id
+source compilation unit
+target compilation unit
+source type declaration
+target type declaration
+source method
+additional methods to be moved
+leave delegate
+moved method name
+move method refactoring descriptor
+create refactoring
+refactoring id
+source file
+source compilation unit
+source type declaration
+type check elimination
+replace conditional with polymorphism descriptor
+create refactoring
+slice
+source compilation unit
+source type declaration
+source method declaration
+compilation unit change
+exception types that should be thrown by extracted method
+extract method refactoring
+get slice
+get extracted method name
+set extracted method name
+process try statement
+apply
+modify source method
+get block rewrite
+extract method
+process statement node
+check final conditions
+check initial conditions
+create change
+get name
+returned variable
+thrown exceptions
+type variable
+type method invocation
+replace conditional with polymorphism
+apply
+modify client
+set public modifier to source type declaration
+modify inheritance hierarchy
+replace cast expression with this expression
+get recursively inner types
+modify subclass method invocations
+get required import declarations based on signature
+get required import declarations based on branch
+check final conditions
+check initial conditions
+create change
+get name
+refactoring id
+source compilation unit
+source type declaration
+source file
+extracted field fragments
+extracted methods
+delegate methods
+extracted type name
+extract class refactoring descriptor
+create refactoring
+refactoring id
+source compilation unit
+slice
+extract method refactoring descriptor
+create refactoring
+is valid
+refactoring
+parent package
+parent package class names
+java lang class names
+text map
+default naming map
+replace type code with state strategy input page
+create control
+handle input changed
+refactoring
+parent package
+parent package class names
+java lang class names
+text map
+default naming map
+extract class input page
+create control
+handle input changed
+statement i d
+slice coverage map
+slice profile row
+get statement i d
+put
+get value
+statement belongs to all slices
+message dialog title
+part
+selection
+pdg
+selected method has no body
+set active part
+run
+selection changed
+part
+selection
+method evolution
+run
+selection changed
+set active part
+name
+font
+consolas bold font
+label
+label control contribution
+label control contribution
+create control
+extraction
+duplication
+slice annotation
+data
+candidates
+get candidates
+set candidates
+get data
+set data
+my combo box cell editor
+create control
+project version pair
+percentage
+evolution row
+get project version pair
+get percentage
+refactoring
+text map
+default naming map
+move method input page
+create control
+handle input changed
+java project
+import clones wizard page
+clone group list
+import clones wizard
+get clone group list
+add pages
+perform finish
+multiline button
+check subclass
+compute size
+instance
+get instance
+element changed
+process delta
+selected clone detector type
+basic input file
+secondary input file
+import clones wizard page
+create control
+initialize basic file input
+initialize secondary file input
+get selected clone detector type
+get basic input file
+get secondary input file
+consolas normal font
+consolas bold font
+refactoring
+mappers
+mapper
+clone structure root
+tree viewer left
+tree viewer right
+extracted method name field
+renamed variables
+corresponding tree already changed
+clone diff wizard page
+create control
+update renamed variables
+handle input changed
+method declared in type binding
+dispose
+advanced match light color
+unmapped light color
+advanced match color
+unmapped color
+difference color
+string color
+field color
+keyword color
+consolas italic font
+consolas normal font
+consolas bold font
+styled string
+keyword style
+string style
+ordinary style
+difference style
+named constant style
+non static field style
+static method call style
+ast nodes that are differences
+current composite diff node
+styled string visitor
+generate difference a s t nodes
+get styled string
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+visit
+handle expression
+handle type
+handle modifier
+handle type arguments
+handle parameters
+is difference
+is named constant
+is non static field
+is static method call
+determine diff style
+activate diff style
+deactivate diff style
+append open parenthesis
+append closed parenthesis
+append open bracket
+append closed bracket
+append open brace
+append closed brace
+append open curly bracket
+append closed curly bracket
+append period
+append colon
+append semicolon
+append comma
+append equals
+append space
+append question mark
+append pipe
+append at sign
+initialize keyword style
+initialize named constant style
+initialize non static field style
+initialize string style
+initialize static method call style
+initialize ordinary style
+initialize difference style
+initialize font
+initialize bold font
+initialize italic font
+position
+clone diff styled label provider
+update
+set cell background without code
+set cell background with code
+generate styled string
+generate styled string for gap
+generate styled string for else gap
+get tool tip text
+get tool tip shift
+get tool tip location
+get tool tip display delay time
+get tool tip time displayed
+is valid
+get children
+get parent
+has children
+input page font
+refactoring
+action
+my refactoring wizard
+add user input pages
+perform finish
+refactoring
+text map
+default naming map
+extract method input page
+create control
+handle input changed
+method declared in type binding
+message dialog title
+part
+selection
+mapper
+run
+wrong selection message
+selection changed
+set active part
